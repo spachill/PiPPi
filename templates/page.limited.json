@@ -1,0 +1,89 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "page_limited_C8ChMm": {
+      "type": "page-limited",
+      "settings": {
+        "subtitle": "",
+        "text": "",
+        "backcolor": "",
+        "pcmt": 0,
+        "pcmb": 0,
+        "spmt": 0,
+        "spmb": 0
+      }
+    },
+    "page_limited_yd4DJp": {
+      "type": "page-limited",
+      "settings": {
+        "subtitle": "",
+        "image": "shopify://shop_images/16_7f8c6b64-973d-4268-9545-9b26fd9b742e.png",
+        "text": "",
+        "backcolor": "",
+        "pcmt": 0,
+        "pcmb": 0,
+        "spmt": 0,
+        "spmb": 0
+      }
+    },
+    "custom_collections_NUqDnU": {
+      "type": "custom__collections",
+      "settings": {
+        "backcolor": "",
+        "pcmt": 0,
+        "pcmb": 100,
+        "spmt": 0,
+        "spmb": 100
+      }
+    },
+    "page_limited_xrRFEw": {
+      "type": "page-limited",
+      "settings": {
+        "subtitle": "Happy Rebornのきっかけ",
+        "image": "shopify://shop_images/limited-01.png",
+        "text": "<p><strong>「ハッピーリボーン」</strong><br/>幸せに生まれ変わる<br/><br/>何げなく過ごす毎日の中で、、、<br/>使うたびに、<strong>「あっ。幸せ♡」</strong><br/>そう感じられる商品をお届けしたい。<br/><br/>ただ、商品を売るだけではなく、、、<br/>想いを込めて、愛を込めて作っている、作り手の想いを、、、<br/>お客様に丁寧に届ける。<br/>そんなWEB SHOPを目指しています。<br/><br/>大切な自分へ。<br/>大切なあの人へ。<br/><br/><strong>ワクワクしながらお買い物ができるお店</strong>を、<strong><br/></strong>みなさんと作っていきたいです。<br/><br/><br/>スタートしたばかりですが、、、<br/>今からどんどん、、<br/>素敵な商品。素敵な作り手。<br/>ご紹介していきますので楽しみにしていてください＾＾</p>",
+        "backcolor": "",
+        "pcmt": 0,
+        "pcmb": 0,
+        "spmt": 0,
+        "spmb": 0
+      }
+    },
+    "page_limited_gJRihj": {
+      "type": "page-limited",
+      "settings": {
+        "subtitle": "",
+        "image": "shopify://shop_images/limited-03.png",
+        "text": "",
+        "backcolor": "",
+        "pcmt": 0,
+        "pcmb": 0,
+        "spmt": 0,
+        "spmb": 0
+      }
+    }
+  },
+  "order": [
+    "main",
+    "page_limited_C8ChMm",
+    "page_limited_yd4DJp",
+    "custom_collections_NUqDnU",
+    "page_limited_xrRFEw",
+    "page_limited_gJRihj"
+  ]
+}

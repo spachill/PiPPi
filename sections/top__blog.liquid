@@ -1,0 +1,162 @@
+{% comment %} ここから下にHTMLをかく
+セクションで囲まれていてクラス名はschemaに記載 {% endcomment %}
+{% assign blog = section.settings.blog %}
+<div class="top__custom__blog__inner">
+<h2 class="h2 custom__title">{{blog.handle | replace: '-',"　" | camelize }}</h2>
+<h2 class="h2 custom__subtitle">{{blog.title}}</h2>
+  <div class="top__custom__blog__categ">
+    {% assign count = section.settings.count %}
+    {% for article in blogs[blog].articles limit: count %}
+      <div class="top__blog__item">
+        <a class="top__custom__blog__item__url" href="{{ article.url }}">
+            {% if count > 10 %}
+                <div class="top__custom__item__num sp-only">{{forloop.index}}</div>
+                {% else %}
+                <div class="top__custom__item__num sp-only">0{{forloop.index}}</div>
+            {% endif %}
+          <div class="top__custom__blog__item__image">
+            <img
+            {% if  article.image != blank %}
+              src="{{ article.image | image_url: width:800 }}"
+              {% else %}
+              src="https://cdn.shopify.com/s/files/1/0686/3336/2674/files/logo_4d14aa63-6068-4b88-bad5-3f1f0ced277e.png?v=1713252888" 
+            {% endif %}
+              alt="{{ blog.title}}"
+              loading="lazy"
+              width="{{image.width}}"
+              height="{{image.height}}">
+              <span class="top__custom__blog__item__tag">{{ article.tags }}</span>
+          </div>
+          <div class="top__custom__blog__item__content">
+            {% if count > 10 %}
+                <div class="top__custom__item__num pc-only">{{forloop.index}}</div>
+                {% else %}
+                <div class="top__custom__item__num pc-only">0{{forloop.index}}</div>
+            {% endif %}
+            <h2 class="top__custom__blog__item__title">
+              {{ article.title }}
+            </h2>
+            <p class="top__custom__blog__item__text">{{ article.content | strip_html| truncate: 100  }}</p>
+          </div>
+        </a>
+      </div>
+    {% endfor %}
+  </div>
+  <div class="fv__recipe__butto-wrapper custom__button">
+    {% render 'button-custom'
+              , text: "もっと見る" 
+              , link: "/blogs/about-maker" %}
+            </div>
+</div>
+
+
+{% comment %} ここから下の<style>にCSSをかく {% endcomment %}
+
+<style>
+  
+</style>
+
+{% style %}
+  .top__custom__blog {
+    background-color: {{ section.settings.backcolor }};
+    padding-top: {{ section.settings.pcmt }}px;
+    padding-bottom: {{ section.settings.pcmb }}px;
+  }
+  @media screen and (max-width: 768px) {
+    .top__custom__blog {
+      padding-top: {{ section.settings.spmt }}px;
+      padding-bottom: {{ section.settings.spmb }}px;
+    }
+  }
+{% endstyle %}
+
+
+{% comment %} ここから下の<script>にJSをかく {% endcomment %}
+
+<script></script>
+
+{% schema %}
+  {
+    "name": "TOPのブログ",
+    "tag": "section",
+    "class": "top__custom__blog",
+    "settings": [
+      {
+        "type": "blog",
+        "id": "blog",
+        "label": "ブログ"
+      },
+      {
+        "type": "range",
+        "id": "count",
+        "label": "記事の数",
+        "default": 3,
+        "max": 6,
+        "min": 3,
+        "step": 1,
+        "unit": "個"
+      }, 
+      {
+        "type": "color",
+        "id": "backcolor",
+        "label": "背景色"
+      },
+      {
+        "type": "range",
+        "id": "pcmt",
+        "label": "上のマージン",
+        "default": 0,
+        "max": 500,
+        "min": 0,
+        "step": 10,
+        "unit": "px"
+      }, {
+        "type": "range",
+        "id": "pcmb",
+        "label": "下のマージン",
+        "default": 0,
+        "max": 500,
+        "min": 0,
+        "step": 10,
+        "unit": "px"
+      }, {
+        "type": "range",
+        "id": "spmt",
+        "label": "スマホ上のマージン",
+        "default": 0,
+        "max": 500,
+        "min": 0,
+        "step": 10,
+        "unit": "px"
+      }, {
+        "type": "range",
+        "id": "spmb",
+        "label": "スマホ下のマージン",
+        "default": 0,
+        "max": 500,
+        "min": 0,
+        "step": 10,
+        "unit": "px"
+      }
+
+    ],
+    "blocks": [
+      {
+        "type": "link",
+        "name": "カスタム",
+        "settings": [
+          {
+            "type": "text",
+            "id": "custom",
+            "label": "タイトル"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "TOPのブログ"
+      }
+    ]
+  }
+{% endschema %}

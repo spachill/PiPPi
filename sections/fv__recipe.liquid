@@ -1,0 +1,150 @@
+<div class="fv__recipe__inner">
+
+<h2 class="fv__recipe__title common-secondary-title">{{ section.settings.title }}</h2>
+<span class="fv__recipe__subtitle common-secondary-subtitle">{{ section.settings.subtitle }}</span>
+<ul class="fv__recipe__items common-recipe-list">
+  {%- for article in blogs.recipe.articles limit:3 %}
+    <li class="fv__recipe__item common-recipe-item">
+        <a class="common-recipe-item-link" href="{{article.url}}"><img class="common-recipe-item-image" src="{{article.image | image_url: width: 800 }}" alt="{{ image.alt }}"
+        loading="lazy"
+        width="{{image.width}}"
+         height="{{image.height}}">
+         <div class="common-recipe-item-content">
+          {% if article.tags !=blank %}
+          <span class="common-article-tag">{{ article.tags }}</span>
+          {% endif %}
+         <span class="common-recipe-item-date">{{ article.published_at | time_tag:'%Y/%m/%d' }}</span>
+         <h3 class="common-recipe-item-title">{{article.title |strip_html| truncate:30}}</h3>
+         <div class="common-recipe-item-text">{{article.content |strip_html| truncate:80}}</div>
+         </div></a>
+    </li>
+{% endfor %}
+</ul>
+<div class="fv__recipe__butto-wrapper">
+{% render 'button-custom'
+          , text: "もっと見る" 
+          , link: "/blogs/recipe" %}
+        </div>
+      </div>
+
+
+<style>
+    .fv__recipe__inner {
+    max-width: 1190px;
+    margin: 0 auto;
+padding: 0 30px;
+
+  }
+
+  .fv__recipe__items {
+    margin-top: 40px;
+    margin-bottom: 0;
+  }
+
+  .fv__recipe__butto-wrapper {
+    margin-top: 40px;
+  }
+
+  @media screen and (max-width: 768px) {
+    .fv__recipe__items {
+      margin-top: 30px;
+    }
+  }
+
+  
+
+</style>
+
+{% style %}
+.fv__recipe {
+    background-color:{{ section.settings.backcolor }};
+}
+.fv__recipe{
+  padding-top: {{section.settings.pcmt}}px;
+  padding-bottom:{{section.settings.pcmb}}px;
+}
+  @media screen and (max-width:768px) {
+.fv__recipe {
+    padding-top: {{section.settings.spmt}}px;
+    padding-bottom:{{section.settings.spmb}} px;
+}
+}
+{% endstyle %}
+
+
+{% comment %} ここから下の<script>にJSをかく {% endcomment %}
+
+<script>
+
+</script>
+
+{% schema %}
+  {
+    "name": "トップ　最新レシピ",
+  "tag": "section",
+  "class": "fv__recipe",
+  "settings": [
+{
+      "type": "text",
+      "id": "title",
+      "label": "タイトル"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "サブタイトル"
+    },
+    {
+    "type": "color",
+    "id":"backcolor",
+    "label":"背景色"
+    },
+    {
+      "type":"range",
+      "id": "pcmt",
+      "label": "上のマージン",
+      "default":60,
+      "max": 500 ,
+      "min": 0,
+      "step": 10,
+      "unit": "px"
+    },
+    {
+      "type":"range",
+      "id": "pcmb",
+      "label": "下のマージン",
+      "default":60,
+      "max": 500 ,
+      "min": 0,
+      "step": 10,
+      "unit": "px"
+    },
+    {
+      "type":"range",
+      "id": "spmt",
+      "label": "スマホ上のマージン",
+      "default":60,
+      "max": 500 ,
+      "min": 0,
+      "step": 10,
+      "unit": "px"
+    },
+    {
+      "type":"range",
+      "id": "spmb",
+      "label": "スマホ下のマージン",
+      "default":60,
+      "max": 500 ,
+      "min": 0,
+      "step": 10,
+      "unit": "px"
+    }
+
+],
+"presets":[
+  {
+    "name":"トップ　最新レシピ"
+  }
+]
+  }
+{% endschema %}

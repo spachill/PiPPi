@@ -1,0 +1,162 @@
+<div class="fv__banner__inner">
+    <ul class="fv__banner__items ">
+        {% for block in section.blocks %}
+        <li class="fv__banner__item ">
+            <a href="{{ block.settings.url }}">
+                <img src="{{ block.settings.image| image_url: width:800 }}" alt="{{ image.alt }}"
+                loading="lazy"
+                width="{{image.width}}"
+                 height="{{image.height}}">
+            </a>
+        </li>
+    {% endfor %}
+    </ul>
+</div>
+
+
+<style>
+    .fv__banner__inner {
+        max-width: 1200px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 0 30px;
+
+    }
+    .fv__banner__items {
+        padding-left: 0;
+        display: flex;
+        gap: 20px calc(20 / 1140 *100%);
+        flex-wrap: nowrap;
+        width: 100%;
+    }
+    .fv__banner__item {
+        list-style: none;
+        width: calc(367 / 1140 *100%);
+        
+    }
+    .fv__banner__item a {
+        display: block;
+    }
+    .fv__banner__item img {
+        width: 100%;
+        height: 100%;
+    }
+
+    @media screen and (max-width: 768px) {
+      .fv__banner__inner {
+        padding: 0 0 0 20px;
+      }
+
+      .fv__banner__items {
+        overflow: scroll;
+
+      }
+
+      .fv__banner__item {
+        width: 242px;
+        flex-shrink: 0;
+      }
+
+
+    }
+
+</style>
+
+{% style %}
+.fv__banner {
+   background-color:{{ section.settings.backcolor }};
+  padding-top: {{section.settings.pcmt}}px;
+  padding-bottom:{{section.settings.pcmb}}px;
+}
+  @media screen and (max-width:768px) {
+.fv__banner {
+    padding-top: {{section.settings.spmt}}px;
+    padding-bottom:{{section.settings.spmb}} px;
+}
+}
+{% endstyle %}
+
+
+
+<script>
+</script>
+
+
+{% schema %}
+  {
+    "name": "FV下のバナー",
+  "tag": "section",
+  "class": "fv__banner",
+  "settings": [
+    {
+    "type": "color",
+    "id":"backcolor",
+    "label":"背景色"
+    },
+    {
+      "type":"range",
+      "id": "pcmt",
+      "label": "上のマージン",
+      "default":60,
+      "max": 500 ,
+      "min": 0,
+      "step": 10,
+      "unit": "px"
+    },
+    {
+      "type":"range",
+      "id": "pcmb",
+      "label": "下のマージン",
+      "default":60,
+      "max": 500 ,
+      "min": 0,
+      "step": 10,
+      "unit": "px"
+    },
+    {
+      "type":"range",
+      "id": "spmt",
+      "label": "スマホ上のマージン",
+      "default":60,
+      "max": 500 ,
+      "min": 0,
+      "step": 10,
+      "unit": "px"
+    },
+    {
+      "type":"range",
+      "id": "spmb",
+      "label": "スマホ下のマージン",
+      "default":60,
+      "max": 500 ,
+      "min": 0,
+      "step": 10,
+      "unit": "px"
+    }
+
+],
+ "blocks": [
+    {
+      "type": "link",
+      "name": "カスタム",
+      "settings": [
+        {
+          "type": "url",
+          "id": "url",
+          "label": "URL"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "画像"
+        }
+      ]
+    }
+  ],
+"presets":[
+  {
+    "name":"FV下のバナー"
+  }
+]
+  }
+{% endschema %}

@@ -1,0 +1,194 @@
+<div class="custom-top-news__inner">
+
+  {%- assign blog = blogs[section.settings.blog] -%}
+  {% unless blog.articles_count == 0 %}
+
+  {% render 'custom-title'
+  , title: section.settings.title
+  , subtitle:section.settings.subtitle %}
+
+  <div class="custom__top__newe__content">
+      <ul class="custom-top-news__items common-news-list">
+    {%- for article in blog.articles limit: section.settings.post_limit-%}
+    <li class="custom-top-news__item common-news-item">
+      <a class="common-news-link" href="{{ article.url }}">
+
+        <div class="common-news-content">
+          <div class="common-news-meta">
+          {% if section.settings.blog_show_date %}
+          <span class="common-news-date">{{ article.published_at | time_tag:'%Y/%m/%d' }}</span>
+          {% endif %}
+          {% comment %} <span class="common-news-info">お知らせ</span> {% endcomment %}
+        </div>
+          
+          <h3 class="common-news-title">
+            {{ article.title | truncate: 50 | escape }}</h3>
+
+        </div>
+      </a>
+    </li>
+    {%- endfor -%}
+
+  </ul>
+
+  <div class="custom-top-news__button-wrapper">
+    {% render 'button-custom', text: "お知らせ一覧を見る", link:"/blogs/news" %}
+  </div>
+
+  </div>
+
+
+</div>
+
+
+{%endunless%}
+
+
+{% schema %}
+{
+"name": "トップ最新お知らせ",
+"tag":"section",
+"class": "custom-top-news",
+"settings": [
+  {
+    "type":"color" ,
+    "id": "bkcl",
+    "label": "背景色"
+
+  },
+{
+"type":"range",
+"id": "pcmt",
+"label": "上の余白",
+"default":80,
+"max": 500 ,
+"min": 0,
+"step": 10,
+"unit": "px"
+},
+{
+"type":"range",
+"id": "pcmb",
+"label": "下の余白",
+"default":80,
+"max": 500 ,
+"min": 0,
+"step": 10,
+"unit": "px"
+},
+{
+"type":"range",
+"id": "spmt",
+"label": "スマホ上の余白",
+"default":60,
+"max": 500 ,
+"min": 0,
+"step": 10,
+"unit": "px"
+},
+{
+"type":"range",
+"id": "spmb",
+"label": "スマホ下の余白",
+"default":60,
+"max": 500 ,
+"min": 0,
+"step": 10,
+"unit": "px"
+},
+{
+"type": "text",
+"id": "title",
+"label": "見出し"
+},
+{
+"type": "text",
+"id": "subtitle",
+"label": "サブ見出し"
+},
+
+{
+"type": "blog",
+"id": "blog",
+"label": "ブログ"
+},
+{
+"type": "range",
+"id": "post_limit",
+"label": "投稿数の表示",
+"min": 0,
+"max": 10,
+"step": 1,
+"default": 3
+},
+{
+"type": "checkbox",
+"id": "blog_show_date",
+"label": "日付を表示する"
+}
+],
+"presets": [
+{
+"name": "トップ最新お知らせ"
+}
+]
+}
+{% endschema %}
+
+
+<style>
+  .custom__top__newe__content {
+    background-color: #fff;
+    max-width: 1200px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 60px 110px;
+    margin-top: 40px;
+    border-radius: 5px;
+  }
+  .custom-top-news__inner {
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 30px;
+    margin: 0 auto;
+  }
+
+  .custom-top-news__button-wrapper {
+    margin-top: 40px;
+  }
+
+
+  @media screen and (max-width: 768px) {
+    .custom-top-news__button-wrapper {
+      margin-top: 20px;
+    }
+    .custom__top__newe__content {
+      background-color: #fff;
+      max-width: 1200px;
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 30px 0px;
+      margin-top: 40px;
+      border-radius: 5px;
+    }
+  }
+  
+</style>
+
+{% style %}
+.custom-top-news {
+padding-top: {{section.settings.pcmt}}px;
+padding-bottom:{{section.settings.pcmb}}px;
+background-color: {{section.settings.bkcl}};
+
+}
+
+@media screen and (max-width:768px) {
+.custom-top-news {
+padding-top: {{section.settings.spmt}}px;
+padding-bottom:{{section.settings.spmb}}px;
+}
+}
+{% endstyle %}

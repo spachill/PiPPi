@@ -1,0 +1,78 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "name": "t:sections.header.name",
+  "type": "header",
+  "sections": {
+    "header": {
+      "type": "header",
+      "settings": {
+        "logo_position": "top-center",
+        "menu": "main-menu",
+        "menu_type_desktop": "mega",
+        "sticky_header_type": "always",
+        "show_line_separator": false,
+        "color_scheme": "scheme-3",
+        "menu_color_scheme": "scheme-4deaccf4-d013-487a-a182-bce553211b0a",
+        "enable_country_selector": true,
+        "enable_language_selector": true,
+        "mobile_logo_position": "center",
+        "margin_bottom": 0,
+        "padding_top": 20,
+        "padding_bottom": 20
+      }
+    },
+    "header_submenu_gaJ8Uh": {
+      "type": "header__submenu",
+      "blocks": {
+        "link_LdYiUL": {
+          "type": "link",
+          "settings": {
+            "url": "shopify://metaobjects/purpose/purpose",
+            "texten": "Purpose",
+            "text": "目的から探す"
+          }
+        },
+        "link_eLBmLw": {
+          "type": "link",
+          "settings": {
+            "url": "shopify://metaobjects/category/category",
+            "texten": "Category",
+            "text": "カテゴリー"
+          }
+        },
+        "link_J79pbh": {
+          "type": "link",
+          "settings": {
+            "url": "shopify://metaobjects/budget/budget",
+            "texten": "Budget",
+            "text": "予算から探す"
+          }
+        }
+      },
+      "block_order": [
+        "link_LdYiUL",
+        "link_eLBmLw",
+        "link_J79pbh"
+      ],
+      "settings": {
+        "backcolor": "#bba79c",
+        "pcmt": 0,
+        "pcmb": 0,
+        "spmt": 0,
+        "spmb": 0
+      }
+    }
+  },
+  "order": [
+    "header",
+    "header_submenu_gaJ8Uh"
+  ]
+}

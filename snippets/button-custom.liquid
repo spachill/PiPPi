@@ -1,0 +1,33 @@
+<div class="custom__btnbox">
+    <a class="custom__buttom" href="{{ link }}">{{ text }} 　<span><img src="{{'Subtract.svg' | asset_url}}"
+                alt="{{ image.alt }}" loading="lazy" width="{{image.width}}" height="{{image.height}}"></span></a>
+</div>
+<style>
+    .custom__btnbox {
+        text-align: center;
+    }
+
+    .custom__buttom {
+        display: inline-flex;
+        text-align: center;
+        justify-content: center;
+        color: #FFF;
+        font-family: 'Noto Sans JP', sans-serif;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: normal;
+        letter-spacing: 1.6px;
+        padding: 14px 45px 14px 45px;
+        background-color: #BBA79C;
+        border-radius: 5px;
+        text-decoration: none;
+    }
+
+    @media screen and (max-width: 768px) {
+        .custom__buttom {
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+    }
+</style>

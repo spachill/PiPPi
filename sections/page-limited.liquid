@@ -1,0 +1,201 @@
+{% comment %} ここから下にHTMLをかく
+セクションで囲まれていてクラス名はschemaに記載 {% endcomment %}
+
+<div class="page__limited__image">
+  {% if section.settings.image != blank %}
+  <img src="{{section.settings.image | image_url: width: 1200 }}" alt="{{ image.alt }}"
+  loading="lazy"
+  width="{{image.width}}"
+   height="{{image.height}}" class="page__limited__img">
+  {% endif %}
+</div>
+<div class="page__inner page__limited__inner">
+  {% if section.settings.image2 != blank %}
+<img src="{{section.settings.image2 | image_url: width: 1800 }}" alt="{{ image.alt }}"
+loading="lazy"
+width="{{image.width}}"
+ height="{{image.height}}"
+ class="page__limited__content__image">
+    {% else %}
+    <h2 class="page__limited__title common-secondary-subtitle">{{ section.settings.subtitle }}</h2>
+    <div class="page__limited__text">{{section.settings.text | newline_to_br}}
+    {% endif %}
+</div>
+
+
+
+
+{% comment %} ここから下の<style>にCSSをかく {% endcomment %}
+
+<style>
+  .page__limited__title {
+    font-size: 24px;
+    margin-top: 35px;
+  }
+.page__limited__image {
+    width: 100%;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.page__limited__img  {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: left 50% bottom 30%;
+}
+.page__limited__inner {
+  text-align: center;
+  max-width: 800px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.page__limited__text  {
+    margin-top: 00px;
+    margin-bottom: 60px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 5%;
+}
+.page__limited__text p {
+    text-align: center !important;
+}
+.page__limited__text p strong{
+color: #C49292;
+position: relative;
+}
+.page__limited__text p strong::before{
+position: absolute;
+top: 0%;
+left: 0;
+display: block;
+content: "";
+width: 100%;
+height: 70%;
+background-color: #F9EFEF;
+z-index: -1;
+}
+
+.page__limited__content__image {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+</style>
+
+{% style %}
+.page__limited {
+   background-color:{{ section.settings.backcolor }};
+  padding-top: {{section.settings.pcmt}}px;
+  padding-bottom:{{section.settings.pcmb}}px;
+}
+  @media screen and (max-width:768px) {
+.page__limited {
+    padding-top: {{section.settings.spmt}}px;
+    padding-bottom:{{section.settings.spmb}} px;
+}
+}
+{% endstyle %}
+
+
+{% comment %} ここから下の<script>にJSをかく {% endcomment %}
+
+<script>
+
+</script>
+
+{% schema %}
+  {
+    "name": "限定ページセクション",
+  "tag": "section",
+  "class": "page__limited",
+  "settings": [
+    {
+    "type": "text",
+    "id":"subtitle",
+    "label":"サブタイトル",
+    "default": "ここにタイトル"
+    },
+    {
+    "type": "image_picker",
+    "id":"image",
+    "label":"image"
+    },
+    {
+    "type": "image_picker",
+    "id":"image2",
+    "label":"image2"
+    },
+    {
+    "type": "richtext",
+    "id":"text",
+    "label":"text"
+    },
+    {
+    "type": "color",
+    "id":"backcolor",
+    "label":"背景色"
+    },
+    {
+      "type":"range",
+      "id": "pcmt",
+      "label": "上の余白",
+      "default":0,
+      "max": 500 ,
+      "min": 0,
+      "step": 10,
+      "unit": "px"
+    },
+    {
+      "type":"range",
+      "id": "pcmb",
+      "label": "下の余白",
+      "default":0,
+      "max": 500 ,
+      "min": 0,
+      "step": 10,
+      "unit": "px"
+    },
+    {
+      "type":"range",
+      "id": "spmt",
+      "label": "スマホ上の余白",
+      "default":0,
+      "max": 500 ,
+      "min": 0,
+      "step": 10,
+      "unit": "px"
+    },
+    {
+      "type":"range",
+      "id": "spmb",
+      "label": "スマホ下の余白",
+      "default":0,
+      "max": 500 ,
+      "min": 0,
+      "step": 10,
+      "unit": "px"
+    }
+
+],
+ "blocks": [
+    {
+      "type": "link",
+      "name": "カスタム",
+      "settings": [
+        {
+          "type": "text",
+          "id": "custom",
+          "label": "タイトル"
+        }
+      ]
+    }
+  ],
+"presets":[
+  {
+    "name":"限定ページセクション"
+  }
+]
+  }
+{% endschema %}

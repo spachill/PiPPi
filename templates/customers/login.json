@@ -1,0 +1,92 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "1729054825fe0c8828": {
+      "type": "apps",
+      "blocks": {
+        "social_login_social_login_atdWMf": {
+          "type": "shopify://apps/social-login/blocks/social_login/8de41085-9237-4829-86d0-25e862482fec",
+          "settings": {
+            "appblock_width": 100,
+            "code_integration": false
+          }
+        }
+      },
+      "block_order": [
+        "social_login_social_login_atdWMf"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "main": {
+      "type": "main-login",
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "17140147250f6984fa": {
+      "type": "apps",
+      "blocks": {
+        "shopify_apps_blocks_dokopoi_customer_v2_76829e09_68d0_4a74_bcca_a1319e063714_MeDqan": {
+          "type": "shopify://apps//blocks/dokopoi-customer_v2/76829e09-68d0-4a74-bcca-a1319e063714",
+          "settings": {
+            "dokopoiContainerClass": "dokopoi_customer page-width dokopoi_account",
+            "dokopoiRemainingLayout": "left",
+            "dokopoiPointSymbol": "P",
+            "dokopoiPointRemainingLabel": "現在の保有ポイント",
+            "dokopoiLoginLayout": "center",
+            "dokopoiLoginButtonBoolean": false,
+            "dokopoiLoginMidashi": "ログインすると現在の保有ポイントが確認できます",
+            "dokopoiLoginRedirect": "account",
+            "dokopoiLoginButtonId": "dokopoiLoginButtonId",
+            "dokopoiLoginButtonClass": "cart__checkout-button button",
+            "dokopoiLoginButtonText": "ログインはこちらから",
+            "customcss": ""
+          }
+        },
+        "social_login_social_login_bX3PPM": {
+          "type": "shopify://apps/social-login/blocks/social_login/8de41085-9237-4829-86d0-25e862482fec",
+          "disabled": true,
+          "settings": {
+            "appblock_width": 100,
+            "code_integration": false
+          }
+        }
+      },
+      "block_order": [
+        "shopify_apps_blocks_dokopoi_customer_v2_76829e09_68d0_4a74_bcca_a1319e063714_MeDqan",
+        "social_login_social_login_bX3PPM"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "login_title_LhYLmK": {
+      "type": "login__title",
+      "settings": {
+        "title": "タイトル",
+        "backcolor": "",
+        "pcmt": 0,
+        "pcmb": 0,
+        "spmt": 0,
+        "spmb": 0
+      }
+    }
+  },
+  "order": [
+    "login_title_LhYLmK",
+    "1729054825fe0c8828",
+    "main",
+    "17140147250f6984fa"
+  ]
+}

@@ -1,0 +1,203 @@
+<div class="custom-text-contents-wrapper--{{section.id}}">
+    <div class="custom-text-contents__inner">
+        <div class="custom-text-contents__lead-wrapper">
+            {% if section.settings.image != blank %}
+            <div class="custom-text-contents__image">
+                <img src="{{ section.settings.image | image_url :width:180 }}" alt="{{ section.settings.image.alt}}">
+            </div>
+            {% endif %}
+            <h2
+                class="custom-text-contents__lead {% if section.settings.font == 'Noto' %}ff-noto {% endif %} {% if section.settings.lead-check %}ta-center{% endif %}">
+                {{ section.settings.lead | newline_to_br }}
+            </h2>
+
+        </div>
+
+
+
+        <p class="custom-text-contents__text {% if section.settings.check %}ta-center{% endif %}">
+            {{ section.settings.text | newline_to_br }}
+        </p>
+
+    </div>
+</div>
+
+<style>
+    .custom-text-contents__inner {
+        width: 100%;
+        max-width: 860px;
+        margin: 0 auto;
+        padding: 0 30px;
+
+    }
+
+
+    .custom-text-contents__lead-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .custom-text-contents__lead {
+        font-size: 25px;
+        line-height: calc(55 / 25);
+        letter-spacing: 0.25em;
+        color: #7D6241;
+        font-family: Noto Sans JP;
+        margin: 0;
+    }
+
+    .custom-text-contents__text {
+        font-size: 17px;
+        line-height: calc(45 / 17);
+        margin: 30px 0 0 0;
+
+    }
+
+    @media screen and (max-width: 768px) {
+        .custom-text-contents__inner {
+            padding: 0 20px;
+        }
+
+        .custom-text-contents__lead {
+            font-size: 22px;
+        }
+
+        .custom-text-contents__text {
+            font-size: 15px;
+        }
+
+        .custom-text-contents__lead-wrapper {
+            flex-direction: column;
+        }
+    }
+</style>
+
+{% style %}
+.custom-text-contents-wrapper--{{section.id}} {
+background-color:{{ section.settings.backcolor }};
+padding-top: {{section.settings.pcmt}}px;
+padding-bottom: {{section.settings.pcmb}}px;
+
+}
+
+
+
+@media screen and (max-width:768px) {
+.custom-text-contents-wrapper--{{section.id}} {
+padding-top: {{section.settings.spmt}}px;
+padding-bottom:{{section.settings.spmb}}px;
+}
+}
+{% endstyle %}
+
+
+
+<script>
+
+</script>
+
+{% schema %}
+{
+"name": "リード文＋本文",
+"tag": "section",
+"class": "custom-text-contents",
+"settings": [
+{
+"type": "color",
+"id":"backcolor",
+"label":"背景色"
+},
+{
+"type":"range",
+"id": "pcmt",
+"label": "上の余白",
+"default":60,
+"max": 500 ,
+"min": 0,
+"step": 10,
+"unit": "px"
+},
+{
+"type":"range",
+"id": "pcmb",
+"label": "下の余白",
+"default":60,
+"max": 500 ,
+"min": 0,
+"step": 10,
+"unit": "px"
+},
+{
+"type":"range",
+"id": "spmt",
+"label": "スマホ上の余白",
+"default":60,
+"max": 500 ,
+"min": 0,
+"step": 10,
+"unit": "px"
+},
+{
+"type":"range",
+"id": "spmb",
+"label": "スマホ下の余白",
+"default":60,
+"max": 500 ,
+"min": 0,
+"step": 10,
+"unit": "px"
+},
+{
+"type": "image_picker",
+"id":"image",
+"label": "リード文横の画像"
+
+},
+
+{
+"type": "textarea",
+"id":"lead",
+"label": "リード文"
+},
+{
+"type": "radio",
+"id": "font",
+"label": "リード文のフォント",
+"options": [
+{
+"value": "Noto",
+"label": "Noto Sans JP"
+},
+{
+"value": "Mincho",
+"label": "Shippori Mincho"
+}
+],
+"default": "Noto"
+},
+{
+"type": "checkbox",
+"id": "lead-check",
+"label": "リード文を中央揃えにする",
+"default": true
+},
+{
+"type": "textarea",
+"id":"text",
+"label": "本文"
+},
+{
+"type": "checkbox",
+"id": "check",
+"label": "本文を中央揃えにする",
+"default": true
+}
+],
+
+"presets":[
+{
+"name":"リード文＋本文"
+}]}
+{% endschema %}

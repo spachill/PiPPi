@@ -1,0 +1,125 @@
+<div class="custom-content">
+  <h2 class="custom-content">{{ section.settings.title }}</h2>
+  <div class="custom-content__inner">
+    <ul class="custom-content__items">
+      {% for block in section.blocks %}
+        <li class="custom-content__item">
+          <a href="{{block.settings.article-url}}" class="custom-content__link">
+            <div class="custom-content__image">
+              <img src="{{block.settings.article-image | image_url: width: 800 }}" class="custom-content__img">
+            </div>
+            <div class="custom-content__textwrapper">
+              <h3 class="custom-content__title">{{ block.settings['article-title'] }}</h3>
+              <p class="custom-content">{{ block.settings['article-text'] | strip_html | truncatewords: 80 }}</p>
+            </div>
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+
+<style>
+      .custom-content {
+        display: grid;
+        justify-content: center;
+        color: #7D6241;
+      }
+
+      .custom-content__inner {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .custom-content__items li {
+        list-style-type: none;
+      }
+
+      .custom-content__items:hover {
+        opacity: 0.8;
+      }
+
+      .custom-content__items {
+        padding-inline-start: unset;
+        margin-block-end: unset;
+        margin-block-start: unset;
+      }
+
+      .custom-content__item {
+      display: flex;
+      justify-content: center;
+    }
+
+      .custom-content__link {
+        display: grid;
+        justify-content: center;
+        text-decoration: none;
+        column-gap: 3rem;
+        row-gap: 1rem;
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .custom-content__image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      max-height: 390px;
+      }
+
+    .custom-content__title {
+      color: #7D6241;
+    }
+
+    @media screen and (max-width:768px) {
+    .custom-content__inner {
+    padding: 0 5%;
+  }
+    .custom-content__image {
+      display: none;
+    }
+
+    .custom-content__link {
+      grid-template-columns: 1fr;
+    }
+
+  }
+</style>
+
+{% schema %}
+{
+  "name": "custom content",
+  "presets": [{
+    "name": "custom content"
+  }],
+  "settings": [{
+    "type": "text",
+    "id": "title",
+    "label": "title"
+  }],
+  "blocks": [{
+    "type": "article",
+    "name": "article",
+    "settings": [{
+      "type": "text",
+      "id": "article-url",
+      "label": "article url"
+    },{
+      "type": "image_picker",
+      "id": "article-image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "article-title",
+      "label": "article title"
+    },{
+      "type": "text",
+      "id": "article-text",
+      "label": "article text"
+    }]
+  }]
+}
+{% endschema %}

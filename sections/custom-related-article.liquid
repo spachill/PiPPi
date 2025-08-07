@@ -1,0 +1,252 @@
+{% comment %} ここから下にHTMLをかく
+セクションで囲まれていてクラス名はschemaに記載 {% endcomment %}
+<div class="custom-related-article-{{section.id}}">
+    {% render 'custom-title'
+    , title: section.settings.title
+    , subtitle:section.settings.subtitle %}
+    <ul class="custom-related-article__items">
+
+        {%- for article in blog.articles limit:3 %}
+        <li class="custom-related-article__item">
+            <a class="custom-related-article__link" href="{{article.url}}">
+                <div class="custom-related-article__content">
+                    <span class="custom-related-article__publish">{{ article.published_at | time_tag:'%Y/%m/%d'
+                        }}</span>
+                    <span class="custom-related-article__tag">{{ blog.title }}</span>
+                    <img class="custom-related-article__image" src="{{article.image | image_url: width: 800 }}"
+                        alt="{{ image.alt }}" loading="lazy" width="{{image.width}}" height="{{image.height}}">
+                    <h3 class="custom-related-article__article__title">{{article.title |strip_html| truncate:20}}</h3>
+                    <div class="custom-related-article__text">{{article.content |strip_html| truncate:60}}</div>
+                </div>
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+
+
+
+
+
+    <style>.custom-related-article__title {
+        font-family: 'Noto Sans JP', sans-serif;
+        font-size: 24px;
+        font-weight: 500;
+        line-height: 36px;
+        letter-spacing: 0.2em;
+        text-align: center;
+        color: #7D6241;
+    }
+
+    .custom-related-article__subtitle {
+        font-family: Noto Sans JP;
+        font-size: 24px;
+        font-weight: 400;
+        line-height: 29px;
+        letter-spacing: 0.1em;
+        text-align: center;
+        color: #7D6241;
+
+
+    }
+
+    .custom-related-article__items {
+        padding-left: 0;
+        display: flex;
+        max-width: 1190px;
+        padding: 0 30px;
+        margin: 40px auto 0;
+        gap: 40px calc(25 / 1130 *100%);
+
+    }
+
+    .custom-related-article__item {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        width: calc(360 / 1130 * 100%);
+    }
+
+    .custom-related-article__tag {
+        font-family: 'Noto Sans JP', sans-serif;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 21px;
+        letter-spacing: 0em;
+        text-align: center;
+        border-radius: 20px;
+        background-color: #C9A87D;
+        color: #fff;
+        padding: 3px 10px;
+    }
+
+    .custom-related-article__image {
+        width: 100%;
+        object-fit: cover;
+        border-radius: 8px;
+        margin-top: 14px;
+        aspect-ratio: 255 / 170;
+    }
+
+    .custom-related-article__image img {
+        display: block;
+    }
+
+    .custom-related-article__link {
+        font-family: 'Noto Sans JP', sans-serif;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 24px;
+        letter-spacing: 0em;
+        color: #7D6241;
+        text-decoration: none;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        transition: all 0.3s;
+
+    }
+
+    .custom-related-article__link:hover {
+        opacity: 0.7;
+        transition: all 0.3s;
+    }
+
+    .custom-related-article__publish {
+        font-family: 'Noto Sans JP', sans-serif;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 20px;
+        letter-spacing: 0.15em;
+        text-align: left;
+        margin-right: 12px;
+
+
+    }
+
+    .custom-related-article__article__title {
+    font-family: 'Noto Sans JP', sans-serif;
+
+        color: #7D6241;
+        font-size: 15px;
+
+    }
+
+    .custom-related-article__text {
+        font-size: 13px;
+        line-height: calc(20 / 13);
+
+    }
+
+    @media screen and (max-width: 768px) {
+        .custom-related-article__items {
+            padding: 0 20px;
+            flex-direction: column;
+            max-width: 600px;
+        }
+
+        .custom-related-article__item {
+            width: 100%;
+        }
+
+
+    }
+</style>
+
+
+{% style %}
+.custom-related-article {
+background-color:{{ section.settings.backcolor }};
+}
+.custom-related-article{
+padding-top: {{section.settings.pcmt}}px;
+padding-bottom:{{section.settings.pcmb}}px;
+}
+@media screen and (max-width:768px) {
+.custom-related-article {
+padding-top: {{section.settings.spmt}}px;
+padding-bottom:{{section.settings.spmb}} px;
+}
+}
+{% endstyle %}
+
+
+{% comment %} ここから下の
+<script>にJSをかく {% endcomment %}
+
+    <script>
+
+</script>
+
+{% schema %}
+{
+"name": "関連記事",
+"tag": "section",
+"class": "custom-related-article",
+"settings": [
+{
+"type": "color",
+"id":"backcolor",
+"label":"背景色"
+},
+{
+"type":"range",
+"id": "pcmt",
+"label": "上のマージン",
+"default":60,
+"max": 500 ,
+"min": 0,
+"step": 10,
+"unit": "px"
+},
+{
+"type":"range",
+"id": "pcmb",
+"label": "下のマージン",
+"default":60,
+"max": 500 ,
+"min": 0,
+"step": 10,
+"unit": "px"
+},
+{
+"type":"range",
+"id": "spmt",
+"label": "スマホ上のマージン",
+"default":60,
+"max": 500 ,
+"min": 0,
+"step": 10,
+"unit": "px"
+},
+{
+"type":"range",
+"id": "spmb",
+"label": "スマホ下のマージン",
+"default":60,
+"max": 500 ,
+"min": 0,
+"step": 10,
+"unit": "px"
+},
+
+{
+"type": "text",
+"id": "title",
+"label": "タイトル"
+},
+{
+"type": "text",
+"id": "subtitle",
+"label": "サブタイトル"
+}
+
+
+],
+"presets":[
+{
+"name":"関連記事"
+}
+]
+}
+{% endschema %}

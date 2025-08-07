@@ -1,0 +1,156 @@
+{%- assign blog = blogs['news'] -%}
+{%- paginate blog.articles by section.settings.post_limit -%}
+<div class="custom__blog-list_inner">
+  {% unless blog.articles_count == 0 %}
+
+  <ul class="custom__blog-list_items common-news-list">
+    {%- for article in blog.articles -%}
+    <li class="custom__blog-list_item common-news-item">
+      <a class="common-news-link" href="{{ article.url }}">
+
+        <div class="common-news-content">
+          <div class="common-news-meta">
+          {% if section.settings.custom__blog-list_show_date %}
+          <span class="common-news-date">{{ article.published_at | time_tag:'%Y/%m/%d' }}</span>
+          {% endif %}
+          <span class="common-news-info">お知らせ</span>
+        </div>
+         
+          <h3 class="common-news-title">
+            {{ article.title | truncate: 50 | escape }}</h3>
+        </div>
+      </a>
+    </li>
+    {%- endfor -%}
+
+  </ul>
+
+
+</div>
+{% if template != "index" %}
+
+<div class="custom__blog-list__pagination">
+  {%- liquid
+  if paginate.pages > 1
+  render 'pagination', paginate: paginate
+  endif
+  -%}
+</div>
+</div>
+{% endif %}
+
+
+{%endunless%}
+
+
+{%- endpaginate -%}
+
+<style>
+  .custom__blog-list_inner {
+    width: 100%;
+    max-width: 874px;
+    margin: 0 auto;
+    padding: 0 30px;
+
+  }
+
+  .custom__blog-list_items {
+    margin: 0;
+  }
+
+
+  .custom__blog-list__pagination {
+    margin-top: 30px;
+  }
+
+  @media screen and (max-width: 768px) {
+    .custom__blog-list_inner {
+      padding: 0 20px;
+      max-width: 600px;
+    }
+  }
+</style>
+
+
+{% style %}
+.custom__blog-list {
+padding-top: {{section.settings.pcmt}}px;
+padding-bottom:{{section.settings.pcmb}}px;
+}
+
+@media screen and (max-width:768px) {
+.custom__blog-list {
+padding-top: {{section.settings.spmt}}px;
+padding-bottom:{{section.settings.spmb}}px;
+}
+}
+{% endstyle %}
+
+{% schema %}
+{
+"name": "ブログ一覧ページ",
+"tag":"section",
+"class": "custom__blog-list",
+"settings": [
+{
+"type":"range",
+"id": "pcmt",
+"label": "上の余白",
+"default":80,
+"max": 500 ,
+"min": 0,
+"step": 10,
+"unit": "px"
+},
+{
+"type":"range",
+"id": "pcmb",
+"label": "下の余白",
+"default":80,
+"max": 500 ,
+"min": 0,
+"step": 10,
+"unit": "px"
+},
+{
+"type":"range",
+"id": "spmt",
+"label": "スマホ上の余白",
+"default":60,
+"max": 500 ,
+"min": 0,
+"step": 10,
+"unit": "px"
+},
+{
+"type":"range",
+"id": "spmb",
+"label": "スマホ下の余白",
+"default":60,
+"max": 500 ,
+"min": 0,
+"step": 10,
+"unit": "px"
+},
+{
+"type": "range",
+"id": "post_limit",
+"label": "1ページあたりの投稿数",
+"min": 0,
+"max": 10,
+"step": 1,
+"default": 3
+},
+{
+"type": "checkbox",
+"id": "custom__blog-list_show_date",
+"label": "日付を表示する"
+}
+],
+"presets": [
+{
+"name": "ブログ一覧ページ"
+}
+]
+}
+{% endschema %}

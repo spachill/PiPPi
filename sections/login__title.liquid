@@ -1,0 +1,120 @@
+{% comment %} ここから下にHTMLをかく
+セクションで囲まれていてクラス名はschemaに記載 {% endcomment %}
+ <h1 id="login" tabindex="-1" class="custom__login__title">
+    {{ 'customer.login_page.title' | t }}
+  </h1>
+
+
+
+
+
+{% comment %} ここから下の<style>にCSSをかく {% endcomment %}
+
+<style>
+.custom__login__title {
+    text-align: center;
+    font-size: 3.5rem;
+    color: #BAAB9B;
+}
+</style>
+
+{% style %}
+.custom {
+   background-color:{{ section.settings.backcolor }};
+  padding-top: {{section.settings.pcmt}}px;
+  padding-bottom:{{section.settings.pcmb}}px;
+}
+  @media screen and (max-width:768px) {
+.custom {
+    padding-top: {{section.settings.spmt}}px;
+    padding-bottom:{{section.settings.spmb}} px;
+}
+}
+{% endstyle %}
+
+
+{% comment %} ここから下の<script>にJSをかく {% endcomment %}
+
+<script>
+
+</script>
+
+{% schema %}
+  {
+    "name": "ログインのタイトル",
+  "tag": "section",
+  "class": "custom",
+  "settings": [
+    {
+        "type": "text",
+        "id": "title",
+        "label": "タイトル",
+        "default":"タイトル"
+    },
+    {
+    "type": "color",
+    "id":"backcolor",
+    "label":"背景色"
+    },
+    {
+      "type":"range",
+      "id": "pcmt",
+      "label": "上の余白",
+      "default":0,
+      "max": 500 ,
+      "min": 0,
+      "step": 10,
+      "unit": "px"
+    },
+    {
+      "type":"range",
+      "id": "pcmb",
+      "label": "下の余白",
+      "default":0,
+      "max": 500 ,
+      "min": 0,
+      "step": 10,
+      "unit": "px"
+    },
+    {
+      "type":"range",
+      "id": "spmt",
+      "label": "スマホ上の余白",
+      "default":0,
+      "max": 500 ,
+      "min": 0,
+      "step": 10,
+      "unit": "px"
+    },
+    {
+      "type":"range",
+      "id": "spmb",
+      "label": "スマホ下の余白",
+      "default":0,
+      "max": 500 ,
+      "min": 0,
+      "step": 10,
+      "unit": "px"
+    }
+
+],
+ "blocks": [
+    {
+      "type": "link",
+      "name": "カスタム",
+      "settings": [
+        {
+          "type": "text",
+          "id": "custom",
+          "label": "タイトル"
+        }
+      ]
+    }
+  ],
+"presets":[
+  {
+    "name":"ログインのタイトル"
+  }
+]
+  }
+{% endschema %}

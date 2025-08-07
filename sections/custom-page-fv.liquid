@@ -1,0 +1,205 @@
+<div class="custom-page-fv__inner">
+  <div class="custom-page-fv__title-wrapper">
+    {% comment %} <span class="custom-page-fv__en-title">
+      {% if template == 'collection' %}
+        {% assign entitle = collection.metafields.custom._englishname %}
+        {% if entitle != blank %}
+          {{ collection.metafields.custom._englishname }}
+        {% else %}
+          {{ collection.title }}
+        {% endif %}
+      {% endif %}
+    </span> {% endcomment %}
+    <h1 class="custom-page-fv__title">
+      {% if template == 'collection' %}
+        {% if entitle != blank %}
+          {{ collection.title }}
+        {% endif %}
+      {% else %}
+        {{ section.settings.ja_title }}
+      {% endif %}
+    </h1>
+  </div>
+</div>
+
+<style>
+  .custom-page-fv {
+    width: 100%;
+    height: 500px;
+  }
+
+
+  .custom-page-fv__inner {
+    padding: 0 30px;
+    width: 100%;
+    height: 100%;
+    max-width: 1050px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .custom-page-fv__title {
+    font-size: 22px;
+    color: #fff;
+    margin: 15px 0 0;
+    text-align: center;
+    font-family: Noto Sans JP;
+    position: relative;
+    z-index: 2;
+    
+
+
+  }
+
+  .custom-page-fv__en-title {
+    display: block;
+    font-family: Noto Sans JP;
+    font-size: 40px;
+    letter-spacing: 0.1em;
+    color: #fff;
+    line-height: 1;
+    text-shadow: 1px 3px 10px #333;
+    position: relative;
+    z-index: 2;
+
+  }
+
+  @media screen and (max-width: 768px) {
+    .custom-page-fv {
+      height: 220px;
+      
+    }
+    .custom-page-fv__title {
+      font-size: 16px;
+    }
+
+    .custom-page-fv__en-title {
+      font-size: 32px;
+      margin-top: 4px;
+    }
+  }
+
+
+</style>
+
+{% style %}
+
+  .custom-page-fv {
+
+      {% if collection.image != blank %}
+          background: url('{{ collection.image| image_url}}') no-repeat center center /cover;
+    {% else %}
+    background: url('https://cdn.shopify.com/s/files/1/0686/3336/2674/files/logo.png?v=1713250065') no-repeat center center /contain;
+    {% endif %}
+
+    padding-top: {{ section.settings.pcmt }}px;
+    padding-bottom: {{ section.settings.pcmb }}px;
+    position:relative;
+  }
+  .custom-page-fv::before {
+    position:absolute;
+    display:block;
+    content:"";
+    width:100%;
+    height:100%;
+    background-color:#999;
+    opacity:0.3;
+  }
+
+  @media screen and (max-width: 768px) {
+    .custom-page-fv {
+      padding-top: {{ section.settings.spmt }}px;
+      padding-bottom: {{ section.settings.spmb }}px;
+
+        {% if collection.image != blank %}
+          background: url('{{ collection.image| image_url }}') no-repeat center center /cover;
+          {%else%}
+        background: url('{{ section.settings.back_image_sp | image_url }}') no-repeat center center /cover;
+        {% endif %}
+    }
+  }
+{% endstyle %}
+
+
+<script></script>
+
+{% schema %}
+  {
+    "name": "下層ページFV",
+    "tag": "section",
+    "class": "custom-page-fv",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "back_image_pc",
+        "label": "PC背景画像"
+      },
+      {
+        "type": "image_picker",
+        "id": "back_image_sp",
+        "label": "スマホ背景画像"
+      },
+
+      {
+        "type": "range",
+        "id": "pcmt",
+        "label": "上の余白",
+        "default": 0,
+        "max": 500,
+        "min": 0,
+        "step": 10,
+        "unit": "px"
+      },
+      {
+        "type": "range",
+        "id": "pcmb",
+        "label": "下の余白",
+        "default": 60,
+        "max": 500,
+        "min": 0,
+        "step": 10,
+        "unit": "px"
+      }, {
+        "type": "range",
+        "id": "spmt",
+        "label": "スマホ上の余白",
+        "default": 0,
+        "max": 500,
+        "min": 0,
+        "step": 10,
+        "unit": "px"
+      }, {
+        "type": "range",
+        "id": "spmb",
+        "label": "スマホ下の余白",
+        "default": 30,
+        "max": 500,
+        "min": 0,
+        "step": 10,
+        "unit": "px"
+      }, {
+        "type": "text",
+        "id": "ja_title",
+        "label": "日本語タイトル"
+      }, {
+        "type": "text",
+        "id": "en_title",
+        "label": "英語タイトル"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "block",
+        "name": "ブロック",
+        "settings": []
+      }
+    ],
+    "presets": [
+      {
+        "name": "下層ページFV"
+      }
+    ]
+  }
+{% endschema %}

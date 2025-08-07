@@ -1,0 +1,115 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-account",
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "1714014822774fd023": {
+      "type": "apps",
+      "blocks": {
+        "shopify_apps_blocks_membership_8c595917_04be_4f4b_b3b0_b6a3884f8614_wkkwj6": {
+          "type": "shopify://apps//blocks/membership/8c595917-04be-4f4b-b3b0-b6a3884f8614",
+          "settings": {
+            "display_to": "all_logged_in_customers",
+            "rank": "",
+            "image": "shopify://shop_images/Happy_Reborn_RGB__Web_-18.png",
+            "border_width": 5,
+            "border_color": "#1e343e",
+            "text_color": "#000000",
+            "show_name": true,
+            "name_order": "last_first",
+            "show_customer_id": true,
+            "code": "none",
+            "use_code_card": false,
+            "code_card_toggle_color": "#333333",
+            "code_card_default": "info"
+          }
+        },
+        "shopify_apps_blocks_dokopoi_customer_v2_76829e09_68d0_4a74_bcca_a1319e063714_GwKqPh": {
+          "type": "shopify://apps//blocks/dokopoi-customer_v2/76829e09-68d0-4a74-bcca-a1319e063714",
+          "settings": {
+            "dokopoiContainerClass": "dokopoi_customer page-width dokopoi_account",
+            "dokopoiRemainingLayout": "left",
+            "dokopoiPointSymbol": "P",
+            "dokopoiPointRemainingLabel": "現在の保有ポイント",
+            "dokopoiLoginLayout": "center",
+            "dokopoiLoginButtonBoolean": false,
+            "dokopoiLoginMidashi": "ログインすると現在の保有ポイントが確認できます",
+            "dokopoiLoginRedirect": "account",
+            "dokopoiLoginButtonId": "dokopoiLoginButtonId",
+            "dokopoiLoginButtonClass": "cart__checkout-button button",
+            "dokopoiLoginButtonText": "ログインはこちらから",
+            "customcss": ""
+          }
+        },
+        "shopify_apps_blocks_dokopoi_pointlimit_76829e09_68d0_4a74_bcca_a1319e063714_6NeXyJ": {
+          "type": "shopify://apps//blocks/dokopoi-pointlimit/76829e09-68d0-4a74-bcca-a1319e063714",
+          "settings": {
+            "pointdefaultbutton": true,
+            "dokopoiLimitContainerClass": "",
+            "dokopoiLimitMainText": "直近の失効予定ポイント",
+            "dokopoiLimitPointSymbol": "P",
+            "dokopoiLimitMainTextEndingword": "まで",
+            "dokopoiLimitSubText": "中の失効予定ポイント",
+            "dokopoiLimitNotFoundWord": "直近の失効予定ポイントはありません",
+            "customcss": ""
+          }
+        },
+        "shopify_apps_blocks_dokopoi_pointhistory_v2_copy_76829e09_68d0_4a74_bcca_a1319e063714_zaJ4Jy": {
+          "type": "shopify://apps//blocks/dokopoi-pointhistory_v2 copy/76829e09-68d0-4a74-bcca-a1319e063714",
+          "settings": {
+            "dokopoiContainerClass": "dokopoi_customer page-width dokopoi_account",
+            "dokopoiPointTitle": "ポイント履歴",
+            "pointdefaultbutton": true,
+            "dokopoiTableClass": "order-history",
+            "dokopoiTheadId": "dokopoiTheadId",
+            "dokopoiTheadClass": "dokopoiTheadClass",
+            "dokopoiTrId": "dokopoiTrId",
+            "dokopoiTrClass": "dokopoiTrClass",
+            "dokopoiTableCol1": "注文",
+            "dokopoiTableCol2": "購入日",
+            "dokopoiTableCol3": "ステータス",
+            "dokopoiTableCol4": "ポイント",
+            "dokopoiTableCol5": "有効期限",
+            "dokopoiTableCol6": "備考",
+            "dokopoiLoginLayout": "center",
+            "dokopoiLoginButtonBoolean": true,
+            "dokopoiLoginMidashi": "ログインするとポイント履歴が確認できます",
+            "dokopoiLoginRedirect": "account",
+            "dokopoiLoginButtonId": "dokopoiLoginButtonId",
+            "dokopoiLoginButtonClass": "cart__checkout-button button",
+            "dokopoiLoginButtonText": "ログインはこちらから",
+            "dokopoiNoneText": "ポイント履歴はありません",
+            "dokopoiPageNate": "10",
+            "customcss": ""
+          }
+        }
+      },
+      "block_order": [
+        "shopify_apps_blocks_membership_8c595917_04be_4f4b_b3b0_b6a3884f8614_wkkwj6",
+        "shopify_apps_blocks_dokopoi_customer_v2_76829e09_68d0_4a74_bcca_a1319e063714_GwKqPh",
+        "shopify_apps_blocks_dokopoi_pointlimit_76829e09_68d0_4a74_bcca_a1319e063714_6NeXyJ",
+        "shopify_apps_blocks_dokopoi_pointhistory_v2_copy_76829e09_68d0_4a74_bcca_a1319e063714_zaJ4Jy"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    }
+  },
+  "order": [
+    "main",
+    "1714014822774fd023"
+  ]
+}

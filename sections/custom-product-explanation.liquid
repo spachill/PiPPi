@@ -1,0 +1,173 @@
+     {% assign gid = product.metafields.custom.explanation %}
+{% assign id = gid
+  | replace: 'gid://shopify/OnlineStorePage/', ''
+  | plus: 0
+%}
+
+{% assign page = pages | where: 'id', id | first %}
+
+{% if page %}
+<div class="custom-product-explanation__bg">
+<div class="custom-product-explanation__inner">
+    <div class="custom-product-explanation__container">
+        <h2 class="custom-product-explanation__title common-secondary-title">
+        {{ section.settings.title }}
+    </h2>
+    <span class="custom-product-explanation__subtitle common-secondary-subtitle">
+        {{ section.settings.subtitle }}
+    </span>
+
+ 
+<div class="custom-product-explanation__body">
+  {{ product.metafields.custom._page.content }}
+</div>
+
+      
+    </div>
+
+  </div>
+</div>
+{% endif %}
+
+<style>
+    .custom-product-explanation__inner {
+        max-width: 1010px;
+        width: 100%;
+        margin: 0 auto;
+        padding: 0 30px;
+
+    }
+
+    .custom-product-explanation__container {
+        background-color: #fff;
+        border-radius: 20px;
+        padding: 30px 0;
+    }
+
+    .custom-product-explanation__body {
+        margin: 30px auto 0;
+        max-width: 810px;
+        padding: 0 30px;
+        
+    }
+
+    .custom-product-explanation__body .widget-title {
+        font-family: 'Noto Sans JP', sans-serif;
+        font-weight: 500;
+        color: #7D6241;
+        border-bottom: 3px solid #BF945D;
+        padding-bottom: 10px;
+        margin-bottom: 28px;
+        font-size: 24px;
+    }
+
+    .custom-product-explanation__body img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    @media screen and (max-width: 768px) {
+        .custom-product-explanation__inner {
+            padding: 0 20px;
+        }
+
+        .custom-product-explanation__body {
+            padding: 0 20px;
+        }
+        
+        .custom-product-explanation__body .widget-title {
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+    }
+
+</style>
+
+{% style %}
+.custom-product-explanation__bg {
+    background-color:{{ section.settings.backcolor }};
+    padding-top: {{section.settings.pcmt}}px;
+    padding-bottom:{{section.settings.pcmb}}px;
+}
+
+@media screen and (max-width:768px) {
+.custom-product-explanation__bg {
+    padding-top: {{section.settings.spmt}}px;
+    padding-bottom:{{section.settings.spmb}}px;
+}
+}
+{% endstyle %}
+    
+    
+    
+<script>
+
+</script>
+
+{% schema %}
+{
+    "name": "商品説明",
+    "tag": "section",
+    "class": "custom-product-explanation",
+    "settings": [
+    {
+        "type": "color",
+        "id":"backcolor",
+        "label":"背景色"
+    },
+    {
+        "type":"range",
+        "id": "pcmt",
+        "label": "上の余白",
+        "default":60,
+        "max": 500 ,
+        "min": 0,
+        "step": 10,
+        "unit": "px"
+    },
+    {
+        "type":"range",
+        "id": "pcmb",
+        "label": "下の余白",
+        "default":60,
+        "max": 500 ,
+        "min": 0,
+        "step": 10,
+        "unit": "px"
+    },
+    {
+        "type":"range",
+        "id": "spmt",
+        "label": "スマホ上の余白",
+        "default":60,
+        "max": 500 ,
+        "min": 0,
+        "step": 10,
+        "unit": "px"
+    },
+    {
+        "type":"range",
+        "id": "spmb",
+        "label": "スマホ下の余白",
+        "default":60,
+        "max": 500 ,
+        "min": 0,
+        "step": 10,
+        "unit": "px"
+    },
+    {
+        "type": "text",
+        "id": "title",
+        "label": "タイトル"
+      },
+      {
+        "type": "text",
+        "id": "subtitle",
+        "label": "サブタイトル"
+      }
+    ],
+    "presets":[
+    {
+        "name":"商品説明"
+    }]}
+{% endschema %}

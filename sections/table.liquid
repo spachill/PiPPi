@@ -1,0 +1,205 @@
+{% comment %} ここから下にHTMLをかく
+セクションで囲まれていてクラス名はschemaに記載 {% endcomment %}
+
+<div class="table__inner inner">
+    <h2 class="common-secondary-title">{{ section.settings.title }}</h2>
+    <span class="common-secondary-subtitle">{{ section.settings.subtitle }}</span>
+{% comment %} <h2 class="table__title">{{section.settings.title}}</h2> {% endcomment %}
+<div class="table__items">
+    {% for block in section.blocks %}
+    <div class="table__item">
+        <h3 class="table__item__title">{{block.settings.title}}</h3>
+        <p class="table__item__text">{{block.settings.text}}</p>
+        </div>
+    {% endfor %}
+</div>
+</div>
+
+
+
+
+{% comment %} ここから下の<style>にCSSをかく {% endcomment %}
+
+<style>
+    .table__inner {
+        max-width: 1100px;
+    }
+.table__items {
+    margin-top: 60px;
+    margin-bottom: 100px;
+}
+.table__item {
+    display: flex;
+    /* align-items: center; */
+    flex-wrap: wrap;
+    width: 100%;
+}
+.table__item:nth-child(2n-1) .table__item__title,
+.table__item:nth-child(2n-1) .table__item__text{
+    background-color: #F9F2EE;
+}
+.table__item__title {
+
+    padding: 24px 50px;
+    /* max-width: 280px; */
+    width: 30%;
+    margin-bottom: 0;
+    margin-top: 0;
+    border-top: 0.5px solid transparent;
+    border-left: 0.5px solid transparent;
+    display: flex;
+    align-items: center;
+}
+.table__item:last-child .table__item__title,
+.table__item:last-child .table__item__text{
+    border-bottom: 0.5px solid transparent;
+    
+}
+.table__item__text {
+ width: 70%;
+    padding: 24px 50px;
+    margin-top: 0;
+    margin-bottom: 0;
+    border-top: 0.5px solid transparent;
+    border-right: 0.5px solid transparent;
+
+}
+@media screen and (max-width:768px) { 
+    .table__item {
+        flex-direction: column;
+        padding: 0 15px;
+    }
+.table__item__title {
+    width: 100%;
+    max-width: 100%;
+    border-top: 0.5px solid #222;
+    border-right: 0.5px solid #222;
+    border-left: 0.5px solid #222;
+
+}
+.table__item__text {
+    width: 100%;
+    /* border-top: 0.5px solid #222; */
+    border-right: 0.5px solid #222;
+    border-left: 0.5px solid #222;
+}
+.table__item:last-child .table__item__text{
+    border-bottom: 0.5px solid #222;
+    
+}
+
+}
+</style>
+
+{% style %}
+.table {
+   background-color:{{ section.settings.backcolor }};
+  padding-top: {{section.settings.pcmt}}px;
+  padding-bottom:{{section.settings.pcmb}}px;
+}
+  @media screen and (max-width:768px) {
+.table {
+    padding-top: {{section.settings.spmt}}px;
+    padding-bottom:{{section.settings.spmb}} px;
+}
+}
+{% endstyle %}
+
+
+{% comment %} ここから下の<script>にJSをかく {% endcomment %}
+
+<script>
+
+</script>
+
+{% schema %}
+  {
+    "name": "table",
+  "tag": "section",
+  "class": "table",
+  "settings": [
+
+    {
+    "type": "text",
+    "id":"title",
+    "label":"タイトル",
+    "default": "COMPANY"
+    },
+    {
+    "type": "text",
+    "id":"subtitle",
+    "label":"サブタイトル",
+    "default": "会社概要"
+    },
+    {
+    "type": "color",
+    "id":"backcolor",
+    "label":"背景色"
+    },
+    {
+      "type":"range",
+      "id": "pcmt",
+      "label": "上の余白",
+      "default":0,
+      "max": 500 ,
+      "min": 0,
+      "step": 10,
+      "unit": "px"
+    },
+    {
+      "type":"range",
+      "id": "pcmb",
+      "label": "下の余白",
+      "default":0,
+      "max": 500 ,
+      "min": 0,
+      "step": 10,
+      "unit": "px"
+    },
+    {
+      "type":"range",
+      "id": "spmt",
+      "label": "スマホ上の余白",
+      "default":0,
+      "max": 500 ,
+      "min": 0,
+      "step": 10,
+      "unit": "px"
+    },
+    {
+      "type":"range",
+      "id": "spmb",
+      "label": "スマホ下の余白",
+      "default":0,
+      "max": 500 ,
+      "min": 0,
+      "step": 10,
+      "unit": "px"
+    }
+
+],
+ "blocks": [
+    {
+      "type": "link",
+      "name": "アイテム",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "タイトル"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "text"
+}
+      ]
+    }
+  ],
+"presets":[
+  {
+    "name":"table"
+  }
+]
+  }
+{% endschema %}

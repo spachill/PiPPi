@@ -1,0 +1,130 @@
+{% comment %} ここから下にHTMLをかく
+セクションで囲まれていてクラス名はschemaに記載 {% endcomment %}
+<div class="custom-recipe-list__inner">
+  {%- assign blog = blogs.recipe -%}
+  {%- paginate blog.articles by 9 -%}
+  <ul class="custom-recipe-list__items common-recipe-list">
+
+    {%- for article in blogs.recipe.articles %}
+    <li class="custom-recipe-list__item common-recipe-item">
+      <a class="common-recipe-item-link" href="{{article.url}}"><img class="common-recipe-item-image"
+          src="{{article.image | image_url: width: 800 }}" alt="{{ image.alt }}" loading="lazy" width="{{image.width}}"
+          height="{{image.height}}">
+        <div class="common-recipe-item-content">
+          {% if article.tags !=blank %}
+          <span class="common-article-tag">{{ article.tags }}</span>
+          {% endif %}
+          <span class="common-recipe-item-date">{{ article.published_at | time_tag:'%Y/%m/%d' }}</span>
+          <h3 class="common-recipe-item-title">{{article.title |strip_html| truncate:30}}</h3>
+          <div class="common-recipe-item-text">{{article.content |strip_html| truncate:80}}</div>
+        </div>
+      </a>
+    </li>
+    {% endfor %}
+
+
+  </ul>
+  {%- liquid
+  if paginate.pages > 1
+  render 'pagination', paginate: paginate
+  endif
+  -%}
+  {%- endpaginate -%}
+</div>
+
+
+  <style>
+  .custom-recipe-list__inner {
+    max-width: 1190px;
+    margin: 0 auto;
+    padding: 0 30px;
+
+
+  }
+
+</style>
+
+{% style %}
+.custom-recipe-list {
+background-color:{{ section.settings.backcolor }};
+}
+.custom-recipe-list{
+padding-top: {{section.settings.pcmt}}px;
+padding-bottom:{{section.settings.pcmb}}px;
+}
+@media screen and (max-width:768px) {
+.custom-recipe-list {
+padding-top: {{section.settings.spmt}}px;
+padding-bottom:{{section.settings.spmb}} px;
+}
+}
+{% endstyle %}
+
+
+{% comment %} ここから下の
+<script>にJSをかく {% endcomment %}
+
+  <script>
+
+</script>
+
+{% schema %}
+{
+"name": "レシピ一覧",
+"tag": "section",
+"class": "custom-recipe-list",
+"settings": [
+{
+"type": "color",
+"id":"backcolor",
+"label":"背景色"
+},
+{
+"type":"range",
+"id": "pcmt",
+"label": "上のマージン",
+"default":60,
+"max": 500 ,
+"min": 0,
+"step": 10,
+"unit": "px"
+},
+{
+"type":"range",
+"id": "pcmb",
+"label": "下のマージン",
+"default":60,
+"max": 500 ,
+"min": 0,
+"step": 10,
+"unit": "px"
+},
+{
+"type":"range",
+"id": "spmt",
+"label": "スマホ上のマージン",
+"default":60,
+"max": 500 ,
+"min": 0,
+"step": 10,
+"unit": "px"
+},
+{
+"type":"range",
+"id": "spmb",
+"label": "スマホ下のマージン",
+"default":60,
+"max": 500 ,
+"min": 0,
+"step": 10,
+"unit": "px"
+}
+
+],
+"presets":[
+{
+"name":"レシピ一覧"
+}
+]
+}
+{% endschema %}

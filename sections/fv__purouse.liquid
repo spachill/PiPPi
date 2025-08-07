@@ -1,0 +1,151 @@
+{% comment %} ここから下にHTMLをかく
+セクションで囲まれていてクラス名はschemaに記載 {% endcomment %}
+<div class="fv__purouse__inner">
+
+  <h2 class="fv__purouse__title common-secondary-title">{{ section.settings.title }}</h2>
+  <span class="fv__purouse__subtitle common-secondary-subtitle">{{ section.settings.subtitle }}</span>
+  <ul class="fv__purouse__items common-link-list">
+    {% for block in section.blocks %}
+    <li class="common-link-item">
+      <a class="common-link-item-link" href="{{block.settings.link}}">{{block.settings.text}} <img
+          src="{{'cate-bar.svg' | asset_url}}" alt="{{ image.alt }}" loading="lazy" width="{{image.width}}"
+          height="{{image.height}}"></a>
+    </li>
+    {% endfor %}
+  </ul>
+</div>
+
+
+
+
+
+  <style>
+  .fv__purouse__inner {
+    width: 100%;
+    max-width: 1110px;
+    padding: 0 30px;
+    margin: 0 auto;
+  }
+
+  @media screen and (max-width: 768px) {
+    .fv__purouse__inner {
+      padding: 0 12px;
+    }
+  }
+
+
+
+</style>
+
+{% style %}
+.fv__purouse {
+background-color:{{ section.settings.backcolor }};
+}
+.fv__purouse{
+padding-top: {{section.settings.pcmt}}px;
+padding-bottom:{{section.settings.pcmb}}px;
+}
+@media screen and (max-width:768px) {
+.fv__purouse {
+padding-top: {{section.settings.spmt}}px;
+padding-bottom:{{section.settings.spmb}} px;
+}
+}
+{% endstyle %}
+
+
+{% comment %} ここから下の
+<script>にJSをかく {% endcomment %}
+
+  <script>
+
+</script>
+
+{% schema %}
+{
+"name": "FVの用途から選ぶ",
+"tag": "section",
+"class": "fv__purouse",
+"settings": [
+{
+"type": "text",
+"id": "title",
+"label": "タイトル"
+},
+{
+"type": "text",
+"id": "subtitle",
+"label": "サブタイトル"
+},
+{
+"type": "color",
+"id":"backcolor",
+"label":"背景色"
+},
+{
+"type":"range",
+"id": "pcmt",
+"label": "上のマージン",
+"default":60,
+"max": 500 ,
+"min": 0,
+"step": 10,
+"unit": "px"
+},
+{
+"type":"range",
+"id": "pcmb",
+"label": "下のマージン",
+"default":60,
+"max": 500 ,
+"min": 0,
+"step": 10,
+"unit": "px"
+},
+{
+"type":"range",
+"id": "spmt",
+"label": "スマホ上のマージン",
+"default":60,
+"max": 500 ,
+"min": 0,
+"step": 10,
+"unit": "px"
+},
+{
+"type":"range",
+"id": "spmb",
+"label": "スマホ下のマージン",
+"default":60,
+"max": 500 ,
+"min": 0,
+"step": 10,
+"unit": "px"
+}
+
+],
+"blocks": [
+{
+"type": "link",
+"name": "カスタム",
+"settings": [
+{
+"type": "text",
+"id": "text",
+"label": "ボタンのテキスト"
+},
+{
+"type": "url",
+"id": "link",
+"label": "URL"
+}
+]
+}
+],
+"presets":[
+{
+"name":"FVの用途から選ぶ"
+}
+]
+}
+{% endschema %}

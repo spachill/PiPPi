@@ -1,0 +1,108 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "cart-items": {
+      "type": "main-cart-items",
+      "settings": {
+        "color_scheme": "scheme-1",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "cart-footer": {
+      "type": "main-cart-footer",
+      "blocks": {
+        "subtotal": {
+          "type": "subtotal",
+          "settings": {}
+        },
+        "shopify_apps_blocks_dokopoi_cart_v2_76829e09_68d0_4a74_bcca_a1319e063714_WJRVai": {
+          "type": "shopify://apps//blocks/dokopoi-cart_v2/76829e09-68d0-4a74-bcca-a1319e063714",
+          "settings": {
+            "pointclass": "",
+            "dokopoiremainingpointlabel": "現在のポイント",
+            "dokopoiUsePointLabel": "利用ポイント",
+            "dokopoiPointSymbol": "P",
+            "dokopoiremainingafterpointLabel": "ポイント利用後の保有ポイント",
+            "dokopoiDiscountPriceLabel": "割引金額",
+            "dokopoiDiscountSymbol": "¥",
+            "textlayout": "right",
+            "pointdefaultbutton": true,
+            "pointbutton": "ポイントを使用する",
+            "pointresetbutton": "リセット",
+            "buttonClass": "button",
+            "inputfield": 300,
+            "dokopoiError1": "ポイントが未入力です",
+            "dokopoiError2": "小計以上のポイントは利用することができません",
+            "dokopoiError3": "ポイントが超過しています",
+            "dokopoiError4": "ポイントからご利用いただけます",
+            "dokopoiPageReload": false,
+            "dokopoiLoginButtonBoolean": true,
+            "dokopoiLoginMidashi": "ログインして購入でポイントが貯まります！",
+            "dokopoiLoginRedirect": "cart",
+            "dokopoiLoginButtonId": "dokopoiLogin",
+            "dokopoiLoginButtonClass": "button",
+            "dokopoiLoginButtonText": "ログインはこちらから",
+            "customcss": ""
+          }
+        },
+        "shopify_apps_blocks_dokopoi_acquisition_76829e09_68d0_4a74_bcca_a1319e063714_AQFKcq": {
+          "type": "shopify://apps//blocks/dokopoi-acquisition/76829e09-68d0-4a74-bcca-a1319e063714",
+          "settings": {
+            "pointclass": "",
+            "dokopoiacquisitionlabel": "獲得予定ポイント/",
+            "dokopoiPointSymbol": "P",
+            "textlayout": "right",
+            "customcss": ""
+          }
+        },
+        "buttons": {
+          "type": "buttons",
+          "settings": {}
+        },
+        "shopify_apps_blocks_membership_8c595917_04be_4f4b_b3b0_b6a3884f8614_gyAhpT": {
+          "type": "shopify://apps//blocks/membership/8c595917-04be-4f4b-b3b0-b6a3884f8614",
+          "settings": {
+            "display_to": "all_logged_in_customers",
+            "rank": "",
+            "image": "shopify://shop_images/logo.png",
+            "border_width": 3,
+            "border_color": "#bba79c",
+            "text_color": "#000000",
+            "show_name": true,
+            "name_order": "last_first",
+            "show_customer_id": true,
+            "code": "barcode",
+            "use_code_card": false,
+            "code_card_toggle_color": "#333333",
+            "code_card_default": "info"
+          }
+        }
+      },
+      "block_order": [
+        "subtotal",
+        "shopify_apps_blocks_dokopoi_cart_v2_76829e09_68d0_4a74_bcca_a1319e063714_WJRVai",
+        "shopify_apps_blocks_dokopoi_acquisition_76829e09_68d0_4a74_bcca_a1319e063714_AQFKcq",
+        "buttons",
+        "shopify_apps_blocks_membership_8c595917_04be_4f4b_b3b0_b6a3884f8614_gyAhpT"
+      ],
+      "settings": {
+        "color_scheme": "scheme-1",
+        "padding_top": 20,
+        "padding_bottom": 40
+      }
+    }
+  },
+  "order": [
+    "cart-items",
+    "cart-footer"
+  ]
+}

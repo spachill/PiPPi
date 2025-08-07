@@ -1,0 +1,121 @@
+{% comment %} ここから下にHTMLをかく
+セクションで囲まれていてクラス名はschemaに記載 {% endcomment %}
+
+
+<h2 class="fv__category__title common-secondary-title">{{ section.settings.title }}</h2>
+<span class="fv__category__subtitle common-secondary-subtitle">{{ section.settings.subtitle }}</span>
+
+
+
+{% comment %} ここから下の<style>にCSSをかく {% endcomment %}
+
+<style>
+
+</style>
+
+{% style %}
+.fqa__title {
+   background-color:{{ section.settings.backcolor }};
+  padding-top: {{section.settings.pcmt}}px;
+  padding-bottom:{{section.settings.pcmb}}px;
+}
+  @media screen and (max-width:768px) {
+.fqa__title {
+    padding-top: {{section.settings.spmt}}px;
+    padding-bottom:{{section.settings.spmb}} px;
+}
+}
+{% endstyle %}
+
+
+{% comment %} ここから下の<script>にJSをかく {% endcomment %}
+
+<script>
+
+</script>
+
+{% schema %}
+  {
+    "name": "faq_title",
+  "tag": "section",
+  "class": "fqa__title",
+  "settings": [
+    {
+    "type": "text",
+    "id":"subtitle",
+    "label":"サブタイトル",
+    "default": "よくある質問"
+    },
+    {
+    "type": "text",
+    "id":"title",
+    "label":"タイトル",
+    "default": "FAQ"
+    },
+    {
+    "type": "color",
+    "id":"backcolor",
+    "label":"背景色"
+    },
+    {
+      "type":"range",
+      "id": "pcmt",
+      "label": "上の余白",
+      "default":0,
+      "max": 500 ,
+      "min": 0,
+      "step": 10,
+      "unit": "px"
+    },
+    {
+      "type":"range",
+      "id": "pcmb",
+      "label": "下の余白",
+      "default":0,
+      "max": 500 ,
+      "min": 0,
+      "step": 10,
+      "unit": "px"
+    },
+    {
+      "type":"range",
+      "id": "spmt",
+      "label": "スマホ上の余白",
+      "default":0,
+      "max": 500 ,
+      "min": 0,
+      "step": 10,
+      "unit": "px"
+    },
+    {
+      "type":"range",
+      "id": "spmb",
+      "label": "スマホ下の余白",
+      "default":0,
+      "max": 500 ,
+      "min": 0,
+      "step": 10,
+      "unit": "px"
+    }
+
+],
+ "blocks": [
+    {
+      "type": "link",
+      "name": "カスタム",
+      "settings": [
+        {
+          "type": "text",
+          "id": "custom",
+          "label": "タイトル"
+        }
+      ]
+    }
+  ],
+"presets":[
+  {
+    "name":"faq_title"
+  }
+]
+  }
+{% endschema %}

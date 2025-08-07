@@ -1,0 +1,225 @@
+{% comment %} ここから下にHTMLをかく
+セクションで囲まれていてクラス名はschemaに記載 {% endcomment %}
+<div class="fv__category__inner">
+
+<h2 class="fv__category__title common-secondary-title">{{ section.settings.title }}</h2>
+<span class="fv__category__subtitle common-secondary-subtitle">{{ section.settings.subtitle }}</span>
+<ul class="fv__category__items fv__category2__items common-link-list">
+  {% for block in section.blocks %}
+    {% assign Collection = block.settings.collection %}
+    {% comment %} 
+    <li class="fv__category__item common-link-item">
+        <a class="fv__category__link common-link-item-link" href="{{ Collection.url }}">
+          {%if Collection.featured_image != blank%}
+        <img class="common-link-item__image" src="{{ Collection.featured_image | image_url: width:300  }}" alt="{{ image.alt }}"
+        loading="lazy"
+        width="{{image.width}}"
+         height="{{image.height}}">
+         {% else %}
+         <img class="common-link-item__image" src="https://cdn.shopify.com/s/files/1/0686/3336/2674/files/logo.png?v=1713250065" alt="{{ image.alt }}"
+         loading="lazy"
+         width="{{image.width}}"
+          height="{{image.height}}">
+          {%endif%} 
+         {{Collection.title}} </a>
+    </li>
+    {% endcomment %}
+    <li class="fv__category2__item">
+      <a href="{{Collection.url}}" class="fv__category2__item">
+        <div class="fv__category2__image">
+          <img 
+          {% if block.settings.Image != blank %}
+            src="{{block.settings.Image | image_url: width: 1200 }}" 
+            {% else %}
+            src="{{Collection.image | image_url: width: 1200 }}"  
+          {% endif %}
+          alt="{{Collection.title}}" 
+          loading="lazy"
+          width="{{image.width}}"
+          height="{{image.height}}"
+          class="fv__category2__img">
+        </div>
+        <h3 class="fv__collection2__title">{{Collection.title}}</h3>
+      </a>
+    </li>
+{% endfor %}
+</ul>
+
+{% comment %} <div class="custom-top-news__button-wrapper">
+    {% render 'button-custom', text: "もっと見る", link:"/collections" %}
+  </div> {% endcomment %}
+</div>
+
+
+
+{% comment %} ここから下の<style>にCSSをかく {% endcomment %}
+
+<style>
+  .fv__category__inner {
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 30px;
+    margin: 0 auto;
+  }
+
+  @media screen and (max-width: 768px) {
+    .fv__category__inner {
+      padding: 0 12px;
+    }
+  }
+
+  .fv__category2__items {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding-left: 0;
+  margin-left: 0;
+  gap: 2%;
+
+}
+    .fv__category2__item {
+      width: calc(33% - 2% );
+      list-style: none;
+      margin-bottom: 20px;
+      text-decoration: none;
+}
+.fv__category2__image {
+  width: 100%;
+}
+.fv__category2__img {
+  width: 100%;
+  height: 100%;
+object-fit: cover;
+aspect-ratio: 1/1;
+border-radius: 8px;
+}
+.fv__collection2__title {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 2rem;
+}
+@media screen and (max-width:768px) { 
+  .fv__category2__item {
+      width: calc(50% - 2% );
+
+}
+  .fv__collection2__title {
+    font-size: 1.5rem;
+  }
+  
+}
+
+
+</style>
+
+{% style %}
+.fv__category {
+    background-color:{{ section.settings.backcolor }};
+}
+.fv__category{
+  padding-top: {{section.settings.pcmt}}px;
+  padding-bottom:{{section.settings.pcmb}}px;
+}
+  @media screen and (max-width:768px) {
+.fv__category {
+    padding-top: {{section.settings.spmt}}px;
+    padding-bottom:{{section.settings.spmb}} px;
+}
+}
+{% endstyle %}
+
+
+{% comment %} ここから下の<script>にJSをかく {% endcomment %}
+
+<script>
+
+</script>
+
+{% schema %}
+  {
+    "name": "トップ　カテゴリーから探す",
+  "tag": "section",
+  "class": "fv__category",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "タイトル"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "サブタイトル"
+    },
+    {
+    "type": "color",
+    "id":"backcolor",
+    "label":"背景色"
+    },
+    {
+      "type":"range",
+      "id": "pcmt",
+      "label": "上のマージン",
+      "default":60,
+      "max": 500 ,
+      "min": 0,
+      "step": 10,
+      "unit": "px"
+    },
+    {
+      "type":"range",
+      "id": "pcmb",
+      "label": "下のマージン",
+      "default":60,
+      "max": 500 ,
+      "min": 0,
+      "step": 10,
+      "unit": "px"
+    },
+    {
+      "type":"range",
+      "id": "spmt",
+      "label": "スマホ上のマージン",
+      "default":60,
+      "max": 500 ,
+      "min": 0,
+      "step": 10,
+      "unit": "px"
+    },
+    {
+      "type":"range",
+      "id": "spmb",
+      "label": "スマホ下のマージン",
+      "default":60,
+      "max": 500 ,
+      "min": 0,
+      "step": 10,
+      "unit": "px"
+    }
+
+],
+ "blocks": [
+    {
+      "type": "link",
+      "name": "カスタム",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "Image",
+          "label": "画像"
+        },
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "コレクション"
+        }
+      ]
+    }
+  ],
+"presets":[
+  {
+    "name":"トップ　カテゴリーから探す"
+  }
+]
+  }
+{% endschema %}

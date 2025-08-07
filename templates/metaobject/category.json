@@ -1,0 +1,108 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "custom_collections_xQddmB": {
+      "type": "custom__collections",
+      "disabled": true,
+      "settings": {
+        "backcolor": "",
+        "pcmt": 0,
+        "pcmb": 60,
+        "spmt": 0,
+        "spmb": 60
+      }
+    },
+    "fv_category2_hhQhLT": {
+      "type": "fv__category2",
+      "blocks": {
+        "link_GWANfU": {
+          "type": "link",
+          "settings": {
+            "Image": "shopify://shop_images/WEB_TOP_1.png",
+            "collection": "cccm"
+          }
+        },
+        "link_qXEGkE": {
+          "type": "link",
+          "settings": {
+            "Image": "shopify://shop_images/TOP_hair.png",
+            "collection": "hairaccessories"
+          }
+        },
+        "link_3WqGAm": {
+          "type": "link",
+          "settings": {
+            "Image": "shopify://shop_images/TOP_bag.png",
+            "collection": "バッグ-1"
+          }
+        },
+        "link_B3eTjg": {
+          "type": "link",
+          "settings": {
+            "Image": "shopify://shop_images/TOP_porchi.png",
+            "collection": "ポーチ-1"
+          }
+        },
+        "link_ycrzLR": {
+          "type": "link",
+          "settings": {
+            "Image": "shopify://shop_images/top_fuunail.png",
+            "collection": "ネイル-1"
+          }
+        },
+        "link_Xx3NT7": {
+          "type": "link",
+          "settings": {
+            "Image": "shopify://shop_images/TOP_neckless.png",
+            "collection": "nacklace"
+          }
+        },
+        "link_pRcfEL": {
+          "type": "link",
+          "settings": {
+            "Image": "shopify://shop_images/81f6f7f596408c5209150b0ab572d4aa.png",
+            "collection": "コラボ商品"
+          }
+        },
+        "link_XQRFnA": {
+          "type": "link",
+          "settings": {
+            "Image": "shopify://shop_images/20a439f354315818041548ba816fb520.png",
+            "collection": "all-products"
+          }
+        }
+      },
+      "block_order": [
+        "link_GWANfU",
+        "link_qXEGkE",
+        "link_3WqGAm",
+        "link_B3eTjg",
+        "link_ycrzLR",
+        "link_Xx3NT7",
+        "link_pRcfEL",
+        "link_XQRFnA"
+      ],
+      "settings": {
+        "title": "Category",
+        "subtitle": "カテゴリーから探す",
+        "backcolor": "",
+        "pcmt": 60,
+        "pcmb": 60,
+        "spmt": 60,
+        "spmb": 60
+      }
+    }
+  },
+  "order": [
+    "custom_collections_xQddmB",
+    "fv_category2_hhQhLT"
+  ]
+}

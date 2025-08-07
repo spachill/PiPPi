@@ -1,0 +1,301 @@
+{% comment %} ここから下にHTMLをかく
+セクションで囲まれていてクラス名はschemaに記載 {% endcomment %}
+<div class="common-imagetext-{{section.id}}">
+  <div class="common-imagetext__inner">
+    <ul class="common-imagetext__items">
+      {% for block in section.blocks %}
+      <li class="common-imagetext__item">
+        <div class="common-imagetext__imageBox">
+          <img src="{{block.settings.image |image_url |width:800}}" alt="{{ image.alt }}" loading="lazy"
+            width="{{image.width}}" height="{{image.height}}" class="common-imagetext__image">
+        </div>
+        <div class="common-imagetext__content">
+          <h2 class="common-imagetext__title--{{block.id}}">{{ block.settings.title |newline_to_br }}</h2>
+          <h3 class="common-imagetext__subtitle">{{ block.settings.subtitle |newline_to_br}}</h3>
+          <p class="common-imagetext__text">{{block.settings.text|newline_to_br}}</p>
+          <a href="{{block.settings.url}}" class="common-imagetext__link">{{block.settings.link}}</a>
+        </div>
+      </li>
+
+      <style>
+      </style>
+
+      {% style %}
+      .common-imagetext__title--{{block.id}} {
+      color: #7D6241;
+      font-family: Noto Sans JP;
+      font-size: {{block.settings.font_size}}px;
+      font-weight: 500;
+      letter-spacing: 8.75px;
+      margin:0;
+      line-height: calc(65 / 35);
+      }
+
+      @media screen and (max-width: 768px){
+      .common-imagetext__title--{{block.id}} {
+      font-size: {{block.settings.font_size_sp}}px;
+        text-align:center;
+      }
+
+      }
+
+      {% endstyle %}
+
+
+
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+
+
+<style>
+  .common-imagetext__inner {
+    width: 100%;
+    max-width: 1120px;
+    padding: 0 30px;
+    margin: 0 auto;
+  }
+
+
+  .common-imagetext__items {
+    padding-left: 0;
+    margin-left: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-top: 0;
+
+  }
+
+  .common-imagetext__item {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    align-items: center;
+    list-style: none;
+  }
+
+
+  .common-imagetext__item:nth-of-type(2n) {
+    flex-direction: row-reverse;
+    margin-top: 100px;
+  }
+
+
+  .common-imagetext__imageBox {
+    width: 48%;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(80 / 1060 *100%);
+    flex: 1;
+  }
+
+
+  .common-imagetext__imageBox img {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 0px 20px 20px 0;
+
+  }
+
+  .common-imagetext__item:nth-of-type(2n) .common-imagetext__imageBox {
+    margin-right: calc(50% - 50vw);
+    margin-left: calc(80 / 1060 *100%);
+
+  }
+
+
+  .common-imagetext__item:nth-of-type(2n) .common-imagetext__imageBox img {
+    border-radius: 20px 0 0 20px;
+  }
+
+
+
+
+  .common-imagetext__content {
+    width: 400px;
+
+
+  }
+
+  .common-imagetext__text {
+    color: #7D6241;
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 35px;
+    letter-spacing: 1.7px;
+    margin: 30px 0 0 0;
+  }
+
+  @media screen and (max-width: 768px) {
+
+    .common-imagetext__inner {
+      padding: 0 20px;
+    }
+
+    .common-imagetext__item,
+    .common-imagetext__item:nth-of-type(2n) {
+      flex-direction: column-reverse;
+    }
+
+    .common-imagetext__content {
+      width: 100%;
+    }
+
+    .common-imagetext__title {
+      line-height: 2;
+    }
+
+    .common-imagetext__text {
+      font-size: 15px;
+      line-height: calc(35 / 15);
+      margin-top: 20px;
+    }
+
+    .common-imagetext__imageBox {
+      width: 100%;
+      margin: 0;
+    }
+
+    .common-imagetext__imageBox img,
+    .common-imagetext__item:nth-of-type(2n) .common-imagetext__imageBox img {
+      border-radius: 20px;
+    }
+
+    .common-imagetext__item:nth-of-type(2n) {
+      margin-top: 60px;
+    }
+
+    .common-imagetext__item:nth-of-type(2n) .common-imagetext__imageBox {
+      margin: 0;
+
+    }
+  }
+</style>
+
+{% style %}
+.common-imagetext-{{section.id}} {
+background-color:{{ section.settings.backcolor }};
+padding-top: {{section.settings.pcmt}}px;
+padding-bottom:{{section.settings.pcmb}}px;
+}
+
+@media screen and (max-width:768px) {
+.common-imagetext-{{section.id}} {
+padding-top: {{section.settings.spmt}}px;
+padding-bottom:{{section.settings.spmb}}px;
+}
+}
+{% endstyle %}
+
+
+
+
+
+
+{% comment %} ここから下の
+<script>にJSをかく {% endcomment %}
+
+  <script>
+
+</script>
+
+{% schema %}
+{
+"name": "テキスト＋画像",
+"tag": "section",
+"class": "common-imagetext",
+"settings": [
+{
+"type": "color",
+"id":"backcolor",
+"label":"背景色",
+"default":"#F8F6F3"
+},
+{
+"type":"range",
+"id": "pcmt",
+"label": "上の余白",
+"default":100,
+"max": 500 ,
+"min": 0,
+"step": 10,
+"unit": "px"
+},
+{
+"type":"range",
+"id": "pcmb",
+"label": "下の余白",
+"default":100,
+"max": 500 ,
+"min": 0,
+"step": 10,
+"unit": "px"
+},
+{
+"type":"range",
+"id": "spmt",
+"label": "スマホ上の余白",
+"default":60,
+"max": 500 ,
+"min": 0,
+"step": 10,
+"unit": "px"
+},
+{
+"type":"range",
+"id": "spmb",
+"label": "スマホ下の余白",
+"default":60,
+"max": 500 ,
+"min": 0,
+"step": 10,
+"unit": "px"
+}
+
+
+],
+"blocks": [
+{
+"type": "text",
+"name": "カスタム",
+"settings": [
+{
+"type":"image_picker",
+"id": "image",
+"label": "画像"
+},
+{
+"type": "textarea",
+"id":"title",
+"label": "タイトル"
+},
+{
+"type": "number",
+"id":"font_size",
+"label": "タイトル　フォントサイズ（PC）",
+"default": 24
+},
+{
+"type": "number",
+"id":"font_size_sp",
+"label": "タイトル　フォントサイズ（スマホ）",
+"default": 24
+},
+
+
+{
+"type": "textarea",
+"id":"text",
+"label": "テキスト"
+}
+]
+}
+],
+"presets":[
+{
+"name":"テキスト＋画像"
+}
+]
+}
+{% endschema %}

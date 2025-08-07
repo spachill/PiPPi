@@ -1,0 +1,179 @@
+{% comment %} ここから下にHTMLをかく
+セクションで囲まれていてクラス名はschemaに記載 {% endcomment %}
+
+<div class="page__inner inner">
+    <h2 class="common-secondary-title">{{ section.settings.title }}</h2>
+    <span class="common-secondary-subtitle">{{ section.settings.subtitle }}</span>
+
+    <div class="page__message__image">
+        <img src="{{section.settings.image | image_url: width: 1200 }}" alt="{{ image.alt }}"
+        loading="lazy"
+        width="{{image.width}}"
+         height="{{image.height}}" class="page__message__img">
+    </div>
+    <div class="page__message__text">{{section.settings.text | newline_to_br}}
+</div>
+
+
+
+
+{% comment %} ここから下の<style>にCSSをかく {% endcomment %}
+
+<style>
+.page__message__image {
+    width: 325px;
+    height: 325px;
+    aspect-ratio: 1/1;
+    margin-top: 60px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.page__message__img  {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: left 50% bottom 30%;
+}
+.page__message__text  {
+    margin-top: 60px;
+    margin-bottom: 60px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.page__message__text p {
+    text-align: center !important;
+}
+.page__message__text p strong{
+color: #C49292;
+position: relative;
+}
+.page__message__text p strong::before{
+position: absolute;
+top: 0%;
+left: 0;
+display: block;
+content: "";
+width: 100%;
+height: 70%;
+background-color: #F9EFEF;
+z-index: -1;
+}
+</style>
+
+{% style %}
+.page__message {
+   background-color:{{ section.settings.backcolor }};
+  padding-top: {{section.settings.pcmt}}px;
+  padding-bottom:{{section.settings.pcmb}}px;
+}
+  @media screen and (max-width:768px) {
+.page__message {
+    padding-top: {{section.settings.spmt}}px;
+    padding-bottom:{{section.settings.spmb}} px;
+}
+}
+{% endstyle %}
+
+
+{% comment %} ここから下の<script>にJSをかく {% endcomment %}
+
+<script>
+
+</script>
+
+{% schema %}
+  {
+    "name": "メッセージ",
+  "tag": "section",
+  "class": "page__message",
+  "settings": [
+    {
+    "type": "text",
+    "id":"title",
+    "label":"タイトル",
+    "default": "MESSAGE"
+    },
+    {
+    "type": "text",
+    "id":"subtitle",
+    "label":"サブタイトル",
+    "default": "代表からのメッセージ"
+    },
+    {
+    "type": "image_picker",
+    "id":"image",
+    "label":"image"
+    },
+    {
+    "type": "richtext",
+    "id":"text",
+    "label":"text"
+    },
+    {
+    "type": "color",
+    "id":"backcolor",
+    "label":"背景色"
+    },
+    {
+      "type":"range",
+      "id": "pcmt",
+      "label": "上の余白",
+      "default":0,
+      "max": 500 ,
+      "min": 0,
+      "step": 10,
+      "unit": "px"
+    },
+    {
+      "type":"range",
+      "id": "pcmb",
+      "label": "下の余白",
+      "default":0,
+      "max": 500 ,
+      "min": 0,
+      "step": 10,
+      "unit": "px"
+    },
+    {
+      "type":"range",
+      "id": "spmt",
+      "label": "スマホ上の余白",
+      "default":0,
+      "max": 500 ,
+      "min": 0,
+      "step": 10,
+      "unit": "px"
+    },
+    {
+      "type":"range",
+      "id": "spmb",
+      "label": "スマホ下の余白",
+      "default":0,
+      "max": 500 ,
+      "min": 0,
+      "step": 10,
+      "unit": "px"
+    }
+
+],
+ "blocks": [
+    {
+      "type": "link",
+      "name": "カスタム",
+      "settings": [
+        {
+          "type": "text",
+          "id": "custom",
+          "label": "タイトル"
+        }
+      ]
+    }
+  ],
+"presets":[
+  {
+    "name":"メッセージ"
+  }
+]
+  }
+{% endschema %}

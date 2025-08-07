@@ -1,0 +1,156 @@
+<div class="custom-category-fv__inner">
+    <div class="custom-category-fv__title-wrapper">
+        <h1 class="custom-category-fv__title">
+            {{ collection.title }}
+        </h1>
+        <span class="custom-category-fv__en-title">
+            {{ collection.handle | replace: '_', ' ' }}
+        </span>
+    </div>
+</div>
+
+<style>
+    .custom-category-fv {
+        height: 500px;
+    }
+
+
+    .custom-category-fv__inner {
+        padding: 0 30px;
+        width: 100%;
+        height: 100%;
+        max-width: 1220px;
+        margin: 0 auto;
+        display: flex;
+        align-items: flex-end;
+        justify-content: flex-end;
+    }
+
+    .custom-category-fv__title {
+        font-size: 22px;
+        color: #fff;
+        margin: 0;
+    font-family: 'Noto Sans JP', sans-serif;
+
+    }
+
+    .custom-category-fv__en-title {
+        display: block;
+        font-family: Noto Sans JP;
+        font-size: 75px;
+        letter-spacing: 0.2em;
+        color: #fff;
+        line-height: 1;
+
+    }
+
+    @media screen and (max-width: 768px) {
+        .custom-category-fv__en-title {
+            font-size: 44px;
+            margin-top: 4px;
+        }
+
+        .custom-category-fv__title {
+            font-size: 16px;
+        }
+
+        
+    }
+
+
+
+</style>
+
+{% style %}
+.custom-category-fv {
+    background: url(    {{ section.settings.back_image_pc | image_url }}) no-repeat center center /cover;
+    padding-top: {{section.settings.pcmt}}px;
+    padding-bottom:{{section.settings.pcmb}}px;
+}
+
+@media screen and (max-width:768px) {
+.custom-category-fv {
+    padding-top: {{section.settings.spmt}}px;
+    padding-bottom:{{section.settings.spmb}}px;
+    background: url(    {{ section.settings.back_image_sp | image_url }}) no-repeat center center /cover;
+}
+}
+{% endstyle %}
+    
+    
+    
+<script>
+
+</script>
+
+{% schema %}
+{
+    "name": "カテゴリーページ用FV",
+    "tag": "section",
+    "class": "custom-category-fv",
+    "settings": [
+    {
+        "type": "image_picker",
+        "id":"back_image_pc",
+        "label":"PC背景画像"
+    },
+    {
+        "type": "image_picker",
+        "id":"back_image_sp",
+        "label":"スマホ背景画像"
+    },
+
+    {
+        "type":"range",
+        "id": "pcmt",
+        "label": "上の余白",
+        "default":0,
+        "max": 500 ,
+        "min": 0,
+        "step": 10,
+        "unit": "px"
+    },
+    {
+        "type":"range",
+        "id": "pcmb",
+        "label": "下の余白",
+        "default":60,
+        "max": 500 ,
+        "min": 0,
+        "step": 10,
+        "unit": "px"
+    },
+    {
+        "type":"range",
+        "id": "spmt",
+        "label": "スマホ上の余白",
+        "default":0,
+        "max": 500 ,
+        "min": 0,
+        "step": 10,
+        "unit": "px"
+    },
+    {
+        "type":"range",
+        "id": "spmb",
+        "label": "スマホ下の余白",
+        "default":30,
+        "max": 500 ,
+        "min": 0,
+        "step": 10,
+        "unit": "px"
+    }
+       ],
+    "blocks": [
+    {
+        "type": "block",
+        "name": "ブロック",
+        "settings": [
+        ]
+    }
+    ],
+    "presets":[
+    {
+        "name":"カテゴリーページ用FV"
+    }]}
+{% endschema %}

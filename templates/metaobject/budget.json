@@ -1,0 +1,39 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "faq_title_iVCPK8": {
+      "type": "faq__title",
+      "settings": {
+        "subtitle": "予算から探す",
+        "title": "Budget",
+        "backcolor": "",
+        "pcmt": 100,
+        "pcmb": 30,
+        "spmt": 60,
+        "spmb": 30
+      }
+    },
+    "custom_budget_qD63NJ": {
+      "type": "custom__budget",
+      "settings": {
+        "backcolor": "",
+        "pcmt": 0,
+        "pcmb": 60,
+        "spmt": 0,
+        "spmb": 60
+      }
+    }
+  },
+  "order": [
+    "faq_title_iVCPK8",
+    "custom_budget_qD63NJ"
+  ]
+}

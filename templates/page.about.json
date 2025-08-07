@@ -1,0 +1,95 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "table_XXrkYd": {
+      "type": "table",
+      "blocks": {
+        "link_xBnA7n": {
+          "type": "link",
+          "settings": {
+            "title": "商号",
+            "text": "株式会社PiPPi De Happy Company"
+          }
+        },
+        "link_8pifNj": {
+          "type": "link",
+          "settings": {
+            "title": "創業",
+            "text": "2023年10月18日"
+          }
+        },
+        "link_G4XMVV": {
+          "type": "link",
+          "settings": {
+            "title": "所在地",
+            "text": "〒569-1131<br>大阪府 高槻市郡家本町51-12"
+          }
+        },
+        "link_RgqwHk": {
+          "type": "link",
+          "settings": {
+            "title": "代表",
+            "text": "代表取締役社長　あまの つるみ"
+          }
+        },
+        "link_zGEj6r": {
+          "type": "link",
+          "settings": {
+            "title": "事業内容",
+            "text": "WEBショップでの販売"
+          }
+        }
+      },
+      "block_order": [
+        "link_xBnA7n",
+        "link_8pifNj",
+        "link_G4XMVV",
+        "link_RgqwHk",
+        "link_zGEj6r"
+      ],
+      "settings": {
+        "title": "About us",
+        "subtitle": "私たちについて",
+        "backcolor": "",
+        "pcmt": 0,
+        "pcmb": 0,
+        "spmt": 0,
+        "spmb": 0
+      }
+    },
+    "page_message_aqM9Ph": {
+      "type": "page-message",
+      "settings": {
+        "title": "MESSAGE",
+        "subtitle": "代表からのメッセージ",
+        "image": "shopify://shop_images/S__49569803.jpg",
+        "text": "<p>はじめまして。</p><p>PiPPi De Happy Company代表の尼野つるみと申します。</p><p>Web shop</p><p><strong>「Happy Reborn」</strong></p><p>幸せに生まれ変わる。</p><p><strong>作り手の想いが伝わるWEBショップ</strong></p><p>お客様に</p><p>作り手の想いを伝え、お使い頂く商品から作り手の想いや笑顔を感じることで、お客様が使うたびに、幸せな気持ちで</p><p>愛用していただけるような、そんなWEBショップを目指しています。</p><p><strong>「ピッピでハッピー！」</strong>を合言葉に、、、</p><p>お客様にオシャレを楽しむ幸せを感じてほしい。その想いでこだわりを持って運営をしてまいりました。その中でたくさんの「ありがとう」をお客様から頂き、それをパワーにしてやってきました。</p><p></p><p>人生の時間は毎日、無意識に過ぎていってしまいがちです。でも、毎日無意識に使うのではなく、ちゃんと作った人の愛を感じながら過ごせたらなんて幸せなんだろう。</p><p>そんな想いから、<strong>作り手の愛を伝えるWebショップ</strong>を作ることに決めました。</p><p>このコンセプトに賛同してくださるものづくりの方々と繋がっていきたいと思っています。</p><p>コツコツですが、賛同してくださる皆さんと協力しながら作っていけたら幸せです。どうぞよろしくお願い致します。</p>",
+        "backcolor": "",
+        "pcmt": 0,
+        "pcmb": 100,
+        "spmt": 0,
+        "spmb": 100
+      }
+    }
+  },
+  "order": [
+    "main",
+    "table_XXrkYd",
+    "page_message_aqM9Ph"
+  ]
+}

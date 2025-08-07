@@ -1,0 +1,276 @@
+<div class="custom-store-info__inner">
+    <h1 class="custom-store-info__title">
+        {{ section.settings.title }}
+    </h1>
+    <span class="custom-store-info__subtitle">
+        {{ section.settings.subtitle }}
+    </span>
+
+          <div class="custom-store-info__image-wrapper">
+            {% for block in section.blocks %}
+            <div class="custom-store-info__image">
+                <img src="{{ block.settings.image | image_url: width:328 }}" alt="{{block.settings.alt}}">
+            </div>
+            {% endfor %}
+          </div>
+
+          <h2 class="custom-store-info__name">
+            {{ section.settings.shop_name }}
+          </h2>
+          <div class="custom-store-info__info">
+            <div class="custom-store-info__info-container">
+            <p class="custom-store-info__info-message">
+                {{ section.settings.message |newline_to_br}}
+            </p>
+            <p class="custom-store-info__info-number">
+                {{ section.settings.number |newline_to_br }}
+            </p>
+            <p class="custom-store-info__info-address">
+                {{ section.settings.open | newline_to_br }}
+            </p>
+        </div>
+          </div>
+</div>
+
+<style>
+    .custom-store-info__inner {
+        width: 100%;
+        max-width: 1060px;
+        padding: 0 30px;
+        margin: 0 auto;
+    }
+
+    .custom-store-info__title {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 35px;
+    font-weight: 500;
+    line-height: calc(50 / 35);
+    letter-spacing: 0.2em;
+    color: #7D6241;
+    text-align: center;
+    margin: 0;
+    }
+
+    .custom-store-info__subtitle {
+        text-align: center;
+        display: block;
+        font-size: 24px;
+        font-family: Noto Sans JP;
+        margin-top: 10px;
+    }
+
+    .custom-store-info__image-wrapper {
+        margin-top: 35px;
+        display: flex;
+        gap: 14px;
+    }
+
+    .custom-store-info__image img {
+        display: block;
+        width: 100%;
+        height: auto;
+        aspect-ratio: 327 / 322;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+
+    .custom-store-info__name {
+        text-align: center;
+        margin-top: 60px;
+        margin-bottom: 0;
+        font-size: 24px;
+        font-weight: 500;
+        letter-spacing: 0.2em;
+        color: #7D6241;
+        font-family: 'Noto Sans JP', sans-serif;
+        line-height: calc(55 / 24);
+
+    }
+
+    .custom-store-info__info {
+        max-width: 950px;
+        margin: 15px auto 0;
+        text-align: center;
+        background-color: #fff;
+        padding: 36px;
+        border-radius: 20px;
+        border: 3px solid #C9A87D;
+        line-height: calc(30 / 17);
+    }
+
+    .custom-store-info__info-message {
+        margin: 0;
+        font-size: 17px;
+        
+    }
+
+    .custom-store-info__info-number {
+        margin: 20px 0 0 0;
+        font-weight: 700;
+        line-height: calc(30 / 17);
+        
+    }
+
+    .custom-store-info__info-number a {
+        text-decoration: none;
+        color: #7D6241;
+
+    }
+
+    .custom-store-info__info-address {
+        margin: 25px 0 0 0;
+        font-size: 17px;
+    }
+
+    @media screen and (max-width: 768px) {
+        .custom-store-info__inner {
+            padding: 0 20px;
+        }
+        
+        .custom-store-info__title {
+            font-size: 28px;
+        }
+
+        .custom-store-info__subtitle {
+            font-size: 20px;
+            line-height: 1;
+        }
+
+        .custom-store-info__name {
+            font-size: 20px;
+        }
+        .custom-store-info__info {
+            padding: 24px;
+        }
+
+        .custom-store-info__info-message, .custom-store-info__info-address {
+            font-size: 15px;
+        }
+
+    }
+
+
+
+</style>
+
+{% style %}
+.custom-store-info {
+    background-color:{{ section.settings.backcolor }};
+    padding-top: {{section.settings.pcmt}}px;
+    padding-bottom:{{section.settings.pcmb}}px;
+}
+
+@media screen and (max-width:768px) {
+.custom-store-info {
+    padding-top: {{section.settings.spmt}}px;
+    padding-bottom:{{section.settings.spmb}}px;
+}
+}
+{% endstyle %}
+    
+    
+    
+<script>
+
+</script>
+
+{% schema %}
+{
+    "name": "店舗情報",
+    "tag": "section",
+    "class": "custom-store-info",
+    "settings": [
+    {
+        "type": "color",
+        "id":"backcolor",
+        "label":"背景色"
+    },
+    {
+        "type":"range",
+        "id": "pcmt",
+        "label": "上の余白",
+        "default":60,
+        "max": 500 ,
+        "min": 0,
+        "step": 10,
+        "unit": "px"
+    },
+    {
+        "type":"range",
+        "id": "pcmb",
+        "label": "下の余白",
+        "default":60,
+        "max": 500 ,
+        "min": 0,
+        "step": 10,
+        "unit": "px"
+    },
+    {
+        "type":"range",
+        "id": "spmt",
+        "label": "スマホ上の余白",
+        "default":60,
+        "max": 500 ,
+        "min": 0,
+        "step": 10,
+        "unit": "px"
+    },
+    {
+        "type":"range",
+        "id": "spmb",
+        "label": "スマホ下の余白",
+        "default":60,
+        "max": 500 ,
+        "min": 0,
+        "step": 10,
+        "unit": "px"
+    },
+    {
+        "type": "text",
+        "id": "title",
+        "label": "タイトル"
+      },
+      {
+        "type": "text",
+        "id": "subtitle",
+        "label": "サブタイトル"
+      },
+      {
+          "type": "text",
+          "id": "shop_name",
+          "label": "店舗名"
+        },
+        {
+            "type": "textarea",
+            "id": "message",
+            "label": "店舗情報　メッセージ"
+          },
+          {
+            "type": "textarea",
+            "id": "number",
+            "label": "店舗情報　TEL FAX"
+          },
+          {
+            "type": "textarea",
+            "id": "open",
+            "label": "店舗情報　住所　営業時間"
+          }
+    ],
+    "blocks": [
+    {
+        "type": "block",
+        "name": "画像",
+        "settings": [
+        {
+            "type":"image_picker",
+            "id": "image",
+            "label": "画像"
+        }
+        ]
+    }
+    ],
+    "presets":[
+    {
+        "name":"店舗情報"
+    }]}
+{% endschema %}

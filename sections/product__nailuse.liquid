@@ -1,0 +1,124 @@
+{% comment %} ここから下にHTMLをかく
+セクションで囲まれていてクラス名はschemaに記載 {% endcomment %}
+
+{% if product.metafields.custom._fuunail_use != blank %}
+
+<div class="product__discription__{{section.id}}">
+  <h2 class="product__description common-secondary-title">{{ section.settings.title }}</h2>
+  <span class="product__description__subtitle common-secondary-subtitle">{{ section.settings.subtitle }}</span>
+  <div class="product__description__inner inner">
+    <div class="product__description__content">
+      {{ product.metafields.custom._fuunail_use.value.content}}
+    </div>
+  </div>
+</div>
+{% endif %}
+
+{% comment %} ここから下の<style>にCSSをかく {% endcomment %}
+
+<style>
+  .product__description__inner {
+    margin: 0 auto;
+    max-width: 800px;
+  }
+  .product__description__content {
+    margin-top: 3rem;
+    /* background-color: #fbf5f1; */
+    padding: 2rem;
+    border-radius: 20px;
+  }
+</style>
+
+{% style %}
+  .product__discription {
+    background-color: {{ section.settings.backcolor }};
+    margin-top: {{ section.settings.pcmt }}px;
+    margin-bottom: {{ section.settings.pcmb }}px;
+  }
+  @media screen and (max-width: 768px) {
+    .product__discription {
+      margin-top: {{ section.settings.spmt }}px;
+      margin-bottom: {{ section.settings.spmb }}px;
+    }
+  }
+{% endstyle %}
+
+
+{% comment %} ここから下の<script>にJSをかく {% endcomment %}
+
+<script></script>
+
+{% schema %}
+  {
+    "name": "fuu-nailの使用方法",
+    "tag": "section",
+    "class": "product__discription",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "英語",
+        "default": "fuu.nail-size"
+      },
+      {
+        "type": "text",
+        "id": "subtitle",
+        "label": "日本語",
+        "default": "fuu-nailの使用方法"
+      },
+      {
+        "type": "color",
+        "id": "backcolor",
+        "label": "背景色"
+      },
+      {
+        "type": "range",
+        "id": "pcmt",
+        "label": "上のマージン",
+        "default": 60,
+        "max": 500,
+        "min": 0,
+        "step": 10,
+        "unit": "px"
+      }, {
+        "type": "range",
+        "id": "pcmb",
+        "label": "下のマージン",
+        "default": 60,
+        "max": 500,
+        "min": 0,
+        "step": 10,
+        "unit": "px"
+      }, {
+        "type": "range",
+        "id": "spmt",
+        "label": "スマホ上のマージン",
+        "default": 60,
+        "max": 500,
+        "min": 0,
+        "step": 10,
+        "unit": "px"
+      }, {
+        "type": "range",
+        "id": "spmb",
+        "label": "スマホ下のマージン",
+        "default": 60,
+        "max": 500,
+        "min": 0,
+        "step": 10,
+        "unit": "px"
+      }, {
+        "type": "page",
+        "id": "page",
+        "label": "ページ"
+
+      }
+
+    ],
+    "presets": [
+      {
+        "name": "fuu-nailの使用方法"
+      }
+    ]
+  }
+{% endschema %}

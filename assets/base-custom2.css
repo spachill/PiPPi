@@ -1,0 +1,1247 @@
+/*==================================================
+# 共通==================================================*/
+body {
+    font-family: Noto Sans JP;
+    font-size: 16px;
+    letter-spacing: 0.1em;
+    line-height: calc(23 / 16);
+    color: #7D6241;
+  
+  }
+
+  @media screen and (max-width: 768px) {
+    body {
+        font-size: 15px;
+    }
+  }
+
+
+
+  /* 共通クラス */
+  .ff-noto {
+    font-family: Noto Sans JP!important;
+}
+
+.ta-center {
+    text-align: center;
+}
+
+
+.sp-only {
+    display: none;
+}
+
+@media screen and (max-width: 768px) {
+    .pc-only {
+        display: none;
+    
+    }
+
+    .sp-only {
+        display: block;
+    }
+    
+}
+
+/* 共通見出し */
+.common-secondary-title {
+    text-align: center;
+    margin: 0;
+    font-size: 48px;
+    font-weight: 500;
+    letter-spacing: 0em;
+    color: #BAAB9B;
+    font-family: Noto Sans JP;
+    line-height: calc(34 / 24);
+
+}
+
+.common-secondary-subtitle {
+    text-align: center;
+    display: block;
+    font-size: 16px;
+    font-family: Noto Sans JP;
+    margin-top: 8px;
+    line-height: calc(29 / 24);
+    color: #BAAB9B;
+
+
+}
+
+@media screen and (max-width: 768px) {
+    .common-secondary-title {
+        font-size: 32px;
+        margin-bottom: 3px !important;
+    }
+    .common-secondary-subtitle {
+        font-size: 16px;
+    }
+    
+
+    .common-secondary-subtitle {
+        margin-top: 0;
+    }
+}
+
+/* お知らせアイテム */
+
+  
+  .common-news-list {
+    padding-left: 0;
+    margin: 30px 0 0 0;
+  }
+  .common-news-item {
+    list-style: none;
+  }
+
+  .common-news-link {
+    text-decoration: none;
+  color: #7D6241;
+  }
+  .common-news-link:hover {
+ opacity: 0.7;
+  }
+  .common-news-content {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    border-bottom:1px solid #EFE7DE ;
+    padding: 20px 0;
+  }
+
+  .common-news-meta {
+    display: flex;
+    gap: 30px;
+  }
+
+
+  .common-news-date {
+    font-family: Noto Sans JP;
+font-size: 16px;
+font-weight: 500;
+line-height: 25px;
+text-align: left;
+
+  }
+  .common-news-info {
+    font-family: Noto Sans JP;
+font-size: 12px;
+font-weight: normal;
+line-height: 25px;
+letter-spacing: 0.1em;
+text-align: left;
+background-color: #C9A87D;
+color: #fff;
+border-radius: 30px;
+padding: 0 10px;
+min-width: 74px;
+
+
+  }
+  .common-news-title {
+    margin-bottom: 0;
+    margin-top: 0;
+    color: #523921;
+    font-family: Noto Sans JP;
+font-size: 16px;
+font-weight: normal;
+line-height: 25px;
+letter-spacing: 0.2em;
+text-align: left;
+
+  }
+
+  @media screen and (max-width: 768px) {
+    .common-news-list {
+        margin-top: 0px;
+    }
+    .common-news-content {
+        gap: 8px;
+        padding: 2rem 1rem;
+        flex-direction: column;
+        align-items: baseline;
+
+
+    }
+
+    .common-news-meta {
+        flex-direction: column-reverse;
+        gap: 4px;
+        align-items: center;
+    }
+
+
+    
+  }
+
+
+
+
+  /* カテゴリーリンク */
+  .common-link-list {
+    padding-left: 0;
+    margin: 30px 0 0 0;
+    display: grid;
+grid-template-columns: repeat(auto-fit, minmax(320px,1fr));
+    gap: 24px 40px;
+
+  }
+
+  .common-link-list-l {
+    gap: 33px 20px;
+grid-template-columns: repeat(auto-fit, minmax(320px,1fr));
+
+  }
+
+  .common-link-item {
+    list-style: none;
+    border-radius: 10px;
+    overflow: hidden;
+
+
+
+  }
+
+  .common-link-item-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    text-decoration: none;
+    font-family: Noto Sans JP;
+font-size: 16px;
+height: 100px;
+font-weight: 400;
+line-height: 25px;
+letter-spacing: 0.2em;
+text-align: left;
+color: #7D6241;
+background-color: #fff;
+padding:  0 ;
+
+
+  }
+  .common-link-item__image {
+height: 93px;
+width: 93px;
+/* max-width: 93px;
+max-height: 93px; */
+object-fit: cover;
+aspect-ratio: 1/1;
+object-position: center;
+  }
+
+
+.common-link-item-link--bg-brown {
+    background-color: #F6EFE6ff;
+    border: #7D6241 1px solid;
+    
+    }
+    .custom__categ__item__link {
+        background-color: #fbf5f1;
+      }
+    @media screen and (max-width: 768px) {
+        .common-link-item__image {
+            height: 75px;
+            width: 75px;
+            /* max-width: 93px;
+            max-height: 93px; */
+            object-fit: cover;
+              }
+        .common-link-list {
+            grid-template-columns: repeat(auto-fit, minmax(320px,1fr));
+            gap: 10px 15px;
+
+        }
+
+        .common-link-list-l {
+            grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
+
+        }
+
+        .common-link-item-link {
+            font-size: 14px;
+            height: 75px;
+            /* padding: 6px 10px; */
+            /* max-width: 262px; */
+            margin: auto;
+    gap: 20px;
+
+        }
+
+
+    }
+
+
+
+
+
+
+/*==================================================
+# ヘッダー
+==================================================*/
+
+/* CTAボタン */
+.header__linkButton__link {
+    background-color: #C9A87D;
+    border-radius: 1000px;
+    padding: 8px 44px;
+    text-decoration: none;
+    color: #fff;
+    letter-spacing: 0.1em;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+
+}
+
+.header__linkButton__link::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 18px;
+    transform: translateY(-50%);
+    background: url(./right-arrow.svg) no-repeat center center /contain;
+    width: 7px;
+    height: 10px;
+}
+
+.header__linkButton__text {
+    font-size: 14px;
+    font-weight: 500;
+    line-height: calc(20 / 14);
+
+}
+
+.header__linkButton__number {
+    font-size: 22px;
+    font-weight: 500;
+    font-family: Noto Sans JP;
+    margin-top: 4px;
+    display: inline-block;
+    line-height: calc(26 / 22);
+    position: relative;
+}
+
+.header__linkButton__number::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -17px;
+    transform: translateY(-50%);
+    width: 15px;
+    height: 20px;
+    background: url(./icon-tel.svg) no-repeat center center /contain;
+}
+
+
+/* アイコン */
+#icon-size {
+    width: 28px;
+    height: 28px;
+  }
+
+  .header__icons {
+    align-items: center;
+    gap: 25px;
+  }
+  
+  .header__icon {
+    text-decoration: none;
+    gap: 8px;
+  }
+  
+  .header__icon--account {
+    width: 116px;
+  }
+  
+  .header__icon--cart {
+    width: 82px;
+  }
+  
+  .header__icon span {
+    font-size: 13px;
+  }
+  
+  .cart-count-bubble {
+    bottom: 2.5rem;
+  }
+
+  .header__icon span {
+    color: #7D6241;
+  }
+
+  /* メニュー */
+  .header__inline-menu {
+    text-align: center;
+  }
+
+  .list-menu--inline  {
+    gap: 16px;
+  }
+
+    .menu-drawer__menu-item {
+        color: #7D6241;
+    }
+
+
+  .header__menu-item span {
+    font-weight: 500;
+    color: #7D6241;
+
+  }
+.cart-count-bubble{
+  background-color:#fff;
+  border: 1px solid #333;
+}
+
+  @media screen and (max-width: 989px) {
+    .header__linkButton {
+        display: none;
+    }
+
+    .header__linkButton--drawer {
+        display: block;
+    }
+
+    
+    
+  }
+
+  @media screen and (max-width: 749px) {
+
+    .header__icons {
+        gap: 14px;
+    }
+    .header__icon--cart {
+        width: 30px;
+
+
+    }
+
+    #cart-icon-bubble .cart-count-bubble span {
+        display: block;
+    }
+    #cart-icon-bubble  span {
+        display: none;
+    }
+  }
+
+  /*==================================================
+  # 商品ページ
+  ==================================================*/
+  /* タグ表示 */
+  .card__product__tag--bg-white {
+    color: #C9A87D;
+    border: 1px solid #C9A87D;
+    background-color: #fff;
+  }
+
+/* タイトル */
+.product__title h1 {
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    font-family: Noto Sans JP;
+    color: #7D6241;
+}
+
+/* 文字色 */
+.price-item, .product__tax, .product__description, .shopify-payment-button__more-options {
+    color: #7D6241;
+}
+
+/* 塩分表示 */
+.product__description {
+    margin-bottom: 16px;
+}
+
+.product__tag {
+    border: 1px solid #C9A87D;
+    border-radius: 100px;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: calc(20 / 14);
+    letter-spacing: 0.15em;
+    padding: 4px 16px;
+    color: #7D6241;
+
+}
+
+/* 数量 */
+.product-form__quantity {
+    margin-top: 14px!important;
+}
+
+.quantity__input, .quantity__button {
+    color: #7D6241;
+}
+
+
+.quantity::after {
+    border-color: #C9A87D;
+}
+
+/* カートに追加ボタン */
+.product-form__submit {
+    background-color: #C9A87D;
+    color: #fff;
+    font-weight: 700;
+
+}
+
+.product-form__submit::after {
+    box-shadow: none;
+}
+
+/* 別の支払い方法 */
+.shopify-payment-button__more-options {
+    color: #7D6241!important;
+    text-decoration: none!important;
+}
+
+/* 関連商品 */
+.related-products .product-grid {
+    margin-top: 50px;
+}
+
+/* オプション */
+
+
+.line-item-property__field__label {
+    font-size: 14px;
+    color: #7D6241;
+    line-height: calc(30 / 14);
+}
+
+.line-item-property__field__select-wrapper, .line-item-property__field__input {
+    margin-top: 6px;
+}
+
+.line-item-property__field__select {
+    padding: 12px 84px 12px 62px;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: calc(26 / 18);
+    border-radius: 5px;
+    border-color: #C9A87D;
+    color: #7D6241;
+    -webkit-appearance: none;
+  appearance: none; 
+}
+@media screen and (max-width:768px) { 
+    .line-item-property__field__select {
+        padding: 12px 64px 12px 42px;
+    }
+}
+
+.line-item-property__field__select-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.line-item-property__field__select-wrapper::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 36px;
+    transform: translateY(-50%);
+    width: 8px;
+    height: 6px;
+    background: url(./select-arrow.svg) no-repeat center center /contain;
+
+}
+
+.line-item-property__field + .line-item-property__field {
+    margin-top: 6px;
+}
+
+.line-item-property__field--column {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.line-item-property__field__input {
+    border: none;
+    background-color:#F7EDE2;
+    padding: 12px 26px;
+    font-size: 18px;
+    color: #7D6241;
+    line-height: calc(26 / 18);
+    border-radius: 5px;
+}
+
+.price-per-item__container {
+    margin-top: 20px;
+}
+
+
+
+
+/*==================================================
+# フッター
+==================================================*/
+
+
+.footer__content-bottom {
+    padding-bottom: 20px;
+}
+.footer__content-bottom-wrapper {
+    justify-content: center;
+}
+
+.copyright__content {
+    font-size: 12px;
+    font-family: Noto Sans JP;
+}
+
+.footer-block__heading  {
+    font-family: Noto Sans JP;
+    font-size: 20px;
+}
+
+/*==================================================
+# 記事詳細
+==================================================*/
+
+.article-template-wrapper {
+    background-color: #F8F6F3;
+    padding: 50px 0 76px;
+}
+
+.article-template-wrapper__inner {
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 0 30px;
+
+}
+
+.article-template {
+    padding: 60px 46px 76px;
+    background-color: #fff;
+    border-radius: 20px;
+    
+}
+
+.article-template__container, .article-template__container header {
+    margin-top: 0!important;
+
+}
+
+.article-template__container header {
+    margin-bottom: 40px!important;
+
+}
+
+.article-template__title {
+    font-family: Noto Sans JP;
+    font-weight: 500;
+    font-size: 28px;
+    line-height: calc(40 / 28);
+    letter-spacing: 0.15em;
+    color: #7D6241;
+    
+}
+
+.article-template__back {
+    font-size: 13px;
+}
+
+
+
+.article-template__hero-container .media, .custom-article-recipe__main-image {
+border-radius: 20px;
+    aspect-ratio: 692 / 462;
+    object-fit: cover;
+    height: auto;
+    width: 100%;
+}
+
+.article-template__content h2, .article-template__content h3, .article-template__content h4, .article-template__content h5 {
+    font-family: Noto Sans JP;
+    font-weight: 500;
+    color: #7D6241;
+    border-bottom: 3px solid #BF945D;
+    padding-bottom: 10px;
+    margin-bottom: 28px;
+}
+
+.article-template__content p {
+    margin-bottom: 30px;
+    border-radius: 20px;
+}
+
+.article-template__back a {
+    text-decoration: none;
+    color: #7D6241;
+}
+
+.article-template__back a span {
+    font-weight: 500;
+    font-size: 13px;
+
+}
+
+.article-template__button {
+    margin-top: 50px;
+}
+
+@media screen and (max-width: 768px) {
+    .article-template-wrapper__inner {
+        padding: 0 20px;
+    }
+
+    .article-template {
+        padding: 40px 20px;
+    }
+
+    .article-template__title {
+        font-size: 24px;
+    }
+
+    .article-template__container header {
+        margin-bottom: 30px!important;
+    }
+}
+    
+
+/*==================================================
+# お問い合わせフォーム
+==================================================*/
+
+.contact {
+    background-color: #E9DCCB;
+}
+
+.contact__inner {
+    width: 100%;
+    max-width: 1010px;
+    padding: 0 30px;
+    margin: 0 auto;
+    
+
+}
+
+.contact__container {
+    padding: 58px 30px 74px;
+    border-radius: 20px;
+    background-color: #fff;
+    
+    
+}
+
+.contact__contents {
+    text-align: center;
+    max-width: 690px;
+    margin: 0 auto;
+}
+
+.contact__phone-text {
+    margin: 0;
+}
+
+.contact__phone-text, .contact__mail-heading, .contact__mail-text {
+    font-size: 17px;
+    line-height: calc(30 / 17);
+    margin-bottom: 0;
+}
+
+.contact__icon--phone {
+    margin-top: 14px;
+}
+
+.contact__icon--mail {
+    padding-top: 44px;
+    border-top: 1px solid #C9A87D;
+
+}
+.contact__mail-heading {
+    margin-top: 8px;
+}
+
+.contact__mail-text {
+    margin-top: 20px;
+}
+.contact__phone_number {
+    font-weight: 700;
+    font-size: 25px;
+    line-height: calc(45 / 25);
+    margin: 8px 0 0 0;
+    padding-bottom: 42px;
+    color: #7D6241;
+    display: inline-block;
+    transition: all 0.3s ease 0s;
+    text-decoration: none;
+}
+
+.contact__phone_number:hover {
+    opacity: 0.7;
+}
+
+
+
+.contact__mail-sbu-text {
+    font-size: 14px;
+    line-height: calc(30 / 14);
+    margin-top: 20px;
+}
+
+.contact__mail-address {
+    font-weight: 700;
+    font-size: 17px;
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease 0s;
+}
+
+.contact__mail-address:hover {
+    opacity: 0.7;
+}
+
+.contact-form-wrapper {
+    margin: 56px auto 0;
+    max-width: 610px;
+    padding: 0 30px;
+
+}
+
+.contact-form__input {
+    background-color: #F8F6F3;
+    border: 1px solid #C9A87D;
+    border-radius: 5px;
+    margin-top: 7px;
+}
+
+.contact-form__item + .contact-form__item {
+    margin-top: 14px;
+}
+
+.contact-form__label {
+    font-size: 15px;
+    line-height: calc(30 / 15);
+}
+
+.contact-form__label a {
+    color: inherit;
+}
+
+.contact-form__item .text-area {
+    min-height: 18rem;
+}
+
+.contact__button.custom__btnbox {
+    text-align: center;
+}
+.contact__button .custom__buttom {
+    display: inline-flex;
+    text-align: center;
+    justify-content:center ;
+    color: #FFF;
+    font-size: 16px;
+font-weight: 500;
+line-height: normal;
+padding: 16px 83px;
+background-color: #C9A87D;
+border-radius: 30px;
+text-decoration: none;
+}
+
+.contact__button .button::after {
+    box-shadow: none;
+}
+
+.contact__button span {
+    position: relative;
+}
+
+.contact__button span::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: -52px;
+    transform: translateY(-50%);
+    background: url(./right-arrow.svg) no-repeat center center /contain;
+    width: 7px;
+    height: 10px;
+}
+
+.contact-form__link {
+    text-decoration-color: #7D6241;
+    color: inherit;
+    
+}
+
+@media screen and (max-width: 768px) {
+    .contact__inner {
+        padding: 0 20px;
+    }
+
+    .contact__container {
+        padding: 30px 20px;
+    }
+
+    .contact-form-wrapper {
+        padding: 0;
+    }
+
+    .contact__phone-text, .contact__mail-heading, .contact__mail-text {
+        font-size: 15px;
+    }
+}
+
+/*==================================================
+# 商品カード
+==================================================*/
+.product-card-wrapper .card__information 
+, .product-card-wrapper .card__content {
+    padding-left: 0!important;
+    padding-right: 0!important;
+}
+
+
+.product-card-wrapper .card__media .media {
+    border-radius: 8px;
+}
+
+.product-card-wrapper .card {
+    border: none;
+
+}
+
+.product-card-wrapper .card__heading {
+    font-family: Noto Sans JP;
+    font-size: 16px;
+
+}
+
+@media screen and (max-width: 768px) {
+    .product-card-wrapper .card__information,
+    .product-card-wrapper .card__information .price {
+        text-align: center;
+        font-size: 15px;
+    }
+
+
+    .product-card-wrapper .card__heading {
+        font-size: 15px;
+    }
+
+    .product-card-wrapper .card__content {
+
+        padding-bottom: 0;
+    }
+
+    .card__product__tag {
+        margin-bottom: 4px;
+    }
+}
+
+/*==================================================
+# レシピ　カード
+==================================================*/
+.common-recipe-list {
+    padding-left: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px calc(25 / 1130 *100%);    
+
+}
+
+.common-recipe-item {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    width: calc(360 / 1130 * 100%);
+    height: 100%;
+
+}
+
+.common-recipe-item-link {
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0em;
+    color: #7D6241;
+    text-decoration: none;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    transition: all 0.3s;
+
+}
+
+.common-recipe-item-link:hover {
+    opacity: 0.7;
+}
+
+.common-recipe-item-link img {
+    width: 100%;
+    height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+  aspect-ratio: 243 / 162;
+
+}
+
+.common-recipe-item-content {
+    margin-top: 20px;
+
+}
+
+.common-article-tag {
+    font-size: 14px;
+    line-height: 21px;
+    letter-spacing: 0em;
+    text-align: center;
+    border-radius: 20px;
+    background-color:#C9A87D ;
+    color: #fff;
+    padding: 3px 10px;
+    margin-right: 20px;
+
+}
+
+.common-recipe-item-date {
+font-size: 14px;
+line-height: 20px;
+letter-spacing: 0.15em;
+}
+
+.common-recipe-item-title {
+    color: #7D6241;
+    font-family: Noto Sans JP;
+    font-size: 16px;
+
+}
+
+.common-recipe-item-text {
+    margin-top: 10px;
+    line-height: calc(25 / 14);
+    font-size: 14px;
+    letter-spacing: 0.15em;
+
+}
+
+@media screen and (max-width: 768px) {
+    .common-recipe-list {
+        flex-direction: column;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .common-recipe-item {
+        width: 100%;
+    }
+}
+
+/* ポリシー */
+.shopify-policy__container {
+    padding: 80px 0;
+    max-width: none;
+    background-color: #F8F6F3;
+    border-bottom: 3px solid #C9A87D;
+
+
+}
+  
+  .shopify-policy__title h1 {
+    color: #7D6241;
+    font-size: 32px;
+    line-height: 1.5;
+    letter-spacing: 0.2em;
+    margin: 0;
+    font-family: Noto Sans JP;
+
+  }
+  
+  .shopify-policy__body {
+    max-width: 1010px;
+    margin: 40px auto 0;
+    padding: 0 30px;
+    
+    
+    
+  }
+
+  .shopify-policy__body .rte {
+    max-width: 860px;
+    margin: 0 auto;
+background: #fff;
+padding: 60px 76px;
+border-radius: 20px;
+  }
+  
+  .shopify-policy__body p {
+    margin-bottom: 40px;
+  }
+  
+  .shopify-policy__body h2,
+  .shopify-policy__body h3 {
+    color: #7D6241;
+    letter-spacing: 0.2em;
+    margin-bottom: 20px;
+    font-family: Noto Sans JP;
+
+
+  }
+  
+  .shopify-policy__body h2 {
+    font-size: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #7D6241;
+  }
+  
+  .shopify-policy__body h3 {
+    font-size: 18px;
+    padding-left: 10px;
+    border-left: 2px solid #7D6241;
+  }
+  
+  .shopify-policy__title h1 {
+    font-size: 24px;
+  }
+
+  @media screen and (max-width: 768px) {
+    .shopify-policy__body {
+        padding: 0 20px;
+    }
+
+    .shopify-policy__body .rte {
+        padding: 30px;
+    }
+
+
+  }
+
+  /* ーーーーーカートボタンのカラー ---------*/
+  .cart-count-bubble {
+    background-color: #7D6241;
+  }
+  .cart-count-bubble .cart__custom__count{
+    color: #fff !important;
+  }
+
+
+  /* カートの空の時のボタン */
+  .custom__enpty__buttom {
+   background-color: #E8E8E8;
+   color: #7a7a7a;
+  }
+  @media screen and (max-width:768px) { 
+      #dokopoiCartBody {
+          text-align: center !important;
+          margin-bottom: 20px;
+        }
+    }
+  /*==================================================
+  # 商品一覧
+  ==================================================*/
+  /* 検索　文字カラー */
+  .facets__heading, .facets__summary-label, .facets__summary span, .facet-filters__label label, .facet-filters__sort ,.product-count__text {
+    color: #7D6241!important;
+  }
+
+
+
+  /* ーーーーーーーーーーー商品詳細部分ーーーーーーーーーーーーーーーーーー */
+
+  /* スタッフコメント */
+  .product__meta__staffcomment {
+    background-color: #F7F1ED !important;
+    padding: 20px;
+    border-radius: 10px;
+  }
+
+/* 購入部分 */
+  .product-form__buttons .product-form__submit{
+    background-color: #C49292 !important;
+  }
+  .product-form__buttons .shopify-payment-button__button.shopify-payment-button__button--unbranded{
+    background-color:#BBA79C !important;
+    --border-offset: none !important;
+  }
+  .product-form__buttons .shopify-payment-button__button.shopify-payment-button__button--unbranded::before{
+    border: none;
+  }
+
+  /* 商品のタイトル */
+   .product__title .custom__product__title {
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: .15em;
+    font-family: Noto Sans JP;
+    color: #7d6241;
+   }
+
+
+   /* ログインの英語の文言 */
+    .privacy-message {
+    display: none !important;
+    opacity: 0 !important;
+   }
+   .buttons-container {
+    max-width: 800px !important;
+    margin-left: auto;
+    margin-right: auto;
+   }
+
+   /* 税込表示 */
+   .tax-includ {
+    font-size: 1.25rem;
+   }
+
+   /* 商品ページ */
+   /* 会員登録の促すボタン */
+   .customer__box {
+    position: relative;
+}
+.customer__head {
+    background-color: #C96767;
+    color: #fff;
+    padding: 4px 5px;
+
+text-align: center;}
+.customer__bottom {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 5px;
+    background: #FFF2F2;
+
+}
+.customer__bottom__image {
+    width: 50px;
+}
+.customer__bottom__text {
+    color: #C96767;
+}
+.customer__click {
+    position: absolute;
+    right: 10%;
+    bottom: -20px;
+    transform: rotate(-40deg);
+    animation: click 3s infinite;
+    
+}
+
+    @keyframes click {
+        0%, 100% {
+          transform: translateY(0) rotate(-40deg);
+        }
+        50% {
+          transform: translateY(-10px) rotate(-40deg);
+        }
+      }
+    
+
+.customer__click__image {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+}
+
+.tax-include{
+    font-size: 0.9rem;
+}

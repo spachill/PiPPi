@@ -1,0 +1,171 @@
+{% comment %} ここから下にHTMLをかく
+セクションで囲まれていてクラス名はschemaに記載 {% endcomment %}
+
+<div class="header__submenu">
+  <ul class="header__submenu__items">
+    {% for block in section.blocks %}
+      <li class="header__submenu__item">
+        <a href="{{ block.settings.url}}" class="header__submenu__link">
+          <span class="header__submenu__en">{{ block.settings.texten }}</span>
+          <span class="header__submenu__ja">{{ block.settings.text }}</span>
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+</div>
+
+
+{% comment %} ここから下の<style>にCSSをかく {% endcomment %}
+
+<style>
+  .header__submenu {
+    display: none;
+  }
+
+  @media screen and (max-width: 768px) {
+    .header__submenu {
+      display: block;
+      position: relative;
+      background-color: #BBA79C;
+      margin-top: 0 !important;
+      margin-bottom: 0 !important;
+      padding-top: 0 !important;
+      padding-bottom: 0 !important;
+    }
+    .header__submenu__items {
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      margin-left: 0 !important;
+      padding-left: 0 !important;
+      margin-top: 0 !important;
+      margin-bottom: 0 !important;
+      padding-bottom: 0 !important;
+      height: 60px;
+
+    }
+    .header__submenu__item {
+        list-style: none;
+    }
+    .header__submenu__link {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+    }
+    .header__submenu__en,.header__submenu__ja {
+        font-family: Noto Sans JP;
+        color: #fff;
+
+    }
+    .header__submenu__en {
+font-size: 16px;
+    }
+    .header__submenu__ja {
+        font-size: 12px;
+
+    }
+
+}
+</style>
+
+{% style %}
+  .header__submenu {
+    background-color: {{ section.settings.backcolor }};
+    padding-top: {{ section.settings.pcmt }}px;
+    padding-bottom: {{ section.settings.pcmb }}px;
+  }
+  @media screen and (max-width: 768px) {
+    .header__submenu {
+      padding-top: {{ section.settings.spmt }}px;
+      padding-bottom: {{ section.settings.spmb }}px;
+    }
+  }
+{% endstyle %}
+
+
+{% comment %} ここから下の<script>にJSをかく {% endcomment %}
+
+<script></script>
+
+{% schema %}
+  {
+    "name": "ヘッダーのスマホサブメニュー",
+    "tag": "section",
+    "class": "header__submenu",
+    "settings": [
+      {
+        "type": "color",
+        "id": "backcolor",
+        "label": "背景色"
+      },
+      {
+        "type": "range",
+        "id": "pcmt",
+        "label": "上のマージン",
+        "default": 0,
+        "max": 500,
+        "min": 0,
+        "step": 10,
+        "unit": "px"
+      },
+      {
+        "type": "range",
+        "id": "pcmb",
+        "label": "下のマージン",
+        "default": 0,
+        "max": 500,
+        "min": 0,
+        "step": 10,
+        "unit": "px"
+      },
+      {
+        "type": "range",
+        "id": "spmt",
+        "label": "スマホ上のマージン",
+        "default": 0,
+        "max": 500,
+        "min": 0,
+        "step": 10,
+        "unit": "px"
+      }, {
+        "type": "range",
+        "id": "spmb",
+        "label": "スマホ下のマージン",
+        "default": 0,
+        "max": 500,
+        "min": 0,
+        "step": 10,
+        "unit": "px"
+      }
+
+    ],
+    "blocks": [
+      {
+        "type": "link",
+        "name": "カスタム",
+        "settings": [
+          {
+            "type": "url",
+            "id": "url",
+            "label": "リンク"
+          }, {
+            "type": "text",
+            "id": "texten",
+            "label": "英語リンク名"
+          }, {
+            "type": "text",
+            "id": "text",
+            "label": "日本語リンク名"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "ヘッダーのスマホサブメニュー"
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,201 @@
+{% style %}
+    .dummy_content {
+      display: none !important;
+    }
+    .product-single__quantity {
+      margin-top: 20px;
+      margin-bottom: 20px;
+      
+    }
+    .product-single__cart-submit-wrapper {
+        text-align:center;
+        
+    }
+    .fixed_cart__content {
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        gap:1rem;
+    }
+    .btn.product-single__cart-submit{
+        background-color:#C49292;
+        padding:1rem 2rem;
+        color:#fff;
+        border-radius:20px;
+        border:1px solid #C49292;
+
+    }
+    
+    .fixed_cart {
+      position: fixed;
+      bottom: 0.5em;
+      left: 0;
+      padding: 1rem 2rem;
+      border-radius: 10px;
+      background-color: #C49292;
+      cursor: pointer;
+      z-index: 999;
+      color:#fff;
+      font-weight:bold;
+    }
+    .fixed_cart_detail {
+      position: fixed;
+      bottom: 1em;
+      left: 0px;
+    }
+    .fixed_cart_detail .product-single__variants {
+      display: block;
+    }
+    .fixed_cart_detail {
+      display: none;
+      padding: 20px;
+      background-color: #fbf5f1;
+      z-index: 999999;
+      border-radius:20px;
+    }
+    .fixed_cart_detail form {
+      width: 260px;
+      margin: 0;
+    }
+    .close_icon {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      width: 25px;
+      height: 25px;
+      border-radius: 25px;
+      cursor: pointer;
+    }
+    .close_icon_v {
+      display: block;
+      width: 25px;
+      height: 2px;
+      background-color: #000;
+      position: absolute;
+      top: 50%;
+      rotate: 45deg;
+    }
+    .close_icon_h {
+      display: block;
+      width: 25px;
+      height: 2px;
+      background-color: #000;
+      position: absolute;
+      top: 50%;
+      rotate: -45deg;
+    }
+    .fixed_cart_detail_show {
+      display: block;
+    }
+    .product-single__variants {
+        padding:1rem 2rem;
+    }
+  {% endstyle %}
+  
+  <div class="fixed_cart flex flex-a-ctr flex-j-ctr">
+    <div class="fixed_cart__content">
+      <img
+        src="https://cdn.shopify.com/s/files/1/0686/3336/2674/files/logo_4d14aa63-6068-4b88-bad5-3f1f0ced277e.png?v=1730269727"
+        width="25"
+        height="23"
+        alt="カート"
+      >
+      <span class="txt">カートに入れる</span>
+    </div>
+  </div>
+  <div class="fixed_cart_detail">
+    <div class="close_icon">
+      <span class="close_icon_v"></span>
+      <span class="close_icon_h"></span>
+    </div>
+    {% for variant in product.variants %}
+      {% assign variant_num = forloop.index %}
+    {% endfor %}
+    {% if variant_num != 1 %}
+      {% form 'product', product, class: productClasses %}
+        <select name="id" id="ProductSelect-{{ section.id }}" class="product-single__variants">
+          {% for variant in product.variants %}
+            {% if variant.available %}
+              <option
+                {% if variant == product.selected_or_first_available_variant %}
+                  selected="selected"
+                {% endif %}
+                data-sku="{{ variant.sku }}"
+                value="{{ variant.id }}"
+              >
+                {{ variant.title }} - {{ variant.price | money_with_currency }}
+              </option>
+            {% else %}
+              <option disabled="disabled">{{ variant.title }} - {{ 'products.product.sold_out' | t }}</option>
+            {% endif %}
+          {% endfor %}
+        </select>
+  
+        <div class="product-single__quantity">
+          <label for="Quantity">個数</label>
+          <input type="number" id="Quantity" name="quantity" value="1" min="1" style="font-family: ts-unused;">
+        </div>
+        <div class="product-single__cart-submit-wrapper{% if section.settings.enable_payment_button %} product-single__shopify-payment-btn{% endif %}{% if section.settings.add_to_cart_width == 'full_width' %} product-form--full{% endif %}">
+          <button
+            type="submit"
+            name="add"
+            id="AddToCart"
+            class="btn product-single__cart-submit{% if section.settings.add_to_cart_width == 'full_width' %} btn--full{% endif %}{% if section.settings.enable_payment_button and product.selling_plan_groups == empty %} shopify-payment-btn btn--secondary{% endif %}"
+            data-cart-url="{{ routes.cart_url }}"
+          >
+            <span id="AddToCartText">{{ 'products.product.add_to_cart' | t }}</span>
+          </button>
+          {% if section.settings.enable_payment_button %}
+            {{ form | payment_button }}
+          {% endif %}
+        </div>
+      {% endform %}
+    {% else %}
+      {% form 'product', product, class: productClasses %}
+        <select name="id" id="ProductSelect-{{ section.id }}" class="product-single__variants dummy_content">
+          {% for variant in product.variants %}
+            {% if variant.available %}
+              <option
+                {% if variant == product.selected_or_first_available_variant %}
+                  selected="selected"
+                {% endif %}
+                data-sku="{{ variant.sku }}"
+                value="{{ variant.id }}"
+              >
+                {{ variant.title }} - {{ variant.price | money_with_currency }}
+              </option>
+            {% else %}
+              <option disabled="disabled">{{ variant.title }} - {{ 'products.product.sold_out' | t }}</option>
+            {% endif %}
+          {% endfor %}
+        </select>
+  
+        {% if section.settings.product_quantity_enable %}
+          <div class="product-single__quantity">
+            <label for="Quantity">{{ 'products.product.quantity' | t }}</label>
+            <input type="number" id="Quantity" name="quantity" value="1" min="1">
+          </div>
+        {% endif %}
+        <p>{{ product.title }}</p>
+        <div class="product-single__quantity">
+          <label for="Quantity">個数</label>
+          <input type="number" id="Quantity" name="quantity" value="1" min="1" style="font-family: ts-unused;">
+        </div>
+  
+        <div class="product-single__cart-submit-wrapper{% if section.settings.enable_payment_button %} product-single__shopify-payment-btn{% endif %}{% if section.settings.add_to_cart_width == 'full_width' %} product-form--full{% endif %}">
+          <button
+            type="submit"
+            name="add"
+            id="AddToCart"
+            class="btn product-single__cart-submit{% if section.settings.add_to_cart_width == 'full_width' %} btn--full{% endif %}{% if section.settings.enable_payment_button and product.selling_plan_groups == empty %} shopify-payment-btn btn--secondary{% endif %}"
+            data-cart-url="{{ routes.cart_url }}"
+          >
+            <span id="AddToCartText">{{ 'products.product.add_to_cart' | t }}</span>
+          </button>
+          {% if section.settings.enable_payment_button %}
+            {{ form | payment_button }}
+          {% endif %}
+        </div>
+      {% endform %}
+    {% endif %}
+  </div>

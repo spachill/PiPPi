@@ -1,0 +1,276 @@
+<form id="customForm">
+  <h2>会員登録フォーム</h2>
+
+  <label>会社名 *</label>
+  <input type="text" name="entry.441285418" required>
+
+  <label>会社名 カナ *</label>
+  <input type="text" name="entry.579754331" required>
+
+  <label>代表者名 *</label>
+  <input type="text" name="entry.204650682" required>
+
+  <label>担当者名 *</label>
+  <input type="text" name="entry.567970359" required>
+
+  <label>担当者名 カナ *</label>
+  <input type="text" name="entry.925736127" required>
+
+  <label>郵便番号 *</label>
+  <input type="text" name="entry.1056395365" required>
+
+  <label>住所（ビル名・部屋番号含む） *</label>
+  <input type="text" name="entry.1530399582" required>
+
+  <label>メールアドレス *</label>
+  <input type="email" name="entry.25901720" required>
+
+  <label>メールアドレス（確認用） *</label>
+  <input type="email" name="entry.980977218" required>
+
+  <label>電話番号 *</label>
+  <input type="tel" name="entry.1622339466" required>
+
+  <label>店舗形式 *</label>
+  <div class="checkbox-group">
+    <label><input type="checkbox" name="entry.571055271" value="実店舗"> 実店舗</label>
+    <label><input type="checkbox" name="entry.571055271" value="オンラインショップ"> オンラインショップ</label>
+  </div>
+
+  <label>主な取り扱いアイテム *</label>
+  <input type="text" name="entry.781384508" required>
+
+  <label>実店舗住所 *</label>
+  <input type="text" name="entry.2119669923" required>
+
+  <label>ホームページURL *</label>
+  <input type="url" name="entry.1597994086" required>
+
+  <button type="submit">送信する</button>
+</form>
+
+<div id="msg">送信が完了しました。ありがとうございました！</div>
+
+<script>
+document.getElementById("customForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+  const form = e.target;
+  const data = new FormData(form);
+
+  fetch("https://docs.google.com/forms/d/e/1FAIpQLSfImijcVnBvVx7F1JdaezBMazLTA6BRpeDUQGnF-YOAlpRnag/formResponse", {
+    method: "POST",
+    mode: "no-cors",
+    body: data
+  }).then(() => {
+    document.getElementById("msg").style.display = "block";
+    form.reset();
+  }).catch(() => {
+    alert("送信に失敗しました。ページを再読み込みしてください。");
+  });
+});
+</script>
+
+
+
+
+
+{% comment %} ここから下の<style>にCSSをかく {% endcomment %}
+
+<style>
+form {
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      max-width: 600px;
+      margin: 0 auto;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+    input[type="text"],
+    input[type="email"],
+    input[type="url"],
+    input[type="tel"] {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    .checkbox-group label {
+      display: inline-block;
+      margin-right: 15px;
+      font-weight: normal;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #1976d2;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #ccc;
+    }
+    #msg {
+      display: none;
+      margin-top: 20px;
+      color: green;
+      text-align: center;
+    }
+</style>
+
+{% style %}
+.contact__google {
+   background-color:{{ section.settings.backcolor }};
+  padding-top: {{section.settings.pcmt}}px;
+  padding-bottom:{{section.settings.pcmb}}px;
+}
+  @media screen and (max-width:768px) {
+.contact__google {
+    padding-top: {{section.settings.spmt}}px;
+    padding-bottom:{{section.settings.spmb}} px;
+}
+}
+{% endstyle %}
+
+
+{% comment %} ここから下の<script>にJSをかく {% endcomment %}
+
+ <script>
+document.getElementById("customForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const form = e.target;
+  const data = new FormData(form);
+
+  // Google Formの正しい送信先URL（←あなたのフォームに対応）
+  const googleFormAction = "https://docs.google.com/forms/d/e/1FAIpQLSdRlUHMe8dgg6GwTsyBGJ3NnCZZWE73zPEuKxbJhaiNifXINw/formResponse";
+
+  // エントリーIDと表示名の対応表
+  const labels = {
+    "entry.441285418": "会社名",
+    "entry.579754331": "会社名 カナ",
+    "entry.204650682": "代表者名",
+    "entry.567970359": "担当者名",
+    "entry.925736127": "担当者名 カナ",
+    "entry.1056395365": "郵便番号",
+    "entry.1530399582": "住所",
+    "entry.25901720": "メールアドレス",
+    "entry.980977218": "メールアドレス（確認用）",
+    "entry.1622339466": "電話番号",
+    "entry.571055271": "店舗形式",
+    "entry.781384508": "主な取り扱いアイテム",
+    "entry.2119669923": "実店舗住所",
+    "entry.1597994086": "ホームページURL"
+  };
+
+  // 表示内容を作成
+  let summary = "";
+  for (let [key, value] of data.entries()) {
+    const label = labels[key] || key;
+    summary += `${label}：${value}\n`;
+  }
+
+  const confirmed = window.confirm("以下の内容で送信してよろしいですか？\n\n" + summary);
+  if (!confirmed) return;
+
+  // 正しいURLへ送信
+  fetch(googleFormAction, {
+    method: "POST",
+    mode: "no-cors",
+    body: data
+  }).then(() => {
+    document.getElementById("msg").style.display = "block";
+    form.reset();
+  }).catch(() => {
+    alert("送信に失敗しました。再試行してください。");
+  });
+});
+</script>
+
+
+{% schema %}
+  {
+    "name": "GoogleForm",
+  "tag": "section",
+  "class": "contact__google",
+  "settings": [
+    {
+        "type": "text",
+        "id": "title",
+        "label": "タイトル",
+        "default":"タイトル"
+    },
+    {
+    "type": "color",
+    "id":"backcolor",
+    "label":"背景色"
+    },
+    {
+      "type":"range",
+      "id": "pcmt",
+      "label": "上の余白",
+      "default":0,
+      "max": 500 ,
+      "min": 0,
+      "step": 10,
+      "unit": "px"
+    },
+    {
+      "type":"range",
+      "id": "pcmb",
+      "label": "下の余白",
+      "default":0,
+      "max": 500 ,
+      "min": 0,
+      "step": 10,
+      "unit": "px"
+    },
+    {
+      "type":"range",
+      "id": "spmt",
+      "label": "スマホ上の余白",
+      "default":0,
+      "max": 500 ,
+      "min": 0,
+      "step": 10,
+      "unit": "px"
+    },
+    {
+      "type":"range",
+      "id": "spmb",
+      "label": "スマホ下の余白",
+      "default":0,
+      "max": 500 ,
+      "min": 0,
+      "step": 10,
+      "unit": "px"
+    }
+
+],
+ "blocks": [
+    {
+      "type": "link",
+      "name": "カスタム",
+      "settings": [
+        {
+          "type": "text",
+          "id": "contact__google",
+          "label": "タイトル"
+        }
+      ]
+    }
+  ],
+"presets":[
+  {
+    "name":"GoogleForm"
+  }
+]
+  }
+{% endschema %}

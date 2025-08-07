@@ -1,0 +1,150 @@
+{% comment %} ここから下にHTMLをかく
+セクションで囲まれていてクラス名はschemaに記載 {% endcomment %}
+<div class="fv__umeitem__inner">
+
+<h2 class="fv__umeitem__title common-secondary-title">{{ section.settings.title }}</h2>
+<span class="fv__umeitem__subtitle common-secondary-subtitle">{{ section.settings.subtitle }}</span>
+<ul class="fv__umeitem__items common-link-list">
+    {% for block in section.blocks %}
+    <li class="fv__umeitem__item common-link-item">
+        <a class="fv__umeitem__link common-link-item-link common-link-item-link--bg-brown" href="{{block.settings.link}}">{{block.settings.text}} <img src="{{'cate-bar.svg' | asset_url}}" alt="{{ image.alt }}"
+        loading="lazy"
+        width="{{image.width}}"
+         height="{{image.height}}"></a>
+    </li>
+{% endfor %}
+</ul>
+</div>
+
+
+
+{% comment %} ここから下の<style>にCSSをかく {% endcomment %}
+
+<style>
+  .fv__umeitem__inner {
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 30px;
+    margin: 0 auto;
+  }
+
+  @media screen and (max-width: 768px) {
+    .fv__umeitem__inner {
+      padding: 0 12px;
+    }
+  }
+
+
+</style>
+
+{% style %}
+.fv__umeitem {
+    background-color:{{ section.settings.backcolor }};
+}
+.fv__umeitem{
+  padding-top: {{section.settings.pcmt}}px;
+  padding-bottom:{{section.settings.pcmb}}px;
+}
+  @media screen and (max-width:768px) {
+.fv__umeitem {
+    padding-top: {{section.settings.spmt}}px;
+    padding-bottom:{{section.settings.spmb}} px;
+}
+}
+{% endstyle %}
+
+
+{% comment %} ここから下の<script>にJSをかく {% endcomment %}
+
+<script>
+
+</script>
+
+{% schema %}
+  {
+    "name": "トップ　梅関連商品",
+  "tag": "section",
+  "class": "fv__umeitem",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "タイトル"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "サブタイトル"
+    },
+    {
+    "type": "color",
+    "id":"backcolor",
+    "label":"背景色"
+    },
+    {
+      "type":"range",
+      "id": "pcmt",
+      "label": "上のマージン",
+      "default":60,
+      "max": 500 ,
+      "min": 0,
+      "step": 10,
+      "unit": "px"
+    },
+    {
+      "type":"range",
+      "id": "pcmb",
+      "label": "下のマージン",
+      "default":60,
+      "max": 500 ,
+      "min": 0,
+      "step": 10,
+      "unit": "px"
+    },
+    {
+      "type":"range",
+      "id": "spmt",
+      "label": "スマホ上のマージン",
+      "default":60,
+      "max": 500 ,
+      "min": 0,
+      "step": 10,
+      "unit": "px"
+    },
+    {
+      "type":"range",
+      "id": "spmb",
+      "label": "スマホ下のマージン",
+      "default":60,
+      "max": 500 ,
+      "min": 0,
+      "step": 10,
+      "unit": "px"
+    }
+
+],
+ "blocks": [
+    {
+      "type": "link",
+      "name": "カスタム",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "ボタンのテキスト"
+        },
+        {
+          "type": "url",
+          "id": "link",
+          "label": "URL"
+        }
+      ]
+    }
+  ],
+"presets":[
+  {
+    "name":"トップ　梅関連商品"
+  }
+]
+  }
+{% endschema %}

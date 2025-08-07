@@ -1,0 +1,133 @@
+<div class="custom-instagram__inner">
+    {% render 'custom-title'
+    , title: section.settings.title
+    , subtitle:section.settings.subtitle %}
+        <div id="insta-feed"></div>
+    
+</div>
+
+<style>
+
+    .custom-instagram__inner {
+        max-width: 1280px;
+        margin: 0 auto;
+    }
+
+
+    .custom-instagram__container {
+        margin-top: 40px;
+        display: flex;
+    }
+
+    .custom-instagram__text {
+        font-size: 15px;
+        font-weight: 300;
+        letter-spacing: 0.08em;
+        margin: 0 auto;
+        width: 100%;
+        max-width: 900px;
+        padding: 0 30px;    }
+
+        #insta-feed {
+            margin-top: 40px;
+        }
+
+        @media screen and (max-width: 768px) {
+            .custom-instagram__inner {
+                max-width: 600px;
+                padding: 0 20px;
+            }
+        }
+
+
+</style>
+
+{% style %}
+
+.custom-instagram {
+    background-color: {{section.settings.backcolor}};
+    padding-top: {{section.settings.pcmt}}px;
+    padding-bottom: {{section.settings.pcmb}}px;
+}
+
+@media screen and(max-width:768px) {
+    .custom-instagram {
+        padding-top: {{section.settings.spmt}}px;
+        padding-bottom: {{section.settings.spmb}}px;
+    }
+}
+
+{% endstyle %}
+
+
+<script>
+
+</script>
+
+{% schema %}
+{
+"name": "Instagram",
+"tag": "section",
+"class": "custom-instagram",
+"settings": [
+{
+"type": "color",
+"id":"backcolor",
+"label":"背景色"
+},
+{
+"type":"range",
+"id": "pcmt",
+"label": "上の余白",
+"default":70,
+"max": 500 ,
+"min": 0,
+"step": 10,
+"unit": "px"
+},
+{
+"type":"range",
+"id": "pcmb",
+"label": "下の余白",
+"default":90,
+"max": 500 ,
+"min": 0,
+"step": 10,
+"unit": "px"
+},
+{
+"type":"range",
+"id": "spmt",
+"label": "スマホ上の余白",
+"default":30,
+"max": 500 ,
+"min": 0,
+"step": 10,
+"unit": "px"
+},
+{
+"type":"range",
+"id": "spmb",
+"label": "スマホ下の余白",
+"default":30,
+"max": 500 ,
+"min": 0,
+"step": 10,
+"unit": "px"
+},
+{
+"type": "text",
+"id": "title",
+"label": "見出し"
+},
+{
+"type": "text",
+"id": "subtitle",
+"label": "サブ見出し"
+}
+],
+"presets":[
+{
+"name":"Instagram"
+}]}
+{% endschema %}

@@ -1,0 +1,231 @@
+<div class="custom-media-column__wrapper--{{section.id}}">
+    <div class="custom-media-column__inner">
+        {% if section.settings.text != blank %}
+        <p class="custom-media-column__text {% if section.settings.check %}ta-center{% endif %}">
+            {{ section.settings.text | newline_to_br }}
+        </p>
+
+        {% endif %}
+        <div class="custom-media-column__image-wrapper--{{section.id}}">
+            {% for block in section.blocks %}
+            {% case block.type %}
+            {% when 'media' %}
+            <div class="custom-media-column__image-item">
+                {% if block.settings.heading %}
+                <p class="custom-media-column__image-item-heading">
+                    {{ block.settings.heading }}
+                </p>
+                {% endif %}
+                <div class="custom-media-column__image">
+                    <img src="{{ block.settings.image | image_url :width:315 }}" alt="{{ block.settings.image.alt}}">
+                </div>
+                {% if block.settings.text != blank %}
+                <p class="custom-media-column__image-text">
+                    {{ block.settings.text | newline_to_br }}
+                </p>
+                {% endif %}
+                {% if block.settings.description != blank %}
+                <p class="custom-media-column__description">
+                    {{ block.settings.description | newline_to_br }}
+                </p>
+                {% endif %}
+
+            </div>
+
+            {% endcase %}
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+<style>
+    .custom-media-column__inner {
+        width: 100%;
+        max-width: 1060px;
+        padding: 0 30px;
+        margin: 0 auto;
+    }
+
+
+
+    .custom-media-column__image-item {
+        text-align: center;
+    }
+
+    .custom-media-column__image img {
+        border-radius: 20px;
+        aspect-ratio: 316 / 220;
+        object-fit: cover;
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    .custom-media-column__image-item-heading {
+        margin: 0;
+        font-size: 25px;
+        font-family: Noto Sans JP;
+        margin-bottom: 14px;
+    }
+
+    .custom-media-column__image-text {
+        margin: 20px 0 0 0;
+        font-size: 20px;
+        font-weight: 700;
+    }
+
+    .custom-media-column__description {
+        margin: 16px 0 0 0;
+
+        font-size: 14px;
+    }
+
+    @media screen and (max-width: 768px) {
+        .custom-media-column__inner {
+            padding: 0 20px;
+        }
+
+        .custom-media-column__image-item-heading {
+            font-size: 22px;
+        }
+    }
+</style>
+
+{% style %}
+.custom-media-column__wrapper--{{section.id}} {
+background-color:{{ section.settings.backcolor }};
+padding-top: {{section.settings.pcmt}}px;
+padding-bottom:{{section.settings.pcmb}}px;
+}
+
+.custom-media-column__image-wrapper--{{section.id}} {
+display: grid;
+grid-template-columns: repeat({{section.settings.grid}}, 1fr);
+gap: 40px 2%;
+}
+
+@media screen and (max-width:768px) {
+.custom-media-column__wrapper--{{section.id}} {
+padding-top: {{section.settings.spmt}}px;
+padding-bottom:{{section.settings.spmb}}px;
+}
+
+.custom-media-column__image-wrapper--{{section.id}} {
+grid-template-columns: repeat(1, 1fr);
+}
+
+}
+{% endstyle %}
+
+
+
+<script>
+
+</script>
+
+{% schema %}
+{
+"name": "画像テキスト縦並び",
+"tag": "div",
+"class": "custom-media-column",
+"settings": [
+{
+"type": "color",
+"id":"backcolor",
+"label":"背景色"
+},
+{
+"type":"range",
+"id": "pcmt",
+"label": "上の余白",
+"default":60,
+"max": 500 ,
+"min": 0,
+"step": 10,
+"unit": "px"
+},
+{
+"type":"range",
+"id": "pcmb",
+"label": "下の余白",
+"default":60,
+"max": 500 ,
+"min": 0,
+"step": 10,
+"unit": "px"
+},
+{
+"type":"range",
+"id": "spmt",
+"label": "スマホ上の余白",
+"default":60,
+"max": 500 ,
+"min": 0,
+"step": 10,
+"unit": "px"
+},
+{
+"type":"range",
+"id": "spmb",
+"label": "スマホ下の余白",
+"default":60,
+"max": 500 ,
+"min": 0,
+"step": 10,
+"unit": "px"
+},
+{
+"type": "textarea",
+"id":"text",
+"label": "本文"
+},
+{
+"type": "checkbox",
+"id": "check",
+"label": "本文を中央揃えにする",
+"default": true
+},
+{
+"type":"range",
+"id": "grid",
+"label": "1列あたりの列数（PC）",
+"default":2,
+"max": 4 ,
+"min": 1,
+"step": 1
+}
+],
+"blocks": [
+{
+"type": "media",
+"name": "画像＋テキスト",
+"settings": [
+{
+"type":"image_picker",
+"id": "image",
+"label": "画像"
+},
+{
+"type": "textarea",
+"id":"heading",
+"label": "画像上見出し"
+},
+{
+"type": "textarea",
+"id":"text",
+"label": "画像下見出し"
+}
+,
+{
+"type": "textarea",
+"id":"description",
+"label": "画像下説明"
+}
+]
+}
+],
+"presets":[
+{
+"name":"画像テキスト縦並び"
+}]}
+{% endschema %}

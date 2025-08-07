@@ -1,0 +1,164 @@
+{% comment %} ここから下にHTMLをかく
+セクションで囲まれていてクラス名はschemaに記載 {% endcomment %}
+<div class="inner">
+  {% assign metacollections = shop.metaobjects.budget.values %}
+  <ul class=" common-link-list">
+    {% for metacollections in metacollections %}
+      {% assign items = metacollections.budget %}
+      {% comment %} {{ items.value }} {% endcomment %}
+      {% for item in items.value %}
+        <li class=" common-link-item">
+          <a href="{{item.url}}" class="common-link-item-link custom__categ__item__link">
+            {{ item.title }}
+          </a>
+        </li>
+      {% endfor %}
+    {% endfor %}
+  </ul>
+</div>
+{% comment %} ここから下の<style>にCSSをかく {% endcomment %}
+
+<style>
+/* メタオブジェクトのコレクション */
+.cuustom__collections__items {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  column-gap: 30px;
+  row-gap: 50px;
+  margin-left: 0;
+  padding-left: 0;
+  margin-bottom: 100px;
+}
+.cuustom__collections__item {
+  list-style: none;
+  box-shadow: 5px 5px 20px #00000015;
+  max-height: 350px;
+}
+.cuustom__collections__item__url {
+  text-decoration: none;
+}
+.cuustom__collections__item__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.cuustom__collections__item__title {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 18px;
+  color: #333;
+}
+@media screen and (max-width: 768px) {
+  .cuustom__collections__items {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    column-gap: 20px;
+    row-gap: 50px;
+  }
+  .cuustom__collections__item {
+    max-height: 175px;
+  }
+  .cuustom__collections__item__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .cuustom__collections__item__title {
+    font-size: 16px;
+    color: #333;
+  }
+}
+
+</style>
+
+{% style %}
+  .custom__collections {
+    background-color: {{ section.settings.backcolor }};
+    padding-top: {{ section.settings.pcmt }}px;
+    padding-bottom: {{ section.settings.pcmb }}px;
+  }
+  @media screen and (max-width: 768px) {
+    .custom__collections {
+      padding-top: {{ section.settings.spmt }}px;
+      padding-bottom: {{ section.settings.spmb }}px;
+    }
+  }
+{% endstyle %}
+
+
+{% comment %} ここから下の<script>にJSをかく {% endcomment %}
+
+<script></script>
+
+{% schema %}
+  {
+    "name": "メタオブジェクトの予算リスト",
+    "tag": "section",
+    "class": "custom__collections",
+    "settings": [
+      {
+        "type": "color",
+        "id": "backcolor",
+        "label": "背景色"
+      },
+      {
+        "type": "range",
+        "id": "pcmt",
+        "label": "上の余白",
+        "default": 0,
+        "max": 500,
+        "min": 0,
+        "step": 10,
+        "unit": "px"
+      },
+      {
+        "type": "range",
+        "id": "pcmb",
+        "label": "下の余白",
+        "default": 0,
+        "max": 500,
+        "min": 0,
+        "step": 10,
+        "unit": "px"
+      },
+      {
+        "type": "range",
+        "id": "spmt",
+        "label": "スマホ上の余白",
+        "default": 0,
+        "max": 500,
+        "min": 0,
+        "step": 10,
+        "unit": "px"
+      }, {
+        "type": "range",
+        "id": "spmb",
+        "label": "スマホ下の余白",
+        "default": 0,
+        "max": 500,
+        "min": 0,
+        "step": 10,
+        "unit": "px"
+      }
+
+    ],
+    "blocks": [
+      {
+        "type": "link",
+        "name": "カスタム",
+        "settings": [
+          {
+            "type": "text",
+            "id": "custom",
+            "label": "タイトル"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "メタオブジェクトの予算リスト"
+      }
+    ]
+  }
+{% endschema %}

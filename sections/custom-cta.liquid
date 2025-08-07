@@ -1,0 +1,183 @@
+<div class="custom-cta__inner">
+    <div class="custom-cta__column">
+        {% for block in section.blocks %}
+        <div class="custom-cta__block">
+            <a href="{{ block.settings.url }}" class="custom-cta__link">
+                <img src="{{ block.settings.image | image_url : width:43 }}" alt=" ">
+                <span>{{ block.settings.link }}</span>
+            </a>
+        </div>
+        {% endfor %}        
+    </div>
+</div>
+
+<style>
+    .custom-cta__inner {
+        width: 100%;
+        max-width: 1010px;
+        padding: 0 30px;
+        margin: 0 auto;
+    }
+
+    .custom-cta__column {
+        display: flex;
+        gap: calc(20 / 950 *100%);
+        justify-content: center;
+    }
+
+    .custom-cta__block {
+        background-color: #fff;
+        border: 1px solid #C9A87D;
+        width: calc(465 / 950 *100%);
+        border-radius: 20px;
+        height: 146px;
+        display: grid;
+        place-content: center;
+        
+    }
+
+    .custom-cta__link {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 12px;
+        text-decoration: none;
+        transition: all 0.3s ease 0s;
+    }
+
+    .custom-cta__link:hover {
+        opacity: 0.7;
+    }
+
+    .custom-cta__link span {
+        color: #7D6241;
+        font-weight: 700;
+        letter-spacing: 0.2em;
+        font-size: 24px;
+    }
+
+    @media screen and (max-width: 768px) {
+
+        .custom-cta__inner {
+            padding: 0 20px;
+        }
+        .custom-cta__column {
+            flex-direction: column;
+            gap: 20px;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .custom-cta__block {
+            width: 100%;
+            height: 100px;
+        }
+
+        .custom-cta__link span {
+            font-size: 20px;
+        }
+    }
+
+</style>
+
+{% style %}
+.custom-cta {
+    background-color:{{ section.settings.backcolor }};
+    padding-top: {{section.settings.pcmt}}px;
+    padding-bottom:{{section.settings.pcmb}}px;
+}
+
+@media screen and (max-width:768px) {
+.custom-cta {
+    padding-top: {{section.settings.spmt}}px;
+    padding-bottom:{{section.settings.spmb}}px;
+}
+}
+{% endstyle %}
+    
+    
+    
+<script>
+
+</script>
+
+{% schema %}
+{
+    "name": "SNSリンク",
+    "tag": "section",
+    "class": "custom-cta",
+    "settings": [
+    {
+        "type": "color",
+        "id":"backcolor",
+        "label":"背景色"
+    },
+    {
+        "type":"range",
+        "id": "pcmt",
+        "label": "上の余白",
+        "default":60,
+        "max": 500 ,
+        "min": 0,
+        "step": 10,
+        "unit": "px"
+    },
+    {
+        "type":"range",
+        "id": "pcmb",
+        "label": "下の余白",
+        "default":60,
+        "max": 500 ,
+        "min": 0,
+        "step": 10,
+        "unit": "px"
+    },
+    {
+        "type":"range",
+        "id": "spmt",
+        "label": "スマホ上の余白",
+        "default":60,
+        "max": 500 ,
+        "min": 0,
+        "step": 10,
+        "unit": "px"
+    },
+    {
+        "type":"range",
+        "id": "spmb",
+        "label": "スマホ下の余白",
+        "default":60,
+        "max": 500 ,
+        "min": 0,
+        "step": 10,
+        "unit": "px"
+    }
+    ],
+    "blocks": [
+    {
+        "type": "block",
+        "name": "ブロック",
+        "settings": [
+        {
+            "type":"image_picker",
+            "id": "image",
+            "label": "アイコン画像"
+        },
+        {
+            "type": "url",
+            "id":"url",
+            "label": "URL"
+        },
+        {
+            "type": "text",
+            "id":"link",
+            "label": "ボタンのテキスト"
+        }
+        ]
+    }
+    ],
+    "presets":[
+    {
+        "name":"SNSリンク"
+    }]}
+{% endschema %}

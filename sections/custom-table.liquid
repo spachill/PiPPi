@@ -1,0 +1,243 @@
+<div class="custom-table__inner">
+  <div class="custom-table__container">
+    <h2 class="custom-table__title common-secondary-title">
+      {{ section.settings.title }}
+  </h2>
+  <span class="custom-table__subtitle common-secondary-subtitle">
+      {{ section.settings.subtitle }}
+  </span>
+    <div class="custom-table__table">
+      {% for block in section.blocks %}
+      <div class="custom-table__row">
+        <div class="custom-table__header">
+          <span>{{ block.settings.th }}</span></div>
+        <div class="custom-table__data"><p class="custom-table__data-text">{{ block.settings.td | newline_to_br }}</p></div>
+    </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+
+
+    <style>
+
+      .custom-table__inner {
+        width: 100%;
+        max-width: 1010px;
+        padding: 0 30px;
+        margin: 0 auto;
+      }
+
+      .custom-table__container {
+        background-color: #fff;
+        border-radius: 20px;
+        padding: 66px 30px;
+      }
+
+      .custom-table__table {
+        margin: 50px auto 0;
+        border-collapse: collapse;
+        max-width: 710px;
+        padding: 0 30px;
+
+      }
+
+      .custom-table__table, .custom-table__header, .custom-table__data {
+        border: none;
+      }
+
+      .custom-table__row {
+        font-size: 16px;
+        border-bottom: 1px solid #C9A87D;
+        display: flex;
+        padding: 20px 0;
+        gap: 36px;
+        padding-left: 24px;
+      }
+
+      .custom-table__header {
+        /* min-width: 134px; */
+      }
+
+
+      .custom-table__header span {
+        padding: 6px 8px;
+        min-width: 122px;
+        display: grid;
+        place-content: center;
+        color: #fff;
+        background-color: #C9A87D;
+        font-weight: 500;
+        border-radius: 100px;
+        font-size: 15px;
+        letter-spacing: 0;
+      }
+
+      .custom-table__data {
+        display: grid;
+        place-content: center;
+      }
+
+      .custom-table__data-text {
+        margin: 0;
+        letter-spacing: 0;
+      }
+
+      .custom-table__data-text a {
+        color: #7D6241;
+        text-decoration:  none;
+      }
+
+      @media screen and (max-width: 768px) {
+      .custom-table__inner {
+        padding: 0 20px;
+      }
+
+      .custom-table__container {
+        padding: 40px 20px;
+      }
+
+      .custom-table__table {
+        margin-top: 20px;
+        padding: 0;
+        max-width: 600px;
+      }
+
+      .custom-table__row {
+        font-size: 12px;
+        flex-direction: column;
+        gap: 12px;
+        align-items: center;
+      }
+
+
+        .custom-table__header {
+          padding-left: 0px;
+        }
+
+        .custom-table__header span {
+          max-width: 160px;
+          
+        }
+
+      .custom-table__data {
+        padding: 0;
+      }
+        
+      }
+
+
+
+
+
+    </style>
+    
+    {% style %}
+    .custom-table {
+       background-color:{{ section.settings.backcolor }};
+      padding-top: {{section.settings.pcmt}}px;
+      padding-bottom:{{section.settings.pcmb}}px;
+    }
+      @media screen and (max-width:768px) {
+    .custom-table {
+        padding-top: {{section.settings.spmt}}px;
+        padding-bottom:{{section.settings.spmb}} px;
+    }
+    }
+    {% endstyle %}
+    
+
+    
+    <script>
+    
+    </script>
+    
+    {% schema %}
+      {
+        "name": "会社概要",
+      "tag": "section",
+      "class": "custom-table",
+      "settings": [
+        {
+        "type": "color",
+        "id":"backcolor",
+        "label":"背景色"
+        },
+        {
+          "type":"range",
+          "id": "pcmt",
+          "label": "上のマージン",
+          "default":60,
+          "max": 500 ,
+          "min": 0,
+          "step": 10,
+          "unit": "px"
+        },
+        {
+          "type":"range",
+          "id": "pcmb",
+          "label": "下のマージン",
+          "default":60,
+          "max": 500 ,
+          "min": 0,
+          "step": 10,
+          "unit": "px"
+        },
+        {
+          "type":"range",
+          "id": "spmt",
+          "label": "スマホ上のマージン",
+          "default":60,
+          "max": 500 ,
+          "min": 0,
+          "step": 10,
+          "unit": "px"
+        },
+        {
+          "type":"range",
+          "id": "spmb",
+          "label": "スマホ下のマージン",
+          "default":60,
+          "max": 500 ,
+          "min": 0,
+          "step": 10,
+          "unit": "px"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "タイトル"
+        },
+        {
+          "type": "text",
+          "id": "subtitle",
+          "label": "サブタイトル"
+        }
+    
+    ],
+    "blocks": [
+    {
+        "type": "block",
+        "name": "ブロック",
+        "settings": [
+        {
+            "type":"text",
+            "id": "th",
+            "label": "ラベル"
+        },
+        {
+            "type": "textarea",
+            "id":"td",
+            "label": "情報"
+        }
+        ]
+    }
+    ],
+    "presets":[
+      {
+        "name":"会社概要"
+      }
+    ]
+      }
+    {% endschema %}

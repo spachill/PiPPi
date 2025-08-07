@@ -1,0 +1,190 @@
+<div class="custom-access__inner">
+    <h2 class="custom-access__title common-secondary-title">
+        {{ section.settings.title }}
+    </h2>
+    <span class="custom-access__subtitle common-secondary-subtitle">
+        {{ section.settings.subtitle }}
+    </span>
+    <p class="custom-access__text">
+        {{ section.settings.address | newline_to_br }}
+    </p>
+    <div class="custom-access__map">
+        {{ section.settings.map }}
+    </div>
+</div>
+
+<style>    
+
+.custom-access__inner {
+        width: 100%;
+        max-width: 1010px;
+        margin: 0 auto;
+        padding: 0 30px;
+    }
+
+
+    .custom-access__text {
+        text-align: center;
+        font-size: 20px;
+        line-height: calc(30 / 20);
+        margin: 25px 0 0 0;
+    }
+
+    .custom-access__map {
+        margin-top: 40px;
+    }
+
+    .custom-access__map iframe {
+        width: 100%;
+        border-radius: 20px;
+    }
+
+    @media screen and (max-width: 768px) {
+
+        .custom-access__inner {
+            padding: 0 20px;
+        }
+        .custom-access__text {
+            font-size: 16px;
+        }
+    }
+
+</style>
+
+{% style %}
+.custom-access {
+    background-color:{{ section.settings.backcolor }};
+    padding-top: {{section.settings.pcmt}}px;
+    padding-bottom:{{section.settings.pcmb}}px;
+}
+
+@media screen and (max-width:768px) {
+.custom-access {
+    padding-top: {{section.settings.spmt}}px;
+    padding-bottom:{{section.settings.spmb}}px;
+}
+}
+{% endstyle %}
+    
+    
+    
+<script>
+
+</script>
+
+{% schema %}
+{
+    "name": "アクセス",
+    "tag": "section",
+    "class": "custom-access",
+    "settings": [
+    {
+        "type": "color",
+        "id":"backcolor",
+        "label":"背景色"
+    },
+    {
+        "type":"range",
+        "id": "pcmt",
+        "label": "上の余白",
+        "default":80,
+        "max": 500 ,
+        "min": 0,
+        "step": 10,
+        "unit": "px"
+    },
+    {
+        "type":"range",
+        "id": "pcmb",
+        "label": "下の余白",
+        "default":70,
+        "max": 500 ,
+        "min": 0,
+        "step": 10,
+        "unit": "px"
+    },
+    {
+        "type":"range",
+        "id": "spmt",
+        "label": "スマホ上の余白",
+        "default":60,
+        "max": 500 ,
+        "min": 0,
+        "step": 10,
+        "unit": "px"
+    },
+    {
+        "type":"range",
+        "id": "spmb",
+        "label": "スマホ下の余白",
+        "default":60,
+        "max": 500 ,
+        "min": 0,
+        "step": 10,
+        "unit": "px"
+    },
+    {
+        "type": "text",
+        "id": "title",
+        "label": "タイトル"
+      },
+      {
+        "type": "text",
+        "id": "subtitle",
+        "label": "サブタイトル"
+      },
+      {
+        "type": "textarea",
+        "id": "address",
+        "label": "住所"
+      }
+      ,
+      {
+        "type": "html",
+        "id": "map",
+        "label": "Googleマップ埋込用iframeコード"
+      }
+    ],
+    "blocks": [
+    {
+        "type": "block",
+        "name": "ブロック",
+        "settings": [
+        {
+            "type":"image_picker",
+            "id": "image",
+            "label": "画像"
+        },
+        {
+            "type": "text",
+            "id":"title",
+            "label": "タイトル"
+        },
+        {
+            "type": "text",
+            "id":"subtitle",
+            "label": "サブタイトル"
+        },
+        {
+            "type": "textarea",
+            "id":"text",
+            "label": "テキスト"
+        },
+        {
+            "type": "url",
+            "id":"url",
+            "label": "ボタンのリンク"
+        },
+        {
+            "type": "text",
+            "id":"link",
+            "label": "ボタンのテキスト"
+        }
+        ]
+    }
+    ],
+    "presets":[
+    {
+        "name":"アクセス"
+    }]}
+{% endschema %}

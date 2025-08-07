@@ -1,0 +1,202 @@
+{% comment %}
+  ここから下にHTMLをかく
+  セクションで囲まれていてクラス名はschemaに記載
+{% endcomment %}
+
+<div class="custom__faq__inner">
+    <h2 class="custom__faq__title">{{section.settings.title}}</h2>
+  <ul class="custom__faq__items">
+    {% for block in section.blocks %}
+      <li class="custom__faq__item">
+        <div class="custom__faq__question">
+          <div class="custom__faq__question-q">Q.</div>
+          <div class="custom__faq__question__title">{{ block.settings.title }}</div>
+        </div>
+        <div class="custom__faq__answer">
+          <div class="custom__faq__answer-a">A.</div>
+          <div class="custom__faq__answer__title">{{ block.settings.text | newline_to_br }}</div>
+        </div>
+      </li>
+    {% endfor %}
+  </ul>
+</div>
+
+{% comment %} ここから下の<style>にCSSをかく {% endcomment %}
+
+<style>
+  .custom__faq__inner {
+max-width: 1020px;
+margin: 0 auto;
+  }
+  .custom__faq__title {
+    text-align: center;
+margin-bottom: 30px;
+padding: 10px 20px;
+background-color: #BBA79C;
+color: #fff;
+  }
+  .custom__faq__items {
+    border-bottom:1px solid #D7D7D7 ;
+    padding-left: 0;
+    margin-left: 0;
+
+  }
+  .custom__faq__item {
+list-style: none;
+
+  }
+  .custom__faq__question {
+    display: flex;
+align-items: center;
+column-gap: 20px;
+padding: 10px 15px;
+border-top:1px solid #D7D7D7 ;
+
+  }
+  .custom__faq__question-q {
+    color: #BBA79C;
+font-size: 18px;
+font-style: normal;
+font-weight: 500;
+line-height: 180%; /* 32.4px */
+letter-spacing: 3.6px;
+  }
+  .custom__faq__question__title {
+    color: #BBA79C;
+font-size: 18px;
+font-style: normal;
+font-weight: 500;
+line-height: 180%; /* 32.4px */
+letter-spacing: 3.6px;
+  }
+  .custom__faq__answer {
+    display: flex;
+align-items: center;
+column-gap: 20px;
+padding: 10px 15px;
+border-top:1px solid #D7D7D7 ;
+
+  }
+  .custom__faq__answer-a {
+    color: #333;
+font-style: normal;
+font-weight: 500;
+line-height: 180%; /* 27px */
+letter-spacing: 3px;
+  }
+  .custom__faq__answer__title {
+    color: #333;
+font-style: normal;
+font-weight: 500;
+line-height: 180%; /* 27px */
+letter-spacing: 3px;
+padding-left: 4px;
+  }
+</style>
+
+{% style %}
+  .custom__faq {
+     background-color:{{ section.settings.backcolor }};
+    padding-top: {{section.settings.pcmt}}px;
+    padding-bottom:{{section.settings.pcmb}}px;
+  }
+    @media screen and (max-width:768px) {
+      .custom__faq__inner {
+
+      padding:0 3%;
+  }
+  .custom__faq {
+      padding-top: {{section.settings.spmt}}px;
+      padding-bottom:{{section.settings.spmb}} px;
+  }
+  }
+{% endstyle %}
+
+{% comment %} ここから下の<script>にJSをかく {% endcomment %}
+
+<script></script>
+
+{% schema %}
+{
+  "name": "c-よくある質問",
+  "tag": "section",
+  "class": "custom__faq",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "項目",
+      "default": "項目が入ります",
+      "info": "項目が入ります"
+    },
+    {
+      "type": "color",
+      "id": "backcolor",
+      "label": "背景色"
+    },
+    {
+      "type": "range",
+      "id": "pcmt",
+      "label": "上のマージン",
+      "default": 60,
+      "max": 500,
+      "min": 0,
+      "step": 10,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "pcmb",
+      "label": "下のマージン",
+      "default": 60,
+      "max": 500,
+      "min": 0,
+      "step": 10,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "spmt",
+      "label": "スマホ上のマージン",
+      "default": 60,
+      "max": 500,
+      "min": 0,
+      "step": 10,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "spmb",
+      "label": "スマホ下のマージン",
+      "default": 60,
+      "max": 500,
+      "min": 0,
+      "step": 10,
+      "unit": "px"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "link",
+      "name": "カスタム",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "質問"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "回答"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "c-よくある質問"
+    }
+  ]
+}
+{% endschema %}

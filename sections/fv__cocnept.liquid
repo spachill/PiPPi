@@ -1,0 +1,284 @@
+{% comment %} ここから下にHTMLをかく
+セクションで囲まれていてクラス名はschemaに記載 {% endcomment %}
+
+<div class="fv__cocnept__inner inner">
+  <div class="fv__concept__box-outer">
+    <h2 class="fv__concept__title">Concept</h2>
+    <picture class="fv__concept__image-left">
+      <source srcset="{{ section.settings.image-left |  image_url: width:master }}" media="(min-width: 768px)" />
+      <img
+        src="{{ section.settings.image-leftsp |  image_url: width:master }}"
+        alt="{{ image.alt }}"
+        loading="lazy"
+        width="{{image.width}}"
+        height="{{image.height}}" />
+    </picture>
+    <picture class="fv__concept__image-right">
+      <source srcset="{{ section.settings.image-right |  image_url: width: master }}" media="(min-width: 768px)" />
+      <img
+        src="{{ section.settings.image-rightsp |  image_url: width: master }}"
+        alt="{{ image.alt }}"
+        loading="lazy"
+        width="{{image.width}}"
+        height="{{image.height}}" />
+    </picture>
+    <div class="fv__concept__box-inner">
+      <div class="fv__concept__content">
+        <p class="fv__concept__text">{{section.settings.text | newline_to_br}}</p>
+      </div>
+
+
+    </div>
+    </div>
+   <div class="custom__btnbox fv__concept__btnbox">
+      <a href="{{section.settings.URL}}" class="custom__buttom fv__concept__link">About Us</a>
+    </div> 
+</div>
+
+
+{% comment %} ここから下の<style>にCSSをかく {% endcomment %}
+
+<style>
+  .fv__cocnept__inner {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .fv__concept__title {
+    margin-top: 0;
+    margin-bottom: 0;
+    font-size: 72px;
+    font-family: Noto Sans JP;
+    color: #BAAB9B;
+    position: absolute;
+    top: 0;
+    transform: translateY(-50%);
+    left: 30px;
+    background-color: #fff;
+    padding: 0 20px;
+  }
+  .fv__concept__box-outer {
+    max-width: 769px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    z-index: -1;
+  }
+  .fv__concept__box-outer::before {
+    top: 7px;
+    left: 14px;
+    border: 1px solid #BAAB9B;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: block;
+    content: "";
+    z-index: -1;
+  }
+  .fv__concept__image-left {
+    position: absolute;
+    transform: translateX(-50%);
+    left: 0;
+    bottom: 10%;
+    background-color: #fff;
+    z-index: -1;
+
+  }
+  .fv__concept__image-right {
+    position: absolute;
+    transform: translateX(50%);
+    right: 0;
+    top: 9%;
+    background-color: #fff;
+
+  }
+  .fv__concept__box-inner {
+    max-width: 769px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .fv__concept__box-inner::before {
+    border: 1px solid #BAAB9B;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: block;
+    content: "";
+    z-index: -3;
+  }
+  .fv__concept__content {
+    padding: 60px;
+    text-align: center;
+    line-height: 2;
+    font-family: Noto Sans JP;
+  }
+
+  .fv__concept__btnbox {
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+  @media screen and (max-width: 768px) {
+    .fv__cocnept__inner {
+      padding: 0 5%;
+    }
+    .fv__concept__title {
+      margin-top: 0;
+      margin-bottom: 0;
+      font-size: 48px;
+      font-family: Noto Sans JP;
+      color: #BAAB9B;
+      position: absolute;
+      top: 0;
+      transform: translateY(-50%);
+      left: 30px;
+      background-color: #fff;
+      padding: 0 20px;
+    }
+    .fv__concept__box-outer {
+      width: 95%;
+    }
+    .fv__concept__box-outer::before {
+      top: 5px;
+      left: 7px;
+      border: 1px solid #BAAB9B;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      display: block;
+      content: "";
+      z-index: -3;
+    }
+    .fv__concept__image-left {
+      position: absolute;
+      transform: translateX(-17%);
+      left: 0;
+      bottom: 10%;
+      background-color: #fff;
+      z-index: -1;
+
+    }
+    .fv__concept__image-right {
+      position: absolute;
+      transform: translateX(35%);
+      right: 0;
+      top: 9%;
+      background-color: #fff;
+      z-index: -1;
+
+    }
+    .fv__concept__box-inner {}
+  .fv__concept__content {
+    padding: 50px 50px 20px;
+    line-height: 1.8;
+  }
+
+  .fv__concept__btnbox {
+    margin-bottom: 40px;
+  }
+}
+</style>
+
+{% style %}
+  .fv__concept {
+    background-color: {{ section.settings.backcolor }};
+    padding-top: {{ section.settings.pcmt }}px;
+    padding-bottom: {{ section.settings.pcmb }}px;
+  }
+  @media screen and (max-width: 768px) {
+    .fv__concept {
+      padding-top: {{ section.settings.spmt }}px;
+      padding-bottom: {{ section.settings.spmb }}px;
+    }
+  }
+{% endstyle %}
+
+
+{% comment %} ここから下の<script>にJSをかく {% endcomment %}
+
+<script></script>
+
+{% schema %}
+  {
+    "name": "TOP コンセプト",
+    "tag": "section",
+    "class": "fv__concept",
+    "settings": [
+      {
+        "type": "richtext",
+        "id": "text",
+        "label": "テキスト"
+      },
+      {
+        "type": "image_picker",
+        "id": "image-left",
+        "label": "PC画像左"
+      },
+      {
+        "type": "image_picker",
+        "id": "image-right",
+        "label": "PC画像右"
+      },
+      {
+        "type": "image_picker",
+        "id": "image-leftsp",
+        "label": "スマホ画像左"
+      },
+      {
+        "type": "image_picker",
+        "id": "image-rightsp",
+        "label": "スマホ画像右"
+      }, {
+        "type": "color",
+        "id": "backcolor",
+        "label": "背景色"
+      }, {
+        "type": "range",
+        "id": "pcmt",
+        "label": "上のマージン",
+        "default": 60,
+        "max": 500,
+        "min": 0,
+        "step": 10,
+        "unit": "px"
+      }, {
+        "type": "range",
+        "id": "pcmb",
+        "label": "下のマージン",
+        "default": 60,
+        "max": 500,
+        "min": 0,
+        "step": 10,
+        "unit": "px"
+      }, {
+        "type": "range",
+        "id": "spmt",
+        "label": "スマホ上のマージン",
+        "default": 60,
+        "max": 500,
+        "min": 0,
+        "step": 10,
+        "unit": "px"
+      }, {
+        "type": "range",
+        "id": "spmb",
+        "label": "スマホ下のマージン",
+        "default": 60,
+        "max": 500,
+        "min": 0,
+        "step": 10,
+        "unit": "px"
+      },
+      {
+        "type": "url",
+        "id": "URL",
+        "label": "URL"
+      }
+
+    ],
+    "presets": [
+      {
+        "name": "TOP コンセプト"
+      }
+    ]
+  }
+{% endschema %}

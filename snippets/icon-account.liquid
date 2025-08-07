@@ -1,0 +1,8 @@
+{% if customer %}
+  <img src="https://cdn.shopify.com/s/files/1/0686/3336/2674/files/Vector.svg?v=1713764762" alt="人のアイコン" class="custom__header__account" width="20px" height="20px" loading="lazy">
+
+  
+  {% else %}
+  <img src="{{'lock.svg' | asset_url}}" alt="人のアイコン" class="custom__header__account" width="30px" height="30px" loading="lazy">
+    
+{% endif %}

@@ -1,0 +1,64 @@
+<div id="promo-banner">
+  <a href="{{shop.url}}/account/register">
+  <img src="https://cdn.shopify.com/s/files/1/0686/3336/2674/files/S__54378580.jpg?v=1730269864" id="promo-image"></a>
+  <span id="close-button">×</span>
+</div>
+
+<style>
+#promo-banner {
+  position: fixed;
+  bottom: 30px;
+  left: 30px;
+  z-index: 1000;
+  background-color: transparent;
+  padding: 0px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  transition: all 0.3s;
+}
+
+#promo-image {
+  max-width: 200px;
+  max-height: 200px;
+  height: auto;
+  object-fit: cover;
+}
+
+#close-button {
+  margin-left: 10px;
+  cursor: pointer;
+  font-size: 20px;
+  color: #333;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}
+
+#promo-banner.hide {
+  display: none;
+  transition: all 0.3s;
+}
+
+
+</style>
+
+<script> 
+document.addEventListener("DOMContentLoaded", function() {
+  const promoBanner = document.getElementById('promo-banner');
+  const closeButton = document.getElementById('close-button');
+
+  // localStorage で閉じたかどうかを確認
+  if (localStorage.getItem('promoBannerClosed') === 'true') {
+    promoBanner.style.display = 'none'; // バナーを非表示に設定
+  }
+
+  // 閉じるボタンをクリックしたときの動作
+  closeButton.addEventListener('click', function() {
+    promoBanner.style.display = 'none'; // バナーを非表示に設定
+    localStorage.setItem('promoBannerClosed', 'true'); // 閉じた状態を保存
+  });
+});
+
+</script>

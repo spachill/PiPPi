@@ -1,0 +1,49 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "form": {
+      "type": "contact-form",
+      "disabled": true,
+      "settings": {
+        "heading": "何かお困り事などありましたら、お気軽にお問い合わせください。また、ご意見ご感想などお待ちしております。",
+        "heading_size": "h2",
+        "color_scheme": "scheme-d7f62e66-c4d4-48ba-bd57-23baa08e0a39",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "contact_google_dX4DVN": {
+      "type": "contact-Google",
+      "name": "GoogleForm",
+      "settings": {
+        "title": "タイトル",
+        "backcolor": "",
+        "pcmt": 0,
+        "pcmb": 0,
+        "spmt": 0,
+        "spmb": 0
+      }
+    }
+  },
+  "order": [
+    "main",
+    "form",
+    "contact_google_dX4DVN"
+  ]
+}

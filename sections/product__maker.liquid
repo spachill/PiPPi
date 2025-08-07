@@ -1,0 +1,208 @@
+{% comment %} ここから下にHTMLをかく
+セクションで囲まれていてクラス名はschemaに記載 {% endcomment %}
+{% assign Maker__collection = product.metafields.custom._maker-collection.value %}
+<div class="inner custom__maker__inner">
+  {% assign Collectiontitle = product.metafields.custom._maker.value %}
+  {% if  product.metafields.custom._maker != blank %}
+    <h2 class="custom__maker__maintitle common-secondary-title">{{Collectiontitle.title}} Collections</h2>
+    <h2 class=" common-secondary-subtitle">メーカー商品</h2>
+  {% endif %}
+  {% assign tags = product.tags %} 
+  
+  <ul class="custom__maker__items">
+      {% for Item in collections[Maker__collection].products limit:8 %}
+
+        <li class="custom__maker__item">
+            <a href="{{Item.url}}" class="custom__maker__link 
+            {% for Tag in Item.tags %}
+                {% if Tag contains "info_new" %}   
+                  custom__tag__new
+                {% endif %}
+              {% endfor %}">
+             <div class="custom__maker__image__box">
+                <img src="{{Item.featured_image | image_url: width: 800 }}" alt="{{Item.title}}" class="custom__maker__image"
+                loading="lazy"
+                width="{{image.width}}"
+                 height="{{image.height}}">
+                 <div class="common__custom__tags custom__maker__tags">
+                    {% for Tag in Item.tags %}
+                       {% if Tag contains "再入荷" %}   
+                         <div class="custom__tag__crestocking common__custom__tag custom__maker__tag">再入荷</div>
+                       {% endif %}
+                   {% if Tag == "コラボ" %}   
+                     <div class="custom__tag__collaboration common__custom__tag custom__maker__tag">コラボ</div>
+                   {% endif %}
+                   {% if Tag contains "info_" %}   
+                     <div class="custom__tag__collaboration-pierce common__custom__tag custom__maker__tag">{{Tag | split: "_" |last}}</div>
+                   {% endif %}
+                   {% endfor %}
+                   </div>
+                 </div>
+                 <h3 class="custom__maker__title">{{Item.title}}</h3>
+                 <p class="custom__maker__price">{{Item.price |money}}</p>
+            </a>
+        </li>
+      {% endfor %}
+    </ul>
+</div>
+
+
+  
+
+
+{% comment %} ここから下の<style>にCSSをかく {% endcomment %}
+
+<style>
+    .custom__maker__inner {
+        padding: 0 1.5rem;
+    }
+    .custom__maker__maintitle {
+        font-family:'Noto sans jp';
+    }
+    .custom__maker__items {
+        display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(269px,1fr));
+  column-gap: 10px;
+  row-gap: 10px;
+  margin-left: 0;
+  padding-left: 0;
+}
+.custom__maker__item {
+    list-style: none;
+border-radius: 10px;
+overflow: hidden;
+
+}
+.custom__maker__image__box {
+    position: relative;
+}
+.custom__maker__image {
+width: 100%;
+object-fit: cover;
+border-radius: 10px;
+}
+.custom__maker__link {
+    text-decoration: none;
+    color: #7D6241;
+    display: block;
+    position: relative;
+}
+.custom__maker__tags {
+    position: absolute;
+    bottom: 20px;
+    left: 5px;
+}
+.custom__maker__title {
+    margin-top: 0;
+    margin-bottom: 0;
+    color: #7D6241;
+}
+
+@media screen and (max-width:768px) { 
+    .custom__maker__items {
+        display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(175px,1fr));
+  column-gap: 10px;
+  row-gap: 10px;
+  margin-left: 0;
+  padding-left: 0;
+}
+}
+    
+
+</style>
+
+{% style %}
+.custom__product__maker {
+   background-color:{{ section.settings.backcolor }};
+  padding-top: {{section.settings.pcmt}}px;
+  padding-bottom:{{section.settings.pcmb}}px;
+}
+  @media screen and (max-width:768px) {
+.custom__product__maker {
+    padding-top: {{section.settings.spmt}}px;
+    padding-bottom:{{section.settings.spmb}} px;
+}
+}
+{% endstyle %}
+
+
+{% comment %} ここから下の<script>にJSをかく {% endcomment %}
+
+<script>
+
+</script>
+
+{% schema %}
+  {
+    "name": "メーカーコレクション",
+  "tag": "section",
+  "class": "custom__product__maker",
+  "settings": [
+    {
+    "type": "color",
+    "id":"backcolor",
+    "label":"背景色"
+    },
+    {
+      "type":"range",
+      "id": "pcmt",
+      "label": "上の余白",
+      "default":0,
+      "max": 500 ,
+      "min": 0,
+      "step": 10,
+      "unit": "px"
+    },
+    {
+      "type":"range",
+      "id": "pcmb",
+      "label": "下の余白",
+      "default":0,
+      "max": 500 ,
+      "min": 0,
+      "step": 10,
+      "unit": "px"
+    },
+    {
+      "type":"range",
+      "id": "spmt",
+      "label": "スマホ上の余白",
+      "default":0,
+      "max": 500 ,
+      "min": 0,
+      "step": 10,
+      "unit": "px"
+    },
+    {
+      "type":"range",
+      "id": "spmb",
+      "label": "スマホ下の余白",
+      "default":0,
+      "max": 500 ,
+      "min": 0,
+      "step": 10,
+      "unit": "px"
+    }
+
+],
+ "blocks": [
+    {
+      "type": "link",
+      "name": "カスタム",
+      "settings": [
+        {
+          "type": "text",
+          "id": "custom",
+          "label": "タイトル"
+        }
+      ]
+    }
+  ],
+"presets":[
+  {
+    "name":"メーカーコレクション"
+  }
+]
+  }
+{% endschema %}

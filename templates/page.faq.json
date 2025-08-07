@@ -1,0 +1,272 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "faq_title_Ntrdxy": {
+      "type": "faq__title",
+      "blocks": {
+        "link_KnbAqm": {
+          "type": "link",
+          "settings": {
+            "custom": ""
+          }
+        }
+      },
+      "block_order": [
+        "link_KnbAqm"
+      ],
+      "settings": {
+        "subtitle": "よくある質問",
+        "title": "Q＆A",
+        "backcolor": "",
+        "pcmt": 100,
+        "pcmb": 60,
+        "spmt": 60,
+        "spmb": 60
+      }
+    },
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "custom_faq_jaq3hE": {
+      "type": "custom__faq",
+      "blocks": {
+        "link_EURmTe": {
+          "type": "link",
+          "settings": {
+            "title": "ショップについて",
+            "text": "<p>ご注文は365日24時間受け付けております。</p><p>お問い合わせは平日9:00~17:00となっております。土日・祝祭日、夏期休暇、年末年始は休業とさせていただきます。</p><p>また、営業時間外、休業日中にいただきましたご注文、お問い合わせに関しましては翌営業日に順次対応とさせていただきます。</p>"
+          }
+        },
+        "link_tehAWn": {
+          "type": "link",
+          "settings": {
+            "title": "ギフトラッピングは可能ですか？",
+            "text": "<p>はい、可能です。</p><p>当店では、可愛い無料ギフトラッピングご用意しております。</p><p>ご希望のお客様は、商品購入ページよりギフトラッピング「あり」を選択してください。複数購入のお客様はどちらの商品をギフトラッピング希望か備考欄にご記入をお願いいたします。</p><p>その他詳細も備考欄にご記入いただけます。</p><p>詳細は<a href=\"/pages/ラッピングについて\" title=\"ラッピングについて\"><strong>こちら</strong></a>をご確認ください。</p>"
+          }
+        },
+        "link_n3Dffx": {
+          "type": "link",
+          "settings": {
+            "title": "注文確定後のキャンセルはできますか？",
+            "text": "<p>ご注文確定後（注文確定メールの受け取り後）のキャンセルは承っておりません。</p><p>ご注文内容をよくご確認のうえ、ご注文のお手続きをお願いいたします。</p>"
+          }
+        }
+      },
+      "block_order": [
+        "link_EURmTe",
+        "link_tehAWn",
+        "link_n3Dffx"
+      ],
+      "settings": {
+        "title": "ショップについて",
+        "backcolor": "",
+        "pcmt": 0,
+        "pcmb": 60,
+        "spmt": 0,
+        "spmb": 60
+      }
+    },
+    "custom_faq_URXmim": {
+      "type": "custom__faq",
+      "blocks": {
+        "link_kJB8VE": {
+          "type": "link",
+          "settings": {
+            "title": "商品購入後、いつ発送・配達されますか？",
+            "text": "<p>商品出荷は２〜５営業日以内です。</p><p>発送後、運送状況によりますが、配達に通常1週間程度を要します。</p>"
+          }
+        },
+        "link_3ANtDX": {
+          "type": "link",
+          "settings": {
+            "title": "配送料金はいくらですか？",
+            "text": "<p>商品の大きさ・重さ・地域によって異なります。</p><p>商品を選択後［ご購入手続きへ］のボタンを押していただき、住所を入力していただくと［ご注文概要］に配送料が表示されます。</p><p>詳細については<a href=\"/pages/発送について\" title=\"配送について\">こちら</a>をご確認ください。</p>"
+          }
+        },
+        "link_6BcKx8": {
+          "type": "link",
+          "settings": {
+            "title": "注文後にお届け先の変更はできますか？",
+            "text": "<p>大変申し訳ありませんが、注文後の変更はできません。</p>"
+          }
+        },
+        "link_e4qHME": {
+          "type": "link",
+          "settings": {
+            "title": "発送状況の確認はできますか？",
+            "text": "<p>メールにてお届けしている追跡番号にてご確認いただけます。</p>"
+          }
+        },
+        "link_EjGy77": {
+          "type": "link",
+          "settings": {
+            "title": "プレゼントを贈りたい相手に直接届けてもらうことはできますか？",
+            "text": "<p>注文者様と異なるお届け先をご指定頂くことができます。備考欄に合わせて注文者様と送り主様が異なることを一言お書きください。送り状には「送り主様」を記載してお送りいたします。</p><p>納品書/納期のご案内はご注文者様へメールでのご案内となります。紙での納品書をご希望の場合は弊社までご連絡いただくようにお願いいたします。</p><p> </p>"
+          }
+        }
+      },
+      "block_order": [
+        "link_kJB8VE",
+        "link_3ANtDX",
+        "link_6BcKx8",
+        "link_e4qHME",
+        "link_EjGy77"
+      ],
+      "settings": {
+        "title": "配送について",
+        "backcolor": "",
+        "pcmt": 60,
+        "pcmb": 60,
+        "spmt": 60,
+        "spmb": 60
+      }
+    },
+    "custom_faq_FAqift": {
+      "type": "custom__faq",
+      "blocks": {
+        "link_LDHx7x": {
+          "type": "link",
+          "settings": {
+            "title": "どんな支払い方法がありますか？",
+            "text": "<p>クレジットカード決済一括払い（VISA、MASTER、DINERS、JCB、AMEX）、銀行振込（ネット銀行）での支払いが可能です。</p><p>お支払いの詳細は<a href=\"/pages/お支払いについて\" title=\"お支払いについて\">こちら</a>をご確認ください。</p>"
+          }
+        },
+        "link_MGYEp6": {
+          "type": "link",
+          "settings": {
+            "title": "領収書は発行できますか？",
+            "text": "<p>はい、可能です。 ご注文フォームの備考欄にその旨と「宛名」「但し書き」をご記入ください。</p><p> 商品に同封にて発行させていただきます。</p><p></p>"
+          }
+        },
+        "link_48f7xk": {
+          "type": "link",
+          "settings": {
+            "title": "注文時に使い忘れてしまったクーポンやポイントを使用したいですが可能ですか？",
+            "text": "<p>大変恐れ入りますが、ご注文完了後のクーポンやポイント利用は対応致しかねます。</p><p>必ずご注文完了前にご利用くださいませ。</p>"
+          }
+        }
+      },
+      "block_order": [
+        "link_LDHx7x",
+        "link_MGYEp6",
+        "link_48f7xk"
+      ],
+      "settings": {
+        "title": "支払いについて",
+        "backcolor": "",
+        "pcmt": 60,
+        "pcmb": 60,
+        "spmt": 60,
+        "spmb": 60
+      }
+    },
+    "custom_faq_E93tEy": {
+      "type": "custom__faq",
+      "blocks": {
+        "link_FbmHdd": {
+          "type": "link",
+          "settings": {
+            "title": "届いた商品の交換はできますか？",
+            "text": "<p>詳細は<a href=\"/pages/キャンセル-返品について\" title=\"返品交換・キャンセルについて\">こちら</a>のページにてご確認をお願い致します。</p>"
+          }
+        },
+        "link_Tj6G3p": {
+          "type": "link",
+          "settings": {
+            "title": "商品の修理は可能ですか？",
+            "text": "<p>大変恐れ入りますが、修理は行っておりません。</p>"
+          }
+        }
+      },
+      "block_order": [
+        "link_FbmHdd",
+        "link_Tj6G3p"
+      ],
+      "settings": {
+        "title": "返品・交換・修理について",
+        "backcolor": "",
+        "pcmt": 60,
+        "pcmb": 60,
+        "spmt": 60,
+        "spmb": 60
+      }
+    },
+    "custom_faq_FKDPVa": {
+      "type": "custom__faq",
+      "blocks": {
+        "link_rjYRer": {
+          "type": "link",
+          "settings": {
+            "title": "ポイントサービスについて",
+            "text": "<p>会員登録していただいた方のみポイント付与されます。</p><p>100円(税抜)で1ポイント付与となります。</p><p>貯まったポイントは1ポイント1円としてお使いいただけます。</p><p>会員ランクがアップしていくにつれて、ポイント還元率もアップしていきます。</p><p>詳細は<a href=\"/pages/ポイントについて\" title=\"ポイント会員ランクについて\"><strong>こちら</strong></a>をご確認ください。</p>"
+          }
+        },
+        "link_Q6hxH6": {
+          "type": "link",
+          "settings": {
+            "title": "ポイントはいつ失効しますか？",
+            "text": "<p>１ポイント１円としてご使用いただけ、有効期限はポイント付与日より１年間です。</p><p>（キャンペーンなどで特別に付与されたポイントは有効期限が短いものや、変更になることもございますのでご注意ください。）</p><p>お客様のマイページにログインするとご確認いただけます。</p>"
+          }
+        },
+        "link_EHTHMP": {
+          "type": "link",
+          "settings": {
+            "title": "ポイントはどのように使えますか？",
+            "text": "<p>１ポイントから使用可能です。商品をカートに追加していただき「あなたのカート」という画面に現在の保有ポイント数が表示されます。使用したいポイント数を入力し、［ポイントを使用する］のボタンを押していただくと反映されます。</p><p>※ログインしていない場合はご使用いただけないためご注意ください。</p>"
+          }
+        },
+        "link_FUNEfG": {
+          "type": "link",
+          "settings": {
+            "title": "会員ランクはいつ更新されますか？",
+            "text": "<p>毎日0:00にシステムの更新がかかりますので、ご購入いただいた翌日に新しい表示に変わります。</p>"
+          }
+        },
+        "link_zyqPQ3": {
+          "type": "link",
+          "settings": {
+            "title": "購入後ポイント加算されるのはいつ頃でしょうか？",
+            "text": "<p>商品の発送が完了した翌日0時にポイント付与されます。</p>"
+          }
+        }
+      },
+      "block_order": [
+        "link_rjYRer",
+        "link_Q6hxH6",
+        "link_EHTHMP",
+        "link_FUNEfG",
+        "link_zyqPQ3"
+      ],
+      "settings": {
+        "title": "ポイント・会員ランクについて",
+        "backcolor": "",
+        "pcmt": 60,
+        "pcmb": 60,
+        "spmt": 60,
+        "spmb": 60
+      }
+    }
+  },
+  "order": [
+    "faq_title_Ntrdxy",
+    "main",
+    "custom_faq_jaq3hE",
+    "custom_faq_URXmim",
+    "custom_faq_FAqift",
+    "custom_faq_E93tEy",
+    "custom_faq_FKDPVa"
+  ]
+}
