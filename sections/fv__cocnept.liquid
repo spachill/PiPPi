@@ -3,7 +3,7 @@
 
 <div class="fv__cocnept__inner inner">
   <div class="fv__concept__box-outer">
-    <h2 class="fv__concept__title">Concept</h2>
+    {% comment %} <h2 class="fv__concept__title">Concept</h2> {% endcomment %}
     <picture class="fv__concept__image-left">
       <source srcset="{{ section.settings.image-left |  image_url: width:master }}" media="(min-width: 768px)" />
       <img
@@ -49,7 +49,7 @@
     margin-bottom: 0;
     font-size: 72px;
     font-family: Noto Sans JP;
-    color: #BAAB9B;
+    color: #c2f0f0;
     position: absolute;
     top: 0;
     transform: translateY(-50%);
@@ -67,7 +67,7 @@
   .fv__concept__box-outer::before {
     top: 7px;
     left: 14px;
-    border: 1px solid #BAAB9B;
+    border: 1px solid #c2f0f0;
     position: absolute;
     width: 100%;
     height: 100%;
@@ -98,7 +98,7 @@
     margin-right: auto;
   }
   .fv__concept__box-inner::before {
-    border: 1px solid #BAAB9B;
+    border: 1px solid #c2f0f0;
     position: absolute;
     width: 100%;
     height: 100%;
@@ -111,6 +111,7 @@
     text-align: center;
     line-height: 2;
     font-family: Noto Sans JP;
+    color: #333;
   }
 
   .fv__concept__btnbox {
@@ -119,14 +120,14 @@
   }
   @media screen and (max-width: 768px) {
     .fv__cocnept__inner {
-      padding: 0 5%;
+      padding: 0 2.5%;
     }
     .fv__concept__title {
       margin-top: 0;
       margin-bottom: 0;
       font-size: 48px;
       font-family: Noto Sans JP;
-      color: #BAAB9B;
+      color: #c2f0f0;
       position: absolute;
       top: 0;
       transform: translateY(-50%);
@@ -140,7 +141,7 @@
     .fv__concept__box-outer::before {
       top: 5px;
       left: 7px;
-      border: 1px solid #BAAB9B;
+      border: 1px solid #c2f0f0;
       position: absolute;
       width: 100%;
       height: 100%;
@@ -168,7 +169,7 @@
     }
     .fv__concept__box-inner {}
   .fv__concept__content {
-    padding: 50px 50px 20px;
+    padding: 15px;
     line-height: 1.8;
   }
 
