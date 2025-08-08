@@ -886,6 +886,44 @@
       "settings": {
         "include_margins": true
       }
+    },
+    "book_JBhy7y": {
+      "type": "book",
+      "blocks": {
+        "page_YQ8iNQ": {
+          "type": "page",
+          "settings": {
+            "image": "shopify://shop_images/000000003867-03-l.jpg",
+            "title": "タイトル",
+            "body": "<p>本文テキストを入力してください。</p>"
+          }
+        },
+        "page_HCEXwg": {
+          "type": "page",
+          "settings": {
+            "image": "shopify://shop_images/000000003867-05-l.jpg",
+            "title": "タイトル",
+            "body": "<p>本文テキストを入力してください。</p>"
+          }
+        },
+        "page_MxVtnG": {
+          "type": "page",
+          "settings": {
+            "image": "shopify://shop_images/000000002663-02-l.jpg",
+            "title": "タイトル",
+            "body": "<p>本文テキストを入力してください。</p>"
+          }
+        }
+      },
+      "block_order": [
+        "page_YQ8iNQ",
+        "page_HCEXwg",
+        "page_MxVtnG"
+      ],
+      "name": "Flip Book Section",
+      "settings": {
+        "flip_duration": 900
+      }
     }
   },
   "order": [
@@ -909,6 +947,7 @@
     "custom_blog_Vame9y",
     "top_blog_xL8rde",
     "custom_instagram_HT8jmV",
-    "171556888291d19bd6"
+    "171556888291d19bd6",
+    "book_JBhy7y"
   ]
 }
