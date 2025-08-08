@@ -1,0 +1,227 @@
+{% comment %}
+  Flip Book Section (Shopify Section)
+  - All-in-one Liquid + HTML + CSS + JS
+  - Mobile: 60vh, image area ~50% height, text 50%
+  - Desktop: 100vh, max width 1200px
+  - Page flip animation with CSS3 + JS (no external libs)
+{% endcomment %}
+
+{% assign flip_id = 'flip-book-' | append: section.id %}
+<section id="{{ flip_id }}" class="flip-book-wrapper">
+  <div class="flip-book-container">
+    <div class="flip-ui">
+      <button class="nav prev" aria-label="前のページ" disabled>
+        <span>&larr;</span>
+      </button>
+      <button class="nav next" aria-label="次のページ" {% if section.blocks.size <= 1 %}disabled{% endif %}>
+        <span>&rarr;</span>
+      </button>
+    </div>
+
+    <div class="book-shell">
+      <div class="book-cover"></div>
+      <div class="book-border"></div>
+      <div class="book-inner">
+        <div class="spine"></div>
+
+        {%- assign blocks = section.blocks -%}
+        {%- for block in blocks -%}
+          {%- assign img = block.settings.image | image_url: width: 1600 -%}
+          <div class="page" data-index="{{ forloop.index0 }}" {{ block.shopify_attributes }}>
+            <div class="page-front">
+              <div class="page-grid">
+                <div class="pane image">
+                  {% if block.settings.image %}
+                    <img src="{{ img }}" alt="{{ block.settings.title | escape }}" loading="lazy" decoding="async" />
+                  {% else %}
+                    <div class="img-placeholder">No image</div>
+                  {% endif %}
+                </div>
+                <div class="pane text">
+                  {% if block.settings.title != blank %}
+                    <h2 class="title">{{ block.settings.title }}</h2>
+                  {% endif %}
+                  {% if block.settings.body != blank %}
+                    <div class="body">{{ block.settings.body }}</div>
+                  {% endif %}
+                </div>
+              </div>
+            </div>
+            <div class="page-back">
+              <div class="page-grid">
+                <div class="pane image">
+                  {% liquid
+                    assign next_index = forloop.index
+                    if next_index >= blocks.size
+                      assign next_index = forloop.index0
+                    endif
+                    assign next_block = blocks[next_index]
+                    assign next_img = next_block.settings.image | image_url: width: 1600
+                  %}
+                  {% if next_block and next_block.settings.image %}
+                    <img src="{{ next_img }}" alt="{{ next_block.settings.title | escape }}" loading="lazy" decoding="async" />
+                  {% else %}
+                    <div class="img-placeholder">No image</div>
+                  {% endif %}
+                </div>
+                <div class="pane text">
+                  <h2 class="title">{{ next_block.settings.title }}</h2>
+                  <div class="body">{{ next_block.settings.body }}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        {%- endfor -%}
+
+      </div>
+    </div>
+
+    <div class="dots">
+      {%- for block in section.blocks -%}
+        <button class="dot" data-target-index="{{ forloop.index0 }}" aria-label="ページ {{ forloop.index }}"></button>
+      {%- endfor -%}
+    </div>
+  </div>
+
+  <style>
+    /* ----- Sizing ----- */
+    #{{ flip_id }} {
+      --max-w: 1200px;
+      --vh-mobile: 60vh;
+      --vh-desktop: 100vh;
+      --page-duration: {{ section.settings.flip_duration | default: 900 | times: 1 | divided_by: 1000.0 }}s;
+      --ease: cubic-bezier(.2,.6,0,1);
+      --page-shadow: inset 0 0 30px rgba(0,0,0,.15);
+      --cover-from: #4b5563; /* stone-700 */
+      --cover-to: #111827;   /* gray-900 */
+    }
+
+    #{{ flip_id }} .flip-book-container {
+      height: var(--vh-mobile);
+      display: flex; align-items: center; justify-content: center;
+      background: linear-gradient(to bottom, #fafafa, #f3f4f6);
+      width: 100%;
+    }
+    @media (min-width: 768px) {
+      #{{ flip_id }} .flip-book-container { height: var(--vh-desktop); }
+    }
+
+    #{{ flip_id }} .book-shell{ position: relative; width: 100%; max-width: var(--max-w); height: 100%; padding: 8px 12px; }
+    @media (min-width: 768px){ #{{ flip_id }} .book-shell{ padding: 16px 24px; } }
+
+    /* Book look */
+    #{{ flip_id }} .book-cover{ position:absolute; inset:0; border-radius:24px; background: linear-gradient(135deg,var(--cover-from),var(--cover-to)); box-shadow: 0 20px 40px rgba(0,0,0,.25); }
+    #{{ flip_id }} .book-border{ position:absolute; inset:0; border-radius:24px; box-shadow: inset 0 0 0 1px rgba(0,0,0,.25), inset 0 40px 60px rgba(255,255,255,.08); pointer-events:none; }
+
+    #{{ flip_id }} .book-inner{ position:relative; height:100%; width:100%; padding: 8px; }
+    @media (min-width:768px){ #{{ flip_id }} .book-inner{ padding: 16px; } }
+
+    #{{ flip_id }} .spine{ position:absolute; left:50%; top:0; bottom:0; width:32px; transform:translateX(-50%); background: linear-gradient(90deg, rgba(0,0,0,.25), transparent 50%, rgba(0,0,0,.25)); border-radius:12px; pointer-events:none; }
+
+    #{{ flip_id }} .page{ position:absolute; inset: 8px; border-radius:16px; overflow:hidden; transform-style:preserve-3d; backface-visibility:hidden; }
+    #{{ flip_id }} .page-front, #{{ flip_id }} .page-back{ position:absolute; inset:0; background:#fff; display:block; }
+    #{{ flip_id }} .page-front{ box-shadow: var(--page-shadow); }
+    #{{ flip_id }} .page-back{ transform: rotateY(180deg); box-shadow: var(--page-shadow); }
+
+    #{{ flip_id }} .page-grid{
+      display:grid; height:100%; width:100%;
+      grid-template-rows: 50% 50%; /* mobile: image 50% / text 50% */
+    }
+    @media (min-width: 768px){
+      #{{ flip_id }} .page-grid{ grid-template-rows: 1fr; grid-template-columns: 1fr 1fr; }
+    }
+
+    #{{ flip_id }} .pane.image img{ width:100%; height:100%; object-fit:cover; display:block; }
+    #{{ flip_id }} .pane.text{ padding: 20px; display:flex; flex-direction:column; justify-content:center; }
+    #{{ flip_id }} .title{ font-size: clamp(20px, 2.2vw, 32px); margin: 0 0 8px; font-weight: 700; }
+    #{{ flip_id }} .body{ color:#374151; line-height:1.7; font-size: clamp(14px, 1.2vw, 16px); }
+
+    /* Controls */
+    #{{ flip_id }} .flip-ui{ position:absolute; right:16px; bottom:16px; display:flex; gap:8px; z-index:5; }
+    #{{ flip_id }} .nav{ border-radius:9999px; background:#fff; border:1px solid rgba(0,0,0,.1); padding:10px 12px; box-shadow:0 6px 16px rgba(0,0,0,.08); cursor:pointer; }
+    #{{ flip_id }} .nav:disabled{ opacity:.4; cursor:not-allowed; }
+
+    #{{ flip_id }} .dots{ position:absolute; left:0; right:0; bottom: -28px; display:flex; gap:6px; justify-content:center; }
+    #{{ flip_id }} .dot{ width:8px; height:8px; border-radius:9999px; background: rgba(0,0,0,.35); border:none; cursor:pointer; }
+    #{{ flip_id }} .dot.active{ width:20px; background:#111827; }
+  </style>
+
+  <script>
+    (function(){
+      const root = document.getElementById('{{ flip_id }}');
+      if(!root) return;
+      const pages = Array.from(root.querySelectorAll('.page'));
+      const btnPrev = root.querySelector('.nav.prev');
+      const btnNext = root.querySelector('.nav.next');
+      const dots = Array.from(root.querySelectorAll('.dot'));
+      let index = 0; let isFlipping = false; let duration = parseFloat(getComputedStyle(root).getPropertyValue('--page-duration')) * 1000 || 900;
+
+      // preload images
+      pages.forEach(p => p.querySelectorAll('img').forEach(img => { const i = new Image(); i.src = img.currentSrc || img.src; }));
+
+      const updateState = () => {
+        btnPrev.disabled = index === 0 || isFlipping;
+        btnNext.disabled = index === pages.length - 1 || isFlipping;
+        dots.forEach((d,i)=> d.classList.toggle('active', i===index));
+      };
+
+      const setZIndex = () => {
+        // stack current page on top
+        pages.forEach((p,i)=>{ p.style.zIndex = (i === index) ? 3 : (i < index ? 1 : 2); });
+      };
+
+      const flipTo = (nextIndex, dir) => {
+        if(isFlipping || nextIndex===index || nextIndex<0 || nextIndex>=pages.length) return;
+        isFlipping = true; updateState(); setZIndex();
+        const current = pages[index];
+        current.style.transformOrigin = dir==='next' ? 'left center' : 'right center';
+        current.style.transition = `transform var(--page-duration) var(--ease)`;
+        current.style.transform = `rotateY(${dir==='next' ? -180 : 180}deg)`;
+        setTimeout(()=>{
+          current.style.transition = '';
+          current.style.transform = '';
+          index = nextIndex; isFlipping = false; updateState(); setZIndex();
+        }, duration + 20);
+      };
+
+      btnPrev.addEventListener('click', ()=> flipTo(index-1,'prev'));
+      btnNext.addEventListener('click', ()=> flipTo(index+1,'next'));
+      dots.forEach(d=> d.addEventListener('click', ()=> {
+        const target = parseInt(d.getAttribute('data-target-index')) || 0;
+        flipTo(target, target>index? 'next':'prev');
+      }));
+
+      // Swipe (basic)
+      let startX=null, dx=0; const SWIPE=60;
+      root.addEventListener('pointerdown', e=>{ startX=e.clientX; dx=0; });
+      root.addEventListener('pointermove', e=>{ if(startX!=null) dx = e.clientX - startX; });
+      root.addEventListener('pointerup', ()=>{ if(Math.abs(dx)>SWIPE){ if(dx<0) flipTo(index+1,'next'); else flipTo(index-1,'prev'); } startX=null; dx=0; });
+
+      // Initial
+      setZIndex(); updateState();
+    })();
+  </script>
+</section>
+
+{% schema %}
+{
+  "name": "Flip Book Section",
+  "tag": "section",
+  "settings": [
+    { "type": "range", "id": "flip_duration", "label": "Flip duration (ms)", "min": 300, "max": 2000, "step": 50, "default": 900 }
+  ],
+  "blocks": [
+    {
+      "type": "page",
+      "name": "Page",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "text", "id": "title", "label": "Title", "default": "タイトル" },
+        { "type": "richtext", "id": "body", "label": "Body", "default": "<p>本文テキストを入力してください。</p>" }
+      ]
+    }
+  ],
+  "max_blocks": 20,
+  "presets": [ { "name": "Flip Book Section", "category": "Custom" } ]
+}
+{% endschema %}
