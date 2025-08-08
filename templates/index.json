@@ -920,6 +920,7 @@
         "page_HCEXwg",
         "page_MxVtnG"
       ],
+      "disabled": true,
       "name": "Flip Book Section",
       "settings": {
         "flip_duration": 900
