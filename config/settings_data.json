@@ -131,7 +131,9 @@
     "sections": {
       "main-password-header": {
         "type": "main-password-header",
-        "custom_css": [],
+        "custom_css": [
+          ".password-modal.modal {display:none;}"
+        ],
         "settings": {
           "color_scheme": "scheme-1"
         }
