@@ -38,135 +38,6 @@
         "URL": "shopify://pages/about"
       }
     },
-    "fv_slider_Bdc8iN": {
-      "type": "fv-slider",
-      "blocks": {
-        "link_ALkANr": {
-          "type": "link",
-          "disabled": true,
-          "settings": {
-            "link": "shopify://collections/christmas",
-            "image": "shopify://shop_images/39.jpg",
-            "titel": ""
-          }
-        },
-        "link_kqgErJ": {
-          "type": "link",
-          "settings": {
-            "link": "shopify://collections/la-ribbon",
-            "image": "shopify://shop_images/36.jpg",
-            "titel": ""
-          }
-        },
-        "link_VTdPTY": {
-          "type": "link",
-          "settings": {
-            "link": "shopify://collections/happyface",
-            "image": "shopify://shop_images/37.jpg",
-            "titel": ""
-          }
-        },
-        "link_jp3NHH": {
-          "type": "link",
-          "settings": {
-            "link": "shopify://collections/think-bee",
-            "image": "shopify://shop_images/8.png",
-            "titel": ""
-          }
-        },
-        "link_CBF3Vh": {
-          "type": "link",
-          "settings": {
-            "link": "shopify://metaobjects/category/category",
-            "image": "shopify://shop_images/99b6620f81604e4452495cc436ea75a6.jpg",
-            "titel": ""
-          }
-        },
-        "link_Bn6QMf": {
-          "type": "link",
-          "settings": {
-            "link": "https://happy-reborn.com/blogs/news/%E3%83%AC%E3%83%93%E3%83%A5%E3%83%BC%E6%8A%95%E7%A8%BF%E3%81%A750%E3%83%9D%E3%82%A4%E3%83%B3%E3%83%88%E3%83%97%E3%83%AC%E3%82%BC%E3%83%B3%E3%83%88%F0%9F%8E%81",
-            "image": "shopify://shop_images/18.png",
-            "titel": ""
-          }
-        },
-        "link_cjCy7D": {
-          "type": "link",
-          "disabled": true,
-          "settings": {
-            "link": "shopify://pages/limited",
-            "image": "shopify://shop_images/2b6604cf05678caa7fbeb90983c578a8.png",
-            "titel": ""
-          }
-        },
-        "link_jURMUi": {
-          "type": "link",
-          "disabled": true,
-          "settings": {
-            "link": "shopify://collections/otoginail",
-            "image": "shopify://shop_images/15_dfd73457-23b7-4df6-9134-5d756e41a5fc.png",
-            "titel": ""
-          }
-        }
-      },
-      "block_order": [
-        "link_ALkANr",
-        "link_kqgErJ",
-        "link_VTdPTY",
-        "link_jp3NHH",
-        "link_CBF3Vh",
-        "link_Bn6QMf",
-        "link_cjCy7D",
-        "link_jURMUi"
-      ],
-      "disabled": true,
-      "settings": {
-        "backcolor": "#fbf5f1",
-        "pcmt": 0,
-        "pcmb": 0,
-        "spmt": 0,
-        "spmb": 0
-      }
-    },
-    "fv_banner_QwL63H": {
-      "type": "fv-banner",
-      "blocks": {
-        "link_bkezpw": {
-          "type": "link",
-          "settings": {
-            "url": "",
-            "image": "shopify://shop_images/fv-bottom01.png"
-          }
-        },
-        "link_fzYfRk": {
-          "type": "link",
-          "settings": {
-            "url": "",
-            "image": "shopify://shop_images/fv-bottom02.png"
-          }
-        },
-        "link_TzRq6K": {
-          "type": "link",
-          "settings": {
-            "url": "",
-            "image": "shopify://shop_images/fv-bottom03.png"
-          }
-        }
-      },
-      "block_order": [
-        "link_bkezpw",
-        "link_fzYfRk",
-        "link_TzRq6K"
-      ],
-      "disabled": true,
-      "settings": {
-        "backcolor": "",
-        "pcmt": 0,
-        "pcmb": 0,
-        "spmt": 0,
-        "spmb": 0
-      }
-    },
     "fv_purouse_RQNVMT": {
       "type": "fv__purouse",
       "settings": {
@@ -177,22 +48,6 @@
         "pcmb": 0,
         "spmt": 0,
         "spmb": 0
-      }
-    },
-    "custom_blog_UVrVqw": {
-      "type": "custom__blog",
-      "disabled": true,
-      "settings": {
-        "bkcl": "",
-        "pcmt": 80,
-        "pcmb": 80,
-        "spmt": 60,
-        "spmb": 60,
-        "title": "NEWS",
-        "subtitle": "ニュース",
-        "blog": "news",
-        "post_limit": 3,
-        "blog_show_date": false
       }
     },
     "custom_featured_collection_UR3KR8": {
@@ -286,125 +141,6 @@
         "swipe_on_mobile": false,
         "padding_top": 36,
         "padding_bottom": 36
-      }
-    },
-    "custom_featured_collection_jBhQYW": {
-      "type": "custom__featured-collection",
-      "disabled": true,
-      "settings": {
-        "backcolor": "#fbf5f1",
-        "title": "",
-        "subtitle": "特集",
-        "ranking": false,
-        "heading_size": "h1",
-        "description": "",
-        "show_description": false,
-        "description_style": "body",
-        "collection": "",
-        "products_to_show": 4,
-        "columns_desktop": 4,
-        "full_width": false,
-        "show_view_all": true,
-        "view_all_style": "solid",
-        "enable_desktop_slider": false,
-        "color_scheme": "scheme-4d661054-a4aa-445a-83df-a52507cef141",
-        "image_ratio": "adapt",
-        "image_shape": "default",
-        "show_secondary_image": false,
-        "show_vendor": false,
-        "show_rating": false,
-        "enable_quick_add": false,
-        "columns_mobile": "2",
-        "swipe_on_mobile": false,
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
-    "fv_category_tJT3mY": {
-      "type": "fv__category",
-      "blocks": {
-        "link_PYTMU9": {
-          "type": "link",
-          "settings": {
-            "image": "shopify://shop_images/WEB_TOP_1.png",
-            "collection": "cccm"
-          }
-        },
-        "link_BAcQip": {
-          "type": "link",
-          "settings": {
-            "image": "shopify://shop_images/TOP_hair.png",
-            "collection": "hairaccessories"
-          }
-        },
-        "link_7PdHbL": {
-          "type": "link",
-          "settings": {
-            "image": "shopify://shop_images/TOP_bag.png",
-            "collection": "バッグ-1"
-          }
-        },
-        "link_tQ7eQ7": {
-          "type": "link",
-          "settings": {
-            "image": "shopify://shop_images/TOP_porchi.png",
-            "collection": "ポーチ-1"
-          }
-        },
-        "link_xVzJDG": {
-          "type": "link",
-          "settings": {
-            "image": "shopify://shop_images/TOP_nail.png",
-            "collection": "ネイル-1"
-          }
-        },
-        "link_Yi6VL9": {
-          "type": "link",
-          "settings": {
-            "image": "shopify://shop_images/TOP_neckless.png",
-            "collection": "nacklace"
-          }
-        },
-        "link_LEcEyC": {
-          "type": "link",
-          "settings": {
-            "collection": "コラボ商品"
-          }
-        },
-        "link_GqXJxK": {
-          "type": "link",
-          "settings": {
-            "collection": "all-products"
-          }
-        },
-        "link_yedyyr": {
-          "type": "link",
-          "disabled": true,
-          "settings": {
-            "collection": "プレオープンポイント付与商品"
-          }
-        }
-      },
-      "block_order": [
-        "link_PYTMU9",
-        "link_BAcQip",
-        "link_7PdHbL",
-        "link_tQ7eQ7",
-        "link_xVzJDG",
-        "link_Yi6VL9",
-        "link_LEcEyC",
-        "link_GqXJxK",
-        "link_yedyyr"
-      ],
-      "disabled": true,
-      "settings": {
-        "title": "Category",
-        "subtitle": "カテゴリーから探す",
-        "backcolor": "#fbf5f1",
-        "pcmt": 60,
-        "pcmb": 60,
-        "spmt": 60,
-        "spmb": 60
       }
     },
     "fv_category2_67p6r6": {
@@ -599,93 +335,6 @@
         "spmb": 60
       }
     },
-    "fv_price_XdXFBX": {
-      "type": "fv__price",
-      "blocks": {
-        "link_iQa3Xd": {
-          "type": "link",
-          "settings": {
-            "collection": "haruharu"
-          }
-        },
-        "link_nHrU6y": {
-          "type": "link",
-          "settings": {
-            "collection": "hair-accessory-pippi"
-          }
-        },
-        "link_7tG4LR": {
-          "type": "link",
-          "settings": {
-            "collection": "la-ribbon"
-          }
-        },
-        "link_MUTdYQ": {
-          "type": "link",
-          "settings": {
-            "collection": "ネックレス-japan-trade"
-          }
-        },
-        "link_jaTihC": {
-          "type": "link",
-          "settings": {
-            "collection": "fuunail"
-          }
-        },
-        "link_xFFYmD": {
-          "type": "link",
-          "settings": {
-            "collection": "think-bee"
-          }
-        },
-        "link_MydKcC": {
-          "type": "link",
-          "settings": {
-            "collection": "coco-k"
-          }
-        },
-        "link_UVV6QA": {
-          "type": "link",
-          "settings": {
-            "collection": "otoginail"
-          }
-        },
-        "link_HbFFRn": {
-          "type": "link",
-          "settings": {
-            "collection": "コラボ商品"
-          }
-        },
-        "link_migDiY": {
-          "type": "link",
-          "settings": {
-            "collection": "all-products"
-          }
-        }
-      },
-      "block_order": [
-        "link_iQa3Xd",
-        "link_nHrU6y",
-        "link_7tG4LR",
-        "link_MUTdYQ",
-        "link_jaTihC",
-        "link_xFFYmD",
-        "link_MydKcC",
-        "link_UVV6QA",
-        "link_HbFFRn",
-        "link_migDiY"
-      ],
-      "disabled": true,
-      "settings": {
-        "title": "Bland",
-        "subtitle": "ブランドから探す",
-        "backcolor": "#fbf5f1",
-        "pcmt": 60,
-        "pcmb": 60,
-        "spmt": 60,
-        "spmb": 60
-      }
-    },
     "fv_price_wGXMmd": {
       "type": "fv__price",
       "blocks": {
@@ -742,26 +391,6 @@
         "pcmb": 60,
         "spmt": 60,
         "spmb": 60
-      }
-    },
-    "custom_contents_BdGxXY": {
-      "type": "custom-contents",
-      "blocks": {
-        "article_ywwxnM": {
-          "type": "article",
-          "settings": {
-            "article-url": "https://pippi-de-happy-company.myshopify.com",
-            "article-title": "◯◯の想いから形に 3秒でオシャレになる貼るだけピアス",
-            "article-text": "テキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキストテキスト"
-          }
-        }
-      },
-      "block_order": [
-        "article_ywwxnM"
-      ],
-      "disabled": true,
-      "settings": {
-        "title": "作り手の想い"
       }
     },
     "fv_banner_NkwXQW": {
@@ -833,19 +462,6 @@
         "blog_show_date": true
       }
     },
-    "top_blog_xL8rde": {
-      "type": "top__blog",
-      "disabled": true,
-      "settings": {
-        "blog": "about-maker",
-        "count": 3,
-        "backcolor": "",
-        "pcmt": 30,
-        "pcmb": 30,
-        "spmt": 0,
-        "spmb": 0
-      }
-    },
     "custom_instagram_HT8jmV": {
       "type": "custom-instagram",
       "settings": {
@@ -886,69 +502,21 @@
       "settings": {
         "include_margins": true
       }
-    },
-    "book_JBhy7y": {
-      "type": "book",
-      "blocks": {
-        "page_YQ8iNQ": {
-          "type": "page",
-          "settings": {
-            "image": "shopify://shop_images/000000003867-03-l.jpg",
-            "title": "タイトル",
-            "body": "<p>本文テキストを入力してください。</p>"
-          }
-        },
-        "page_HCEXwg": {
-          "type": "page",
-          "settings": {
-            "image": "shopify://shop_images/000000003867-05-l.jpg",
-            "title": "タイトル",
-            "body": "<p>本文テキストを入力してください。</p>"
-          }
-        },
-        "page_MxVtnG": {
-          "type": "page",
-          "settings": {
-            "image": "shopify://shop_images/000000002663-02-l.jpg",
-            "title": "タイトル",
-            "body": "<p>本文テキストを入力してください。</p>"
-          }
-        }
-      },
-      "block_order": [
-        "page_YQ8iNQ",
-        "page_HCEXwg",
-        "page_MxVtnG"
-      ],
-      "disabled": true,
-      "name": "Flip Book Section",
-      "settings": {
-        "flip_duration": 900
-      }
     }
   },
   "order": [
     "image_banner_cLAphz",
     "fv_cocnept_Uafa44",
-    "fv_slider_Bdc8iN",
-    "fv_banner_QwL63H",
     "fv_purouse_RQNVMT",
-    "custom_blog_UVrVqw",
     "custom_featured_collection_UR3KR8",
     "custom_featured_collection_LWpeYr",
     "custom_featured_collection_BUDqVa",
-    "custom_featured_collection_jBhQYW",
-    "fv_category_tJT3mY",
     "fv_category2_67p6r6",
     "fv_category_9eYUzU",
-    "fv_price_XdXFBX",
     "fv_price_wGXMmd",
-    "custom_contents_BdGxXY",
     "fv_banner_NkwXQW",
     "custom_blog_Vame9y",
-    "top_blog_xL8rde",
     "custom_instagram_HT8jmV",
-    "171556888291d19bd6",
-    "book_JBhy7y"
+    "171556888291d19bd6"
   ]
 }
