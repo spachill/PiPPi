@@ -16,6 +16,7 @@
       "blocks": {
         "link_list_ybM8fy": {
           "type": "link_list",
+          "disabled": true,
           "settings": {
             "heading": "",
             "menu": "main-foorer"

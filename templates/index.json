@@ -53,7 +53,7 @@
     "custom_featured_collection_UR3KR8": {
       "type": "custom__featured-collection",
       "settings": {
-        "backcolor": "#fbf5f1",
+        "backcolor": "#c2f0f0",
         "title": "Ranking",
         "subtitle": "ランキング",
         "ranking": true,
@@ -68,7 +68,7 @@
         "show_view_all": true,
         "view_all_style": "solid",
         "enable_desktop_slider": false,
-        "color_scheme": "scheme-3",
+        "color_scheme": "scheme-1",
         "image_ratio": "portrait",
         "image_shape": "default",
         "show_secondary_image": false,
@@ -84,7 +84,7 @@
     "custom_featured_collection_LWpeYr": {
       "type": "custom__featured-collection",
       "settings": {
-        "backcolor": "#fbf5f1",
+        "backcolor": "#ffffff",
         "title": "New Arrival",
         "subtitle": "新着商品",
         "ranking": false,
@@ -115,7 +115,7 @@
     "custom_featured_collection_BUDqVa": {
       "type": "custom__featured-collection",
       "settings": {
-        "backcolor": "#fbf5f1",
+        "backcolor": "#c2f0f0",
         "title": "Reccomend",
         "subtitle": "おすすめ",
         "ranking": false,
@@ -217,118 +217,6 @@
         "title": "Category",
         "subtitle": "カテゴリーからさがず",
         "backcolor": "",
-        "pcmt": 60,
-        "pcmb": 60,
-        "spmt": 60,
-        "spmb": 60
-      }
-    },
-    "fv_category_9eYUzU": {
-      "type": "fv__category",
-      "blocks": {
-        "link_iJzmhC": {
-          "type": "link",
-          "settings": {
-            "image": "shopify://shop_images/top_pippi.png",
-            "collection": "haruharu"
-          }
-        },
-        "link_7hGYXb": {
-          "type": "link",
-          "settings": {
-            "image": "shopify://shop_images/WEB_TOP_2.png",
-            "collection": "hair-accessory-pippi"
-          }
-        },
-        "link_Dc6pfg": {
-          "type": "link",
-          "settings": {
-            "image": "shopify://shop_images/top_ribbon.png",
-            "collection": "la-ribbon"
-          }
-        },
-        "link_kBUjHH": {
-          "type": "link",
-          "settings": {
-            "image": "shopify://shop_images/top_neckless_f64c6a48-ef06-4736-a11a-044da24ede18.png",
-            "collection": "ネックレス-japan-trade"
-          }
-        },
-        "link_aCq3en": {
-          "type": "link",
-          "settings": {
-            "image": "shopify://shop_images/top_fuunail.png",
-            "collection": "fuunail"
-          }
-        },
-        "link_AidTCz": {
-          "type": "link",
-          "settings": {
-            "image": "shopify://shop_images/top_a37dc24e-cd06-40ed-902f-3779a9f82951.png",
-            "collection": "think-bee"
-          }
-        },
-        "link_rGQP9G": {
-          "type": "link",
-          "settings": {
-            "image": "shopify://shop_images/top_cocok.png",
-            "collection": "coco-k"
-          }
-        },
-        "link_9qGAmD": {
-          "type": "link",
-          "settings": {
-            "image": "shopify://shop_images/WEB_TOP_3.png",
-            "collection": "otoginail"
-          }
-        },
-        "link_UYkmxn": {
-          "type": "link",
-          "settings": {
-            "image": "shopify://shop_images/88025.jpg",
-            "collection": "happyface"
-          }
-        },
-        "link_6eTRxf": {
-          "type": "link",
-          "settings": {
-            "image": "shopify://shop_images/81f6f7f596408c5209150b0ab572d4aa.png",
-            "collection": "コラボ商品"
-          }
-        },
-        "link_G9yNqT": {
-          "type": "link",
-          "settings": {
-            "image": "shopify://shop_images/20a439f354315818041548ba816fb520.png",
-            "collection": "all-products"
-          }
-        },
-        "link_LRaKeK": {
-          "type": "link",
-          "disabled": true,
-          "settings": {
-            "collection": "プレオープンポイント付与商品"
-          }
-        }
-      },
-      "block_order": [
-        "link_iJzmhC",
-        "link_7hGYXb",
-        "link_Dc6pfg",
-        "link_kBUjHH",
-        "link_aCq3en",
-        "link_AidTCz",
-        "link_rGQP9G",
-        "link_9qGAmD",
-        "link_UYkmxn",
-        "link_6eTRxf",
-        "link_G9yNqT",
-        "link_LRaKeK"
-      ],
-      "settings": {
-        "title": "Brand",
-        "subtitle": "ブランドから探す",
-        "backcolor": "#fbf5f1",
         "pcmt": 60,
         "pcmb": 60,
         "spmt": 60,
@@ -508,11 +396,10 @@
     "image_banner_cLAphz",
     "fv_cocnept_Uafa44",
     "fv_purouse_RQNVMT",
-    "custom_featured_collection_UR3KR8",
-    "custom_featured_collection_LWpeYr",
-    "custom_featured_collection_BUDqVa",
     "fv_category2_67p6r6",
-    "fv_category_9eYUzU",
+    "custom_featured_collection_LWpeYr",
+    "custom_featured_collection_UR3KR8",
+    "custom_featured_collection_BUDqVa",
     "fv_price_wGXMmd",
     "fv_banner_NkwXQW",
     "custom_blog_Vame9y",
