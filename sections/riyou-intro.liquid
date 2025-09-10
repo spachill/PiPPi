@@ -1,0 +1,510 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  .riyou-intro {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .riyou-intro__description {
+    text-align: center;
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: #2c3e50;
+    margin-bottom: 3rem;
+    background: linear-gradient(135deg, #C2F0F0 0%, #A8E6E6 100%);
+    padding: 2rem;
+    border-radius: 12px;
+    border: 1px solid #9DDEDE;
+    box-shadow: 0 4px 12px rgba(194, 240, 240, 0.3);
+  }
+
+  .riyou-intro__section {
+    margin-bottom: 3rem;
+    background: #fff;
+    border-radius: 12px;
+    padding: 2.5rem;
+    box-shadow: 0 4px 16px rgba(194, 240, 240, 0.15);
+    border: 1px solid #E8F8F8;
+  }
+
+  .riyou-intro__title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 1.5rem;
+    border-bottom: 3px solid #7DD3C0;
+    padding-bottom: 0.5rem;
+    position: relative;
+  }
+
+  .riyou-intro__title::after {
+    content: '';
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: #C2F0F0;
+    border-radius: 2px;
+  }
+
+  .riyou-intro__flow {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .riyou-intro__step {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, #F5FEFE 0%, #E8F8F8 100%);
+    border-radius: 10px;
+    border-left: 4px solid #7DD3C0;
+    transition: all 0.3s ease;
+  }
+
+  .riyou-intro__step:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(194, 240, 240, 0.25);
+    border-left-color: #5BC9A8;
+  }
+
+  .riyou-intro__step-number {
+    background: linear-gradient(135deg, #7DD3C0 0%, #5BC9A8 100%);
+    color: white;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.125rem;
+    flex-shrink: 0;
+    box-shadow: 0 2px 8px rgba(125, 211, 192, 0.3);
+  }
+
+  .riyou-intro__step-content h4 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin: 0 0 0.5rem 0;
+  }
+
+  .riyou-intro__step-content p {
+    margin: 0;
+    line-height: 1.6;
+    color: #555;
+  }
+
+  .riyou-intro__payment-methods {
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .riyou-intro__payment-method {
+    background: linear-gradient(135deg, #FAFEFE 0%, #F0F9F9 100%);
+    padding: 1.5rem;
+    border-radius: 10px;
+    border-left: 4px solid #9DDEDE;
+    border: 1px solid #E8F8F8;
+    transition: all 0.3s ease;
+  }
+
+  .riyou-intro__payment-method:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px rgba(194, 240, 240, 0.2);
+    border-left-color: #7DD3C0;
+  }
+
+  .riyou-intro__payment-method h4 {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #2c3e50;
+    margin: 0 0 1rem 0;
+    position: relative;
+    padding-left: 1rem;
+  }
+
+  .riyou-intro__payment-method h4::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 16px;
+    background: linear-gradient(135deg, #7DD3C0 0%, #5BC9A8 100%);
+    border-radius: 2px;
+  }
+
+  .riyou-intro__payment-method p {
+    margin: 0 0 0.5rem 0;
+    line-height: 1.6;
+    color: #555;
+  }
+
+  .riyou-intro__payment-method p:last-child {
+    margin-bottom: 0;
+  }
+
+  .riyou-intro__table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+    background: #fff;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+
+  .riyou-intro__table th,
+  .riyou-intro__table td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid #e5e5e5;
+  }
+
+  .riyou-intro__table th {
+    background: linear-gradient(135deg, #7DD3C0 0%, #5BC9A8 100%);
+    color: white;
+    font-weight: 600;
+  }
+
+  .riyou-intro__table tr:last-child td {
+    border-bottom: none;
+  }
+
+  .riyou-intro__table tr:nth-child(even) {
+    background: #F5FEFE;
+  }
+
+  .riyou-intro__info-box {
+    background: linear-gradient(135deg, #E8F8F8 0%, #D4F0F0 100%);
+    border: 1px solid #B8E8E8;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-top: 1rem;
+    position: relative;
+  }
+
+  .riyou-intro__info-box::before {
+    content: '!';
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    background: linear-gradient(135deg, #7DD3C0 0%, #5BC9A8 100%);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 0.8rem;
+  }
+
+  .riyou-intro__info-box p {
+    margin: 0;
+    color: #2c3e50;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    padding-left: 2.5rem;
+  }
+
+  .riyou-intro__contact {
+    background: linear-gradient(135deg, #C2F0F0 0%, #A8E6E6 100%);
+    border: 1px solid #9DDEDE;
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(194, 240, 240, 0.3);
+  }
+
+  .riyou-intro__contact h4 {
+    margin: 0 0 0.5rem 0;
+    color: #2c3e50;
+  }
+
+  .riyou-intro__contact p {
+    margin: 0;
+    font-weight: 600;
+    color: #2c3e50;
+    font-family: monospace;
+    background: rgba(255, 255, 255, 0.7);
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    display: inline-block;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+
+    .riyou-intro__flow {
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .riyou-intro__section {
+      padding: 1.5rem;
+      margin: 0 1rem 2rem;
+    }
+
+    .riyou-intro__description {
+      padding: 1.5rem;
+      margin: 0 1rem 2rem;
+    }
+
+    .riyou-intro__step {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .riyou-intro__step-number {
+      align-self: center;
+    }
+  }
+{%- endstyle -%}
+
+<div class="riyou-intro-section color-{{ section.settings.color_scheme }} gradient">
+  <div class="page-width section-{{ section.id }}-padding{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+    {%- unless section.settings.title == blank -%}
+      <div class="title-wrapper-with-link title-wrapper--self-padded-mobile title-wrapper--no-top-margin">
+        <h1 class="title inline-richtext {{ section.settings.heading_size }}">
+          {{ section.settings.title }}
+        </h1>
+      </div>
+    {%- endunless -%}
+
+    <div class="riyou-intro{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+      <!-- 説明文 -->
+      <div class="riyou-intro__description">
+        <p>{{ section.settings.description | default: "当サイトでは、主に商品の販売目的としたお客様を対象とさせていただいているため、会員制を導入させていただいております。まずは「新規会員登録」をお願いいたします。" }}</p>
+      </div>
+
+      <!-- ご登録から販売までの流れ -->
+      <div class="riyou-intro__section">
+        <h2 class="riyou-intro__title">ご登録から販売までの流れ</h2>
+        <div class="riyou-intro__flow">
+          <div class="riyou-intro__step">
+            <div class="riyou-intro__step-number">1</div>
+            <div class="riyou-intro__step-content">
+              <h4>新規会員登録</h4>
+              <p>新規会員登録（無料）よりお申込み登録をしてください。</p>
+            </div>
+          </div>
+          <div class="riyou-intro__step">
+            <div class="riyou-intro__step-number">2</div>
+            <div class="riyou-intro__step-content">
+              <h4>お申込み確認</h4>
+              <p>お申込み内容の審査後、会員登録完了のお知らせをご登録メールアドレス宛にお送りします。（審査結果7営業日以内）</p>
+            </div>
+          </div>
+          <div class="riyou-intro__step">
+            <div class="riyou-intro__step-number">3</div>
+            <div class="riyou-intro__step-content">
+              <h4>サイトにログイン</h4>
+              <p>ご登録いただいたメールアドレス・パスワードでサイトにログインしてください。（ログイン後は卸価格が表示されます）</p>
+            </div>
+          </div>
+          <div class="riyou-intro__step">
+            <div class="riyou-intro__step-number">4</div>
+            <div class="riyou-intro__step-content">
+              <h4>オーダー</h4>
+              <p>ご注文の商品をカートに入れ、オーダーしてください。<br>（最低発注下代税込3,300円以上、下代税込5,500円以上で送料無料）</p>
+            </div>
+          </div>
+          <div class="riyou-intro__step">
+            <div class="riyou-intro__step-number">5</div>
+            <div class="riyou-intro__step-content">
+              <h4>注文完了</h4>
+              <p>弊社でご注文を確認後、商品発送いたします。<br>（営業日15時迄は当日発送）</p>
+            </div>
+          </div>
+        </div>
+        <div class="riyou-intro__info-box">
+          <p>※銀行振込をご選択の場合は、改めて送金案内のメールをいたします。（当店からお振込み案内があるまでお振込みはしないでください。）</p>
+        </div>
+      </div>
+
+      <!-- お支払い方法について -->
+      <div class="riyou-intro__section">
+        <h2 class="riyou-intro__title">お支払い方法について</h2>
+        <div class="riyou-intro__payment-methods">
+          <div class="riyou-intro__payment-method">
+            <h4>クレジットカード</h4>
+            <p>各種クレジットカードがご利用いただけます。</p>
+          </div>
+
+          <div class="riyou-intro__payment-method">
+            <h4>Paid掛け払い（後払い）</h4>
+            <p>「Paid」は株式会社ラクーンフィナンシャルが提供する後払い決済システムです。</p>
+            <p>コンビニ払い、口座振替、銀行振込の決済方法にて掛け払いに対応しております。</p>
+          </div>
+
+          <div class="riyou-intro__payment-method">
+            <h4>銀行振込（前払い）</h4>
+            <p>ご注文後に「送金案内」のメールをいたします。ご入金確認後に商品を発送させていただきます。</p>
+            <div class="riyou-intro__info-box">
+              <p>※振込手数料はお客様のご負担となります。</p>
+              <p>※送金案内から3営業日以内のお振込みをお願いいたします。</p>
+              <p>※お振込み確認ができない場合はキャンセル扱いとし、今後のお取引を制限させていただきます。</p>
+            </div>
+          </div>
+
+          <div class="riyou-intro__payment-method">
+            <h4>代金引換（代引き）</h4>
+            <p>商品代金 ＋ 送料 ＋ 代引手数料</p>
+            <table class="riyou-intro__table">
+              <thead>
+                <tr>
+                  <th>決済手数料<br>(代金引換額に応じての手数料となります)</th>
+                  <th>手数料</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>~9,999円</td>
+                  <td>330円（税込）</td>
+                </tr>
+                <tr>
+                  <td>~29,999円</td>
+                  <td>440円（税込）</td>
+                </tr>
+                <tr>
+                  <td>~99,999円</td>
+                  <td>660円（税込）</td>
+                </tr>
+                <tr>
+                  <td>~300,000円※</td>
+                  <td>1,100円（税込）</td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="riyou-intro__info-box">
+              <p>※1回のお支払いにおける代金引換額は300,000円までとなっています。</p>
+              <p>※正当な理由なく代引き商品を受取り頂けなかった場合、次回以降の利用停止、及び配送にかかった諸経費（往復の送料、代引手数料）を請求させていただきます。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- お届けについて -->
+      <div class="riyou-intro__section">
+        <h2 class="riyou-intro__title">お届けについて</h2>
+        <div class="riyou-intro__payment-method">
+          <h4>運送会社：ヤマト運輸</h4>
+          <p><strong>発送日</strong><br>平日「15時」までのご注文分は当日出荷いたします。</p>
+          <p><strong>送料</strong><br>全国一律550円（税込）<br>合計下代5,500円(税込)以上で送料無料でお届けいたします。</p>
+          <p><strong>お届け時間指定</strong><br>ご希望の時間帯をお選びいただけます。</p>
+        </div>
+      </div>
+
+      <!-- 返品・交換について -->
+      <div class="riyou-intro__section">
+        <h2 class="riyou-intro__title">返品・交換について</h2>
+        <div class="riyou-intro__payment-method">
+          <p>お客様都合による良品の返品・交換・キャンセルはお受けしておりません。またお届けした商品が不良、破損していた場合はお手数ですが、商品到着後7日以内にメールにてご連絡ください。</p>
+          <div class="riyou-intro__info-box">
+            <p>※商品到着後8日以降は対象外とさせていただきます。予めご了承ください。</p>
+          </div>
+        </div>
+        <div class="riyou-intro__contact">
+          <h4>連絡先</h4>
+          <p>○○○○@○○○○○○.co.jp</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "ご利用案内",
+  "class": "section",
+  "tag": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "title",
+      "default": "ご利用案内",
+      "label": "セクションタイトル"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "中"
+        },
+        {
+          "value": "h1",
+          "label": "大"
+        },
+        {
+          "value": "h0",
+          "label": "特大"
+        }
+      ],
+      "default": "h1",
+      "label": "タイトルサイズ"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "説明文",
+      "default": "<p>当サイトでは、主に商品の販売目的としたお客様を対象とさせていただいているため、会員制を導入させていただいております。まずは「新規会員登録」をお願いいたします。</p>"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "カラースキーム",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "余白設定"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "上の余白",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "下の余白",
+      "default": 36
+    }
+  ],
+  "presets": [
+    {
+      "name": "ご利用案内"
+    }
+  ]
+}
+{% endschema %}

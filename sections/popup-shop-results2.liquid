@@ -1,0 +1,401 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  .company-info {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .company-info__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .company-info__section {
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .company-info__section-title {
+    background-color: #f8f9fa;
+    padding: 1rem 2rem;
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #333;
+    border-bottom: 1px solid #e5e5e5;
+  }
+
+  .company-info__table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .company-info__row {
+    border-bottom: 1px solid #e5e5e5;
+  }
+
+  .company-info__row:last-child {
+    border-bottom: none;
+  }
+
+  .company-info__label {
+    background-color: #f8f9fa;
+    padding: 1.5rem 2rem;
+    font-weight: 600;
+    color: #333;
+    border-right: 1px solid #e5e5e5;
+    width: 30%;
+    vertical-align: top;
+  }
+
+  .company-info__content {
+    padding: 1.5rem 2rem;
+    color: #555;
+    line-height: 1.6;
+  }
+
+  .company-info__address {
+    line-height: 1.8;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+    
+    .company-info__grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .company-info__table,
+    .company-info__row,
+    .company-info__label,
+    .company-info__content {
+      display: block;
+      width: 100%;
+      border: none;
+    }
+
+    .company-info__label {
+      padding: 1rem 1.5rem 0.5rem;
+      background-color: transparent;
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    .company-info__content {
+      padding: 0 1.5rem 1rem;
+      border-bottom: 1px solid #e5e5e5;
+    }
+
+    .company-info__row:last-child .company-info__content {
+      border-bottom: none;
+    }
+
+    .company-info__table {
+      box-shadow: none;
+      border: 1px solid #e5e5e5;
+    }
+  }
+{%- endstyle -%}
+
+<div class="company-overview color-{{ section.settings.color_scheme }} gradient">
+  <div class="page-width section-{{ section.id }}-padding{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+    {%- unless section.settings.title == blank -%}
+      <div class="title-wrapper-with-link title-wrapper--self-padded-mobile title-wrapper--no-top-margin">
+        <h2 class="title inline-richtext {{ section.settings.heading_size }}">
+          {{ section.settings.title }}
+        </h2>
+      </div>
+    {%- endunless -%}
+
+    <div class="company-info{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+      <div class="company-info__grid">
+        <!-- 製造元 -->
+        <div class="company-info__section">
+          {%- unless section.settings.manufacturer_title == blank -%}
+            <h3 class="company-info__section-title">{{ section.settings.manufacturer_title }}</h3>
+          {%- endunless -%}
+          
+          <table class="company-info__table">
+            <tr class="company-info__row">
+              <td class="company-info__label">商号</td>
+              <td class="company-info__content">{{ section.settings.company_name | default: "株式会社CCCM" }}</td>
+            </tr>
+            <tr class="company-info__row">
+              <td class="company-info__label">創業</td>
+              <td class="company-info__content">{{ section.settings.established | default: "2011年11月30日" }}</td>
+            </tr>
+            <tr class="company-info__row">
+              <td class="company-info__label">所在地</td>
+              <td class="company-info__content">
+                <div class="company-info__address">
+                  {{ section.settings.address | default: "〒569-1131<br>大阪府高槻市郡家本町51-12" }}
+                </div>
+              </td>
+            </tr>
+            <tr class="company-info__row">
+              <td class="company-info__label">資本金</td>
+              <td class="company-info__content">{{ section.settings.capital | default: "1,000万円" }}</td>
+            </tr>
+            <tr class="company-info__row">
+              <td class="company-info__label">代表者</td>
+              <td class="company-info__content">{{ section.settings.representative | default: "代表取締役社長　尼野　進" }}</td>
+            </tr>
+            <tr class="company-info__row">
+              <td class="company-info__label">従業員(正社員/契約社員含む)</td>
+              <td class="company-info__content">{{ section.settings.employees | default: "約20名" }}</td>
+            </tr>
+            <tr class="company-info__row">
+              <td class="company-info__label">事業内容</td>
+              <td class="company-info__content">
+                {{ section.settings.business_content | default: "貼るだけピアスPiPPi®︎製造販売" }}
+              </td>
+            </tr>
+          </table>
+        </div>
+
+        <!-- 販売元 -->
+        {%- if section.settings.show_sales_company -%}
+          <div class="company-info__section">
+            {%- unless section.settings.sales_title == blank -%}
+              <h3 class="company-info__section-title">{{ section.settings.sales_title }}</h3>
+            {%- endunless -%}
+            
+            <table class="company-info__table">
+              <tr class="company-info__row">
+                <td class="company-info__label">商号</td>
+                <td class="company-info__content">{{ section.settings.sales_company_name | default: "株式会社PiPPiDe HappyCompany" }}</td>
+              </tr>
+              <tr class="company-info__row">
+                <td class="company-info__label">創業</td>
+                <td class="company-info__content">{{ section.settings.sales_established | default: "2023年10月24日" }}</td>
+              </tr>
+              <tr class="company-info__row">
+                <td class="company-info__label">所在地</td>
+                <td class="company-info__content">
+                  <div class="company-info__address">
+                    {{ section.settings.sales_address | default: "〒569-1131<br>大阪府高槻市郡家本町51-12" }}
+                  </div>
+                </td>
+              </tr>
+              <tr class="company-info__row">
+                <td class="company-info__label">資本金</td>
+                <td class="company-info__content">{{ section.settings.sales_capital | default: "800万円" }}</td>
+              </tr>
+              <tr class="company-info__row">
+                <td class="company-info__label">代表者</td>
+                <td class="company-info__content">{{ section.settings.sales_representative | default: "代表取締役社長　尼野　つるみ" }}</td>
+              </tr>
+              <tr class="company-info__row">
+                <td class="company-info__label">従業員(正社員/契約社員含む)</td>
+                <td class="company-info__content">{{ section.settings.sales_employees | default: "３名" }}</td>
+              </tr>
+              <tr class="company-info__row">
+                <td class="company-info__label">事業内容</td>
+                <td class="company-info__content">
+                  {{ section.settings.sales_business_content | default: "貼るだけピアスPiPPi販売・取引先商品販売<br>・ WEB販売/ライブコマース・直営店舗運営・POP UP" }}
+                </td>
+              </tr>
+            </table>
+          </div>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "会社概要",
+  "class": "section",
+  "tag": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "title",
+      "default": "会社概要",
+      "label": "セクションタイトル"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "中"
+        },
+        {
+          "value": "h1",
+          "label": "大"
+        },
+        {
+          "value": "h0",
+          "label": "特大"
+        }
+      ],
+      "default": "h1",
+      "label": "タイトルサイズ"
+    },
+    {
+      "type": "header",
+      "content": "製造元情報"
+    },
+    {
+      "type": "text",
+      "id": "manufacturer_title",
+      "default": "【製造元】",
+      "label": "製造元タイトル"
+    },
+    {
+      "type": "text",
+      "id": "company_name",
+      "default": "株式会社CCCM",
+      "label": "商号"
+    },
+    {
+      "type": "text",
+      "id": "established",
+      "default": "2011年11月30日",
+      "label": "創業"
+    },
+    {
+      "type": "richtext",
+      "id": "address",
+      "default": "<p>〒569-1131<br>大阪府高槻市郡家本町51-12</p>",
+      "label": "所在地"
+    },
+    {
+      "type": "text",
+      "id": "capital",
+      "default": "1,000万円",
+      "label": "資本金"
+    },
+    {
+      "type": "text",
+      "id": "representative",
+      "default": "代表取締役社長　尼野　進",
+      "label": "代表者"
+    },
+    {
+      "type": "text",
+      "id": "employees",
+      "default": "約20名",
+      "label": "従業員数"
+    },
+    {
+      "type": "richtext",
+      "id": "business_content",
+      "default": "<p>貼るだけピアスPiPPi®︎製造販売</p>",
+      "label": "事業内容"
+    },
+    {
+      "type": "header",
+      "content": "販売元情報"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_sales_company",
+      "default": true,
+      "label": "販売元情報を表示"
+    },
+    {
+      "type": "text",
+      "id": "sales_title",
+      "default": "【販売元】",
+      "label": "販売元タイトル"
+    },
+    {
+      "type": "text",
+      "id": "sales_company_name",
+      "default": "株式会社PiPPiDe HappyCompany",
+      "label": "販売元商号"
+    },
+    {
+      "type": "text",
+      "id": "sales_established",
+      "default": "2023年10月24日",
+      "label": "販売元創業"
+    },
+    {
+      "type": "richtext",
+      "id": "sales_address",
+      "default": "<p>〒569-1131<br>大阪府高槻市郡家本町51-12</p>",
+      "label": "販売元所在地"
+    },
+    {
+      "type": "text",
+      "id": "sales_capital",
+      "default": "800万円",
+      "label": "販売元資本金"
+    },
+    {
+      "type": "text",
+      "id": "sales_representative",
+      "default": "代表取締役社長　尼野　つるみ",
+      "label": "販売元代表者"
+    },
+    {
+      "type": "text",
+      "id": "sales_employees",
+      "default": "３名",
+      "label": "販売元従業員数"
+    },
+    {
+      "type": "richtext",
+      "id": "sales_business_content",
+      "default": "<p>貼るだけピアスPiPPi販売・取引先商品販売<br>・ WEB販売/ライブコマース・直営店舗運営・POP UP</p>",
+      "label": "販売元事業内容"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "カラースキーム",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "余白設定"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "上の余白",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "下の余白",
+      "default": 36
+    }
+  ],
+  "presets": [
+    {
+      "name": "会社概要"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,525 @@
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  .contact-form {
+    max-width: 800px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 8px;
+    padding: 2rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .contact-form__group {
+    margin-bottom: 1.5rem;
+  }
+
+  .contact-form__label {
+    display: block;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 0.5rem;
+    font-size: 1rem;
+  }
+
+  .contact-form__label--required::after {
+    content: ' *';
+    color: #e74c3c;
+  }
+
+  .contact-form__input,
+  .contact-form__select,
+  .contact-form__textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #e5e5e5;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+    box-sizing: border-box;
+  }
+
+  .contact-form__input:focus,
+  .contact-form__select:focus,
+  .contact-form__textarea:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.1);
+  }
+
+  .contact-form__placeholder {
+    color: #999;
+    font-size: 0.9rem;
+    margin-top: 0.25rem;
+  }
+
+  .contact-form__textarea {
+    min-height: 120px;
+    resize: vertical;
+  }
+
+  .contact-form__phone-group,
+  .contact-form__fax-group,
+  .contact-form__zip-group {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    width: 100%;
+  }
+
+  .contact-form__phone-input {
+    box-sizing: border-box;
+  }
+
+  .contact-form__phone-input:first-child,
+  .contact-form__fax-input:first-child {
+    width: 40px;
+    min-width: 40px;
+    max-width: 40px;
+  }
+
+  .contact-form__phone-input:nth-child(3),
+  .contact-form__fax-input:nth-child(3) {
+    width: 60px;
+    min-width: 60px;
+    max-width: 60px;
+  }
+
+  .contact-form__phone-input:last-child,
+  .contact-form__fax-input:last-child {
+    width: 60px;
+    min-width: 60px;
+    max-width: 60px;
+  }
+
+  .contact-form__fax-input {
+    box-sizing: border-box;
+  }
+
+  .contact-form__zip-input {
+    box-sizing: border-box;
+  }
+
+  .contact-form__zip-input:first-child {
+    width: 60px;
+    min-width: 60px;
+    max-width: 60px;
+  }
+
+  .contact-form__zip-input:last-child {
+    width: 80px;
+    min-width: 80px;
+    max-width: 80px;
+  }
+
+  .contact-form__separator {
+    color: #666;
+    font-weight: normal;
+  }
+
+  .contact-form__submit {
+    background: #007bff;
+    color: white;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+  }
+
+  .contact-form__submit:hover {
+    background: #0056b3;
+  }
+
+  .contact-form__submit:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+
+  @media screen and (max-width: 749px) {
+    .contact-form {
+      padding: 1.5rem;
+      margin: 0 1rem;
+    }
+  }
+{%- endstyle -%}
+
+<div class="contact-section color-{{ section.settings.color_scheme }} gradient">
+  <div class="page-width section-{{ section.id }}-padding{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+    {%- unless section.settings.title == blank -%}
+      <div class="title-wrapper-with-link title-wrapper--self-padded-mobile title-wrapper--no-top-margin">
+        <h1 class="title inline-richtext {{ section.settings.heading_size }}">
+          {{ section.settings.title }}
+        </h1>
+      </div>
+    {%- endunless -%}
+
+    {%- unless section.settings.description == blank -%}
+      <div class="contact-form__description" style="text-align: center; margin-bottom: 2rem; color: #666;">
+        {{ section.settings.description }}
+      </div>
+    {%- endunless -%}
+
+    <div class="contact-form{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+      {% form 'contact' %}
+        {% if form.posted_successfully? %}
+          <div class="form-status form-status--success" style="background: #d4edda; color: #155724; padding: 1rem; border-radius: 4px; margin-bottom: 2rem;">
+            お問い合わせありがとうございました。内容を確認の上、担当者よりご連絡いたします。
+          </div>
+        {% endif %}
+
+        {% if form.errors %}
+          <div class="form-status form-status--error" style="background: #f8d7da; color: #721c24; padding: 1rem; border-radius: 4px; margin-bottom: 2rem;">
+            <h2>エラーが発生しました</h2>
+            <ul style="margin: 0.5rem 0 0 1rem;">
+              {% for field in form.errors %}
+                <li>{{ form.errors.messages[field] }}</li>
+              {% endfor %}
+            </ul>
+          </div>
+        {% endif %}
+
+        <!-- 件名 -->
+        <div class="contact-form__group">
+          <label for="subject" class="contact-form__label contact-form__label--required">件名</label>
+          <select 
+            id="subject" 
+            name="contact[subject]" 
+            class="contact-form__select" 
+            required
+            {% if form.subject %}value="{{ form.subject }}"{% endif %}>
+            <option value="">選択してください</option>
+            <option value="商品について" {% if form.subject == "商品について" %}selected{% endif %}>商品について</option>
+            <option value="注文について" {% if form.subject == "注文について" %}selected{% endif %}>注文について</option>
+            <option value="配送について" {% if form.subject == "配送について" %}selected{% endif %}>配送について</option>
+            <option value="返品・交換について" {% if form.subject == "返品・交換について" %}selected{% endif %}>返品・交換について</option>
+            <option value="その他" {% if form.subject == "その他" %}selected{% endif %}>その他</option>
+          </select>
+        </div>
+
+        <!-- 会社名 -->
+        <div class="contact-form__group">
+          <label for="company" class="contact-form__label">会社名</label>
+          <input 
+            type="text" 
+            id="company" 
+            name="contact[company]" 
+            class="contact-form__input"
+            value="{% if form.company %}{{ form.company }}{% endif %}">
+          <div class="contact-form__placeholder">例) 株式会社○○商事</div>
+        </div>
+
+        <!-- 部署名 -->
+        <div class="contact-form__group">
+          <label for="department" class="contact-form__label">部署名</label>
+          <input 
+            type="text" 
+            id="department" 
+            name="contact[department]" 
+            class="contact-form__input"
+            value="{% if form.department %}{{ form.department }}{% endif %}">
+          <div class="contact-form__placeholder">例) 営業部</div>
+        </div>
+
+        <!-- 氏名 -->
+        <div class="contact-form__group">
+          <label for="name" class="contact-form__label contact-form__label--required">氏名</label>
+          <input 
+            type="text" 
+            id="name" 
+            name="contact[name]" 
+            class="contact-form__input" 
+            required
+            value="{% if form.name %}{{ form.name }}{% endif %}">
+          <div class="contact-form__placeholder">例) 山田太郎</div>
+        </div>
+
+        <!-- メールアドレス -->
+        <div class="contact-form__group">
+          <label for="email" class="contact-form__label contact-form__label--required">メールアドレス</label>
+          <input 
+            type="email" 
+            id="email" 
+            name="contact[email]" 
+            class="contact-form__input" 
+            required
+            value="{% if form.email %}{{ form.email }}{% endif %}">
+          <div class="contact-form__placeholder">例) example@example.com</div>
+        </div>
+
+        <!-- 電話番号 -->
+        <div class="contact-form__group">
+          <label for="phone" class="contact-form__label">電話番号</label>
+          <div class="contact-form__phone-group">
+            <input 
+              type="tel" 
+              id="phone1" 
+              name="contact[phone1]" 
+              class="contact-form__phone-input" 
+              maxlength="4"
+              value="{% if form.phone1 %}{{ form.phone1 }}{% endif %}">
+            <span class="contact-form__separator">-</span>
+            <input 
+              type="tel" 
+              id="phone2" 
+              name="contact[phone2]" 
+              class="contact-form__phone-input" 
+              maxlength="4"
+              value="{% if form.phone2 %}{{ form.phone2 }}{% endif %}">
+            <span class="contact-form__separator">-</span>
+            <input 
+              type="tel" 
+              id="phone3" 
+              name="contact[phone3]" 
+              class="contact-form__phone-input" 
+              maxlength="4"
+              value="{% if form.phone3 %}{{ form.phone3 }}{% endif %}">
+          </div>
+        </div>
+
+        <!-- FAX番号 -->
+        <div class="contact-form__group">
+          <label for="fax" class="contact-form__label">FAX番号</label>
+          <div class="contact-form__fax-group">
+            <input 
+              type="tel" 
+              id="fax1" 
+              name="contact[fax1]" 
+              class="contact-form__fax-input" 
+              maxlength="4"
+              value="{% if form.fax1 %}{{ form.fax1 }}{% endif %}">
+            <span class="contact-form__separator">-</span>
+            <input 
+              type="tel" 
+              id="fax2" 
+              name="contact[fax2]" 
+              class="contact-form__fax-input" 
+              maxlength="4"
+              value="{% if form.fax2 %}{{ form.fax2 }}{% endif %}">
+            <span class="contact-form__separator">-</span>
+            <input 
+              type="tel" 
+              id="fax3" 
+              name="contact[fax3]" 
+              class="contact-form__fax-input" 
+              maxlength="4"
+              value="{% if form.fax3 %}{{ form.fax3 }}{% endif %}">
+          </div>
+        </div>
+
+        <!-- ホームページURL -->
+        <div class="contact-form__group">
+          <label for="website" class="contact-form__label">ホームページURL</label>
+          <input 
+            type="url" 
+            id="website" 
+            name="contact[website]" 
+            class="contact-form__input"
+            value="{% if form.website %}{{ form.website }}{% endif %}">
+          <div class="contact-form__placeholder">例) http://www.example.com/</div>
+        </div>
+
+        <!-- 郵便番号 -->
+        <div class="contact-form__group">
+          <label for="zip" class="contact-form__label">郵便番号</label>
+          <div class="contact-form__zip-group">
+            <input 
+              type="text" 
+              id="zip1" 
+              name="contact[zip1]" 
+              class="contact-form__zip-input" 
+              maxlength="3"
+              value="{% if form.zip1 %}{{ form.zip1 }}{% endif %}">
+            <span class="contact-form__separator">-</span>
+            <input 
+              type="text" 
+              id="zip2" 
+              name="contact[zip2]" 
+              class="contact-form__zip-input" 
+              maxlength="4"
+              value="{% if form.zip2 %}{{ form.zip2 }}{% endif %}">
+          </div>
+        </div>
+
+        <!-- 都道府県 -->
+        <div class="contact-form__group">
+          <label for="prefecture" class="contact-form__label">都道府県</label>
+          <select 
+            id="prefecture" 
+            name="contact[prefecture]" 
+            class="contact-form__select"
+            {% if form.prefecture %}value="{{ form.prefecture }}"{% endif %}>
+            <option value="">選択してください</option>
+            <option value="北海道" {% if form.prefecture == "北海道" %}selected{% endif %}>北海道</option>
+            <option value="青森県" {% if form.prefecture == "青森県" %}selected{% endif %}>青森県</option>
+            <option value="岩手県" {% if form.prefecture == "岩手県" %}selected{% endif %}>岩手県</option>
+            <option value="宮城県" {% if form.prefecture == "宮城県" %}selected{% endif %}>宮城県</option>
+            <option value="秋田県" {% if form.prefecture == "秋田県" %}selected{% endif %}>秋田県</option>
+            <option value="山形県" {% if form.prefecture == "山形県" %}selected{% endif %}>山形県</option>
+            <option value="福島県" {% if form.prefecture == "福島県" %}selected{% endif %}>福島県</option>
+            <option value="茨城県" {% if form.prefecture == "茨城県" %}selected{% endif %}>茨城県</option>
+            <option value="栃木県" {% if form.prefecture == "栃木県" %}selected{% endif %}>栃木県</option>
+            <option value="群馬県" {% if form.prefecture == "群馬県" %}selected{% endif %}>群馬県</option>
+            <option value="埼玉県" {% if form.prefecture == "埼玉県" %}selected{% endif %}>埼玉県</option>
+            <option value="千葉県" {% if form.prefecture == "千葉県" %}selected{% endif %}>千葉県</option>
+            <option value="東京都" {% if form.prefecture == "東京都" %}selected{% endif %}>東京都</option>
+            <option value="神奈川県" {% if form.prefecture == "神奈川県" %}selected{% endif %}>神奈川県</option>
+            <option value="新潟県" {% if form.prefecture == "新潟県" %}selected{% endif %}>新潟県</option>
+            <option value="富山県" {% if form.prefecture == "富山県" %}selected{% endif %}>富山県</option>
+            <option value="石川県" {% if form.prefecture == "石川県" %}selected{% endif %}>石川県</option>
+            <option value="福井県" {% if form.prefecture == "福井県" %}selected{% endif %}>福井県</option>
+            <option value="山梨県" {% if form.prefecture == "山梨県" %}selected{% endif %}>山梨県</option>
+            <option value="長野県" {% if form.prefecture == "長野県" %}selected{% endif %}>長野県</option>
+            <option value="岐阜県" {% if form.prefecture == "岐阜県" %}selected{% endif %}>岐阜県</option>
+            <option value="静岡県" {% if form.prefecture == "静岡県" %}selected{% endif %}>静岡県</option>
+            <option value="愛知県" {% if form.prefecture == "愛知県" %}selected{% endif %}>愛知県</option>
+            <option value="三重県" {% if form.prefecture == "三重県" %}selected{% endif %}>三重県</option>
+            <option value="滋賀県" {% if form.prefecture == "滋賀県" %}selected{% endif %}>滋賀県</option>
+            <option value="京都府" {% if form.prefecture == "京都府" %}selected{% endif %}>京都府</option>
+            <option value="大阪府" {% if form.prefecture == "大阪府" %}selected{% endif %}>大阪府</option>
+            <option value="兵庫県" {% if form.prefecture == "兵庫県" %}selected{% endif %}>兵庫県</option>
+            <option value="奈良県" {% if form.prefecture == "奈良県" %}selected{% endif %}>奈良県</option>
+            <option value="和歌山県" {% if form.prefecture == "和歌山県" %}selected{% endif %}>和歌山県</option>
+            <option value="鳥取県" {% if form.prefecture == "鳥取県" %}selected{% endif %}>鳥取県</option>
+            <option value="島根県" {% if form.prefecture == "島根県" %}selected{% endif %}>島根県</option>
+            <option value="岡山県" {% if form.prefecture == "岡山県" %}selected{% endif %}>岡山県</option>
+            <option value="広島県" {% if form.prefecture == "広島県" %}selected{% endif %}>広島県</option>
+            <option value="山口県" {% if form.prefecture == "山口県" %}selected{% endif %}>山口県</option>
+            <option value="徳島県" {% if form.prefecture == "徳島県" %}selected{% endif %}>徳島県</option>
+            <option value="香川県" {% if form.prefecture == "香川県" %}selected{% endif %}>香川県</option>
+            <option value="愛媛県" {% if form.prefecture == "愛媛県" %}selected{% endif %}>愛媛県</option>
+            <option value="高知県" {% if form.prefecture == "高知県" %}selected{% endif %}>高知県</option>
+            <option value="福岡県" {% if form.prefecture == "福岡県" %}selected{% endif %}>福岡県</option>
+            <option value="佐賀県" {% if form.prefecture == "佐賀県" %}selected{% endif %}>佐賀県</option>
+            <option value="長崎県" {% if form.prefecture == "長崎県" %}selected{% endif %}>長崎県</option>
+            <option value="熊本県" {% if form.prefecture == "熊本県" %}selected{% endif %}>熊本県</option>
+            <option value="大分県" {% if form.prefecture == "大分県" %}selected{% endif %}>大分県</option>
+            <option value="宮崎県" {% if form.prefecture == "宮崎県" %}selected{% endif %}>宮崎県</option>
+            <option value="鹿児島県" {% if form.prefecture == "鹿児島県" %}selected{% endif %}>鹿児島県</option>
+            <option value="沖縄県" {% if form.prefecture == "沖縄県" %}selected{% endif %}>沖縄県</option>
+          </select>
+        </div>
+
+        <!-- 住所 -->
+        <div class="contact-form__group">
+          <label for="address" class="contact-form__label">住所</label>
+          <input 
+            type="text" 
+            id="address" 
+            name="contact[address]" 
+            class="contact-form__input"
+            value="{% if form.address %}{{ form.address }}{% endif %}">
+        </div>
+
+        <!-- お問い合わせ内容 -->
+        <div class="contact-form__group">
+          <label for="body" class="contact-form__label contact-form__label--required">お問い合わせ内容</label>
+          <textarea 
+            id="body" 
+            name="contact[body]" 
+            class="contact-form__textarea" 
+            required>{% if form.body %}{{ form.body }}{% endif %}</textarea>
+        </div>
+
+        <!-- 送信ボタン -->
+        <div class="contact-form__group">
+          <button type="submit" class="contact-form__submit">
+            送信する
+          </button>
+        </div>
+      {% endform %}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Contact Form",
+  "class": "section",
+  "tag": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "inline_richtext",
+      "id": "title",
+      "default": "Contact Us",
+      "label": "Section Title"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "Medium"
+        },
+        {
+          "value": "h1",
+          "label": "Large"
+        },
+        {
+          "value": "h0",
+          "label": "Extra Large"
+        }
+      ],
+      "default": "h1",
+      "label": "Title Size"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>Feel free to contact us.</p>"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color Scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Padding Settings"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top Padding",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom Padding",
+      "default": 36
+    }
+  ],
+  "presets": [
+    {
+      "name": "Contact Form"
+    }
+  ]
+}
+{% endschema %}
