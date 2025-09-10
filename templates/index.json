@@ -164,7 +164,7 @@
     "custom_featured_collection_UR3KR8": {
       "type": "custom__featured-collection",
       "settings": {
-        "backcolor": "#c2f0f0",
+        "backcolor": "#ffffff",
         "title": "Ranking",
         "subtitle": "ランキング",
         "ranking": true,

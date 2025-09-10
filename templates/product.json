@@ -53,6 +53,7 @@
         },
         "customerintro_fGNbhJ": {
           "type": "customerintro",
+          "disabled": true,
           "settings": {}
         },
         "quantity_selector": {
