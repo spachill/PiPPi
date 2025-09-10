@@ -51,7 +51,7 @@
         "link_J79pbh": {
           "type": "link",
           "settings": {
-            "url": "shopify://pages/cancel-return",
+            "url": "shopify://pages/intro",
             "texten": "",
             "text": "ご利用案内"
           }
@@ -59,7 +59,7 @@
         "link_dBfJ4t": {
           "type": "link",
           "settings": {
-            "url": "shopify://collections",
+            "url": "shopify://metaobjects/category/category",
             "texten": "",
             "text": "商品"
           }
