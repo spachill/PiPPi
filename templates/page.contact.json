@@ -30,6 +30,7 @@
     },
     "contact_google_dX4DVN": {
       "type": "contact-Google",
+      "disabled": true,
       "name": "GoogleForm",
       "settings": {
         "title": "タイトル",
@@ -39,11 +40,24 @@
         "spmt": 0,
         "spmb": 0
       }
+    },
+    "page_contact_bey8Fp": {
+      "type": "page__contact",
+      "name": "Contact Form",
+      "settings": {
+        "title": "お問い合わせ",
+        "heading_size": "h2",
+        "description": "<p>下記よりお問い合わせください。問い合わせ内容を確認させてもらってから３〜４営業日以内にご連絡させていただきます。</p>",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     }
   },
   "order": [
     "main",
     "form",
-    "contact_google_dX4DVN"
+    "contact_google_dX4DVN",
+    "page_contact_bey8Fp"
   ]
 }

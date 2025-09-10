@@ -16,62 +16,6 @@
         "padding_bottom": 28
       }
     },
-    "table_XXrkYd": {
-      "type": "table",
-      "blocks": {
-        "link_xBnA7n": {
-          "type": "link",
-          "settings": {
-            "title": "商号",
-            "text": "株式会社PiPPi De Happy Company"
-          }
-        },
-        "link_8pifNj": {
-          "type": "link",
-          "settings": {
-            "title": "創業",
-            "text": "2023年10月18日"
-          }
-        },
-        "link_G4XMVV": {
-          "type": "link",
-          "settings": {
-            "title": "所在地",
-            "text": "〒569-1131<br>大阪府 高槻市郡家本町51-12"
-          }
-        },
-        "link_RgqwHk": {
-          "type": "link",
-          "settings": {
-            "title": "代表",
-            "text": "代表取締役社長　あまの つるみ"
-          }
-        },
-        "link_zGEj6r": {
-          "type": "link",
-          "settings": {
-            "title": "事業内容",
-            "text": "WEBショップでの販売"
-          }
-        }
-      },
-      "block_order": [
-        "link_xBnA7n",
-        "link_8pifNj",
-        "link_G4XMVV",
-        "link_RgqwHk",
-        "link_zGEj6r"
-      ],
-      "settings": {
-        "title": "About us",
-        "subtitle": "私たちについて",
-        "backcolor": "",
-        "pcmt": 0,
-        "pcmb": 0,
-        "spmt": 0,
-        "spmb": 0
-      }
-    },
     "page_message_aqM9Ph": {
       "type": "page-message",
       "settings": {
@@ -85,11 +29,98 @@
         "spmt": 0,
         "spmb": 100
       }
+    },
+    "popup_shop_results_3yQbE8": {
+      "type": "popup-shop-results",
+      "blocks": {
+        "shop_item_iX7Qc8": {
+          "type": "shop_item",
+          "settings": {
+            "title": "高島屋"
+          }
+        },
+        "shop_item_HxqTd4": {
+          "type": "shop_item",
+          "settings": {
+            "title": "ららぽーと"
+          }
+        },
+        "shop_item_dPyMPG": {
+          "type": "shop_item",
+          "settings": {
+            "title": "イオンモール"
+          }
+        },
+        "shop_item_V3QcCn": {
+          "type": "shop_item",
+          "settings": {
+            "title": "アリオ"
+          }
+        },
+        "shop_item_tYrf8z": {
+          "type": "shop_item",
+          "settings": {
+            "title": "ルミネ"
+          }
+        },
+        "shop_item_Kpqccr": {
+          "type": "shop_item",
+          "settings": {
+            "title": "マルイ"
+          }
+        }
+      },
+      "block_order": [
+        "shop_item_iX7Qc8",
+        "shop_item_HxqTd4",
+        "shop_item_dPyMPG",
+        "shop_item_V3QcCn",
+        "shop_item_tYrf8z",
+        "shop_item_Kpqccr"
+      ],
+      "name": "POP up shop販売実績",
+      "settings": {
+        "title": "全国でのPOP up shopでの販売実績",
+        "heading_size": "h1",
+        "intro_text": "<p>2011年創業から現在まで、全国の商業施設にて<br/>期間限定ショップを開催し販売してきました！</p>",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "popup_shop_results2_39t3wG": {
+      "type": "popup-shop-results2",
+      "name": "会社概要",
+      "settings": {
+        "title": "会社概要",
+        "heading_size": "h2",
+        "manufacturer_title": "【製造元】",
+        "company_name": "株式会社CCCM",
+        "established": "2011年11月30日",
+        "address": "<p>〒569-1131<br/>大阪府高槻市郡家本町51-12</p>",
+        "capital": "1,000万円",
+        "representative": "代表取締役社長　尼野　進",
+        "employees": "約20名",
+        "business_content": "<p>貼るだけピアスPiPPi®︎製造販売</p>",
+        "show_sales_company": true,
+        "sales_title": "【販売元】",
+        "sales_company_name": "株式会社PiPPiDe HappyCompany",
+        "sales_established": "2023年10月24日",
+        "sales_address": "<p>〒569-1131<br/>大阪府高槻市郡家本町51-12</p>",
+        "sales_capital": "800万円",
+        "sales_representative": "代表取締役社長　尼野　つるみ",
+        "sales_employees": "３名",
+        "sales_business_content": "<p>貼るだけピアスPiPPi販売・取引先商品販売<br/>・ WEB販売/ライブコマース・直営店舗運営・POP UP</p>",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     }
   },
   "order": [
     "main",
-    "table_XXrkYd",
-    "page_message_aqM9Ph"
+    "page_message_aqM9Ph",
+    "popup_shop_results_3yQbE8",
+    "popup_shop_results2_39t3wG"
   ]
 }
