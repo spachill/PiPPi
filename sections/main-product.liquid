@@ -524,7 +524,7 @@
                          </div>
                         </a>
                             {% for variant in product.variants %}
-                              <a style="background-color: #baab9b;" class=" button" href="{{shop.url}}/cart/add?id={{ variant.id}}&quantity=1">カートに入れる</a> 
+                              <a style="background: linear-gradient(135deg, #7DD3C0 0%, #5BC9A8 100%);" class=" button" href="{{shop.url}}/cart/add?id={{ variant.id}}&quantity=1">カートに入れる</a> 
                             {% endfor %}
                       </div>
                     {% endif %}
@@ -555,7 +555,7 @@
                             <span class="custom__variant__money">{{variant.price |money}}</span>
                            </div>
                         </a>
-                        <a style="background-color: #baab9b;" class=" button" href="{{shop.url}}/cart/add?id={{variant.id}}&quantity=1">カートに入れる</a> 
+                        <a style="background: linear-gradient(135deg, #7DD3C0 0%, #5BC9A8 100%);" class=" button" href="{{shop.url}}/cart/add?id={{variant.id}}&quantity=1">カートに入れる</a> 
                        </div>
                     {% endif %}
                     {% endif %}
@@ -585,7 +585,7 @@
                             <span class="custom__variant__money">{{variant.price |money}}</span>
                            </div>
                          </a>
-                         <a style="background-color: #baab9b;" class=" button" href="{{shop.url}}/cart/add?id={{variant.id}}&quantity=1">カートに入れる</a> 
+                         <a style="background: linear-gradient(135deg, #7DD3C0 0%, #5BC9A8 100%);" class=" button" href="{{shop.url}}/cart/add?id={{variant.id}}&quantity=1">カートに入れる</a> 
                        </div>
                       {% endif %}
                     {% endif %}
@@ -615,7 +615,7 @@
                             <span class="custom__variant__money">{{variant.price |money}}</span>
                            </div>
                          </a>
-                         <a style="background-color: #baab9b;" class=" button" href="{{shop.url}}/cart/add?id={{variant.id}}&quantity=1">カートに入れる</a> 
+                         <a style="background: linear-gradient(135deg, #7DD3C0 0%, #5BC9A8 100%);" class=" button" href="{{shop.url}}/cart/add?id={{variant.id}}&quantity=1">カートに入れる</a> 
                        </div>
                       {% endif %}
                     {% endif %}
@@ -645,7 +645,7 @@
                             <span class="custom__variant__money">{{variant.price |money}}</span>
                            </div>
                          </a>
-                         <a style="background-color: #baab9b;" class=" button" href="{{shop.url}}/cart/add?id={{variant.id}}&quantity=1">カートに入れる</a> 
+                         <a style="background: linear-gradient(135deg, #7DD3C0 0%, #5BC9A8 100%);" class=" button" href="{{shop.url}}/cart/add?id={{variant.id}}&quantity=1">カートに入れる</a> 
                        </div>
                       {% endif %}
                     {% endif %}
@@ -661,7 +661,7 @@
                 {%- render 'buy-buttons', block: block, product: product, product_form_id: product_form_id, section_id: section.id, show_pickup_availability: true -%}
               {% else %}
                 <p>会員登録がお済みの方はこちらよりログインください</p>
-                <a href="/account/login" style="background-color: #baab9b;" class="login_button">ログインする</a>
+                <a href="/account/login" style="background: linear-gradient(135deg, #7DD3C0 0%, #5BC9A8 100%);" class="login_button">ログインする</a>
               {% endif %}
             {%- when 'rating' -%}
               {%- if product.metafields.reviews.rating.value != blank -%}

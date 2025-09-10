@@ -45,9 +45,9 @@
   .contact-form__input:focus,
   .contact-form__select:focus,
   .contact-form__textarea:focus {
-    border-color: #007bff;
+    border-color: #7DD3C0;
     outline: none;
-    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.1);
+    box-shadow: 0 0 0 2px rgba(125, 211, 192, 0.1);
   }
 
   .contact-form__placeholder {
@@ -121,19 +121,22 @@
   }
 
   .contact-form__submit {
-    background: #007bff;
+    background: linear-gradient(135deg, #7DD3C0 0%, #5BC9A8 100%);
     color: white;
     padding: 1rem 2rem;
     border: none;
     border-radius: 4px;
     font-size: 1rem;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
     width: 100%;
+    box-shadow: 0 2px 8px rgba(125, 211, 192, 0.3);
   }
 
   .contact-form__submit:hover {
-    background: #0056b3;
+    background: linear-gradient(135deg, #5BC9A8 0%, #4DB396 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(125, 211, 192, 0.4);
   }
 
   .contact-form__submit:disabled {
