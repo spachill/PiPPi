@@ -152,9 +152,22 @@
         "disabled": false,
         "settings": {}
       },
+      "855628211100114053": {
+        "type": "shopify://apps/klaviyo-email-marketing-sms/blocks/klaviyo-onsite-embed/2632fe16-c075-4321-a88b-50b567f42507",
+        "disabled": false,
+        "settings": {}
+      },
+      "874997913381123487": {
+        "type": "shopify://apps/social-login/blocks/automatic_login/8de41085-9237-4829-86d0-25e862482fec",
+        "disabled": true,
+        "settings": {
+          "appblock_width": 100,
+          "code_integration": false
+        }
+      },
       "15683396631634586217": {
         "type": "shopify://apps/inbox/blocks/chat/841fc607-4181-4ad1-842d-e24d7f8bad6b",
-        "disabled": false,
+        "disabled": true,
         "settings": {
           "button_color": "#bba79c",
           "secondary_color": "#ffffff",
@@ -165,19 +178,6 @@
           "button_vertical_position": "lowest",
           "greeting_message": "スタッフによる返信のため、返信にお時間を要する場合がございます。ご了承いただきますようお願い申し上げます。"
         }
-      },
-      "874997913381123487": {
-        "type": "shopify://apps/social-login/blocks/automatic_login/8de41085-9237-4829-86d0-25e862482fec",
-        "disabled": false,
-        "settings": {
-          "appblock_width": 100,
-          "code_integration": false
-        }
-      },
-      "855628211100114053": {
-        "type": "shopify://apps/klaviyo-email-marketing-sms/blocks/klaviyo-onsite-embed/2632fe16-c075-4321-a88b-50b567f42507",
-        "disabled": false,
-        "settings": {}
       }
     },
     "color_schemes": {
