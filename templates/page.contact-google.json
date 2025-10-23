@@ -18,6 +18,7 @@
     },
     "form": {
       "type": "contact-form",
+      "disabled": true,
       "settings": {
         "heading": "何かお困り事などありましたら、お気軽にお問い合わせください。また、ご意見ご感想などお待ちしております。",
         "heading_size": "h2",
@@ -28,7 +29,6 @@
     },
     "contact_google_dX4DVN": {
       "type": "contact-Google",
-      "disabled": true,
       "name": "GoogleForm",
       "settings": {
         "title": "タイトル",
