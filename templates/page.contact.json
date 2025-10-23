@@ -30,7 +30,6 @@
     },
     "contact_google_dX4DVN": {
       "type": "contact-Google",
-      "disabled": true,
       "name": "GoogleForm",
       "settings": {
         "title": "タイトル",
@@ -43,6 +42,7 @@
     },
     "page_contact_bey8Fp": {
       "type": "page__contact",
+      "disabled": true,
       "name": "Contact Form",
       "settings": {
         "title": "お問い合わせ",
